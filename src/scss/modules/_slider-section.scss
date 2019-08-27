@@ -1,0 +1,45 @@
+.slider {
+  &-section {
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+      background-image: url("../../images/statics/svg/slider-section-bg-path.svg");
+      background-repeat: no-repeat;
+      background-position: 57% 94%;
+      background-size: 126vw;
+      height: calcPercent(1402.6, $desktopVhValue) + vh;
+    }
+
+    .slider-container {
+      max-width: calcPercent(335, 375) * 1%;
+      margin: 0 auto;
+
+      @include media-breakpoint-up(md) {
+        max-width: calcPercent(1586, 1920) * 1%;
+        height: calcPercent(940,$desktopVhValue) + vh;
+        background-color: $color-white;
+        border-radius: 5px;
+
+        background-image: url("../../images/statics/svg/slider-section-path.svg");
+        background-repeat: no-repeat;
+        background-position: right top;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 70px;
+    }
+
+    &__contents {
+      @include media-breakpoint-down(sm) {
+        margin-top: 1rem;
+      }
+
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        top: calcPercent(170, 1080) + vh;
+        left: calcPercent(180, 1920) + vw;
+      }
+    }
+  }
+}

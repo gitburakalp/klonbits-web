@@ -1,0 +1,42 @@
+body {
+  @include media-breakpoint-down(sm) {
+    background: linear-gradient(
+      to bottom,
+      $color-pale-grey,
+      rgba(237, 242, 250, 0.78) 20%,
+      rgba(246, 249, 252, 0.36) 60%,
+      rgba(252, 253, 254, 0.1) 87%,
+      rgba(255, 255, 255, 0)
+    );
+    background-repeat: no-repeat;
+    height: 1000vh;
+  } 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all $duration ease;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}

@@ -1,0 +1,24 @@
+.content-img-section {
+    position: relative;
+    width: calcPercent(326,375) + vw;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(md) {
+        margin-left: calcPercent(148.8,1920) + vw;
+        margin-right: calcPercent(34,1920) + vw;
+        height: calcPercent(793.1,1080) + vh;
+        margin-top: -9vh;
+    }
+
+    .title--light {
+        position: absolute;
+        left: 0;
+    }
+
+    .row {
+        @include media-breakpoint-up(md) {
+            padding-left: calcPercent(345.4,1920) + vw;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 12px 36px;
+  box-shadow:0 2px 4px rgba($color-black,0.25);
+  transition: all $duration ease;
+
+  @include media-breakpoint-up(md) {
+    font-size: fluidSize(7, 16, 768, 1920);
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &--cerulean {
+    color: $color-cerulean;
+
+    &:hover {
+      background-color: $color-cerulean;
+      color: $color-white;
+    }
+  }
+
+  &--bordered {
+    border: 1px solid;
+    border-color: inherit;
+
+    &-cerulean {
+      @extend .btn--bordered;
+      border-color: $color-cerulean;
+    }
+  }
+}

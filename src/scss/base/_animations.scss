@@ -1,0 +1,29 @@
+@include media-breakpoint-down(sm) {
+  .header {
+    &:not(.is-shown) {
+      .header {
+        &-menu {
+          &__item {
+            opacity: 0;
+            visibility: hidden;
+            z-index: -1;
+          }
+        }
+      }
+    }
+
+    &.is-shown {
+      .header {
+        &-menu {
+          &__item {
+            @for $i from 1 to 6 {
+              &:nth-child(#{$i}) {
+                transition-delay: $i * 250ms;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
