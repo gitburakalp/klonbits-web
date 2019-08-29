@@ -46,4 +46,4 @@ var swipersInit = () => {
   sliders.forEach((elem,idx)=>{
     $(elem).update(true);
   });
-}
+};

@@ -1,0 +1,44 @@
+<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="880"
+            height="265.5"
+            viewBox="0 0 880 265.5"
+            class="img-fluid"
+          >
+            <g
+              id="Component_7_1"
+              data-name="Component 7 – 1"
+              transform="translate(0.5)"
+            >
+              <path
+                id="otelbitsPath-1"
+                data-name="Path 3084"
+                d="M652.848,9950.224v50.574a38.426,38.426,0,0,0,38.425,38.426h802.149a38.426,38.426,0,0,0,38.426-38.426V9867.224"
+                transform="translate(-652.848 -9774.224)"
+                fill="none"
+                stroke="#c4d4eb"
+                stroke-miterlimit="10"
+                stroke-width="1"
+              />
+              <line
+                id="otelbitsLine-1"
+                data-name="Line 147"
+                y2="264"
+                transform="translate(290)"
+                fill="#c4d4eb"
+                stroke="#c4d4eb"
+                stroke-miterlimit="10"
+                stroke-width="1"
+              />
+              <line
+                id="otelbitsLine-2"
+                data-name="Line 151"
+                y2="264"
+                transform="translate(591.5)"
+                fill="#c4d4eb"
+                stroke="#c4d4eb"
+                stroke-miterlimit="10"
+                stroke-width="1"
+              />
+            </g>
+          </svg>
