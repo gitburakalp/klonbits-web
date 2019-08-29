@@ -28,29 +28,50 @@
   }
 }
 
-#otelbitsPath-1 {
+$rightPathOtelbitsWidth: 595.06103515625;
+$leftPathOtelbitsWidth: 512.0321655273438;
+
+#otelbitsPath-left {
   stroke-width: 1;
-  stroke-dasharray: 1107.0335693359375;
-  stroke-dashoffset: 1107.0335693359375;
-  animation: draw 3s linear alternate forwards;
+  stroke-dasharray: $leftPathOtelbitsWidth;
+  stroke-dashoffset: $leftPathOtelbitsWidth;
+  animation: path1Anim 1s linear alternate forwards;
   animation-delay: 1s;
 }
 
-
-@keyframes draw {
+@keyframes path1Anim {
   from {
-    stroke-dashoffset: 1107.0335693359375;
+    stroke-dashoffset: $leftPathOtelbitsWidth;
+  }
+  to {
+    stroke-dashoffset: $leftPathOtelbitsWidth * 2;
+  }
+}
+
+#otelbitsPath-right {
+  stroke-width: 1;
+  stroke-dasharray: $rightPathOtelbitsWidth;
+  stroke-dashoffset: $rightPathOtelbitsWidth;
+  animation: path2Anim 1s linear alternate forwards;
+  animation-delay: 1s;
+}
+
+@keyframes path2Anim {
+  from {
+    stroke-dashoffset: $rightPathOtelbitsWidth;
   }
   to {
     stroke-dashoffset: 0;
   }
 }
 
-#otelbitsLine-1,#otelbitsLine-2 {
+
+#otelbitsLine-1,
+#otelbitsLine-2 {
   stroke-dasharray: 264;
   stroke-dashoffset: 264;
   animation: line1draw 1s ease-in alternate forwards;
-  animation-delay: 1.85s;
+  animation-delay: 1s;
 }
 
 @keyframes line1draw {
@@ -60,10 +81,6 @@
   to {
     stroke-dashoffset: 528;
   }
-}
-
-#otelbitsLine-2 {
-  animation-delay: 2.6s;
 }
 
 @keyframes fadeIn {
@@ -82,16 +99,24 @@
     will-change: opacity;
     animation: fadeIn 200ms ease-in forwards;
 
+    &:nth-child(1) {
+      animation-delay: 500ms;
+    }
+
     &:nth-child(2) {
-      animation-delay: 2.45s
+      animation-delay: 2s;
     }
 
     &:nth-child(3) {
-      animation-delay: 3.2s
+      animation-delay: 1.65s;
     }
 
     &:nth-child(4) {
-      animation-delay: 3.4s
+      animation-delay: 1.65s;
+    }
+
+    &:nth-child(5) {
+      animation-delay:  2s;
     }
   }
 }

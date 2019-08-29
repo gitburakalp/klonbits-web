@@ -9,9 +9,9 @@ $(".slider-container").each(function(i, e) {
   var $this = $(e);
   var sliderConfig = {
     slidesPerView: 1,
-    speed:0,
-    autoplay:{
-       delay:5000, 
+    speed: 0,
+    autoplay: {
+      delay: 5000
     },
     containerModifierClass: "slider-container--",
     wrapperClass: "slider-wrapper",
@@ -23,27 +23,39 @@ $(".slider-container").each(function(i, e) {
       nextEl: $this.find(".next"),
       prevEl: $this.find(".prev")
     },
-    breakpoints:{
-        767: {
-            speed:500,
-            spaceBetween:30
-        }
+    breakpoints: {
+      767: {
+        speed: 500,
+        spaceBetween: 30
+      }
     }
   };
 
   sliders[i] = new Swiper($this, sliderConfig);
 });
 
-window.addEventListener('resize',function(){
+window.addEventListener("resize", function() {});
 
-});
-
-window.addEventListener('orientationchange',function(){
-
-});
+window.addEventListener("orientationchange", function() {});
 
 var swipersInit = () => {
-  sliders.forEach((elem,idx)=>{
+  sliders.forEach((elem, idx) => {
     $(elem).update(true);
   });
 };
+
+$(".cards").each(function(e){
+  $(this).on('click',function(){
+    $('.cards').removeClass('is-active');
+    $(this).toggleClass('is-active');
+  });
+
+  $('html,body').on('click',function(e){
+
+    console.log($(e.target).closest('.cards').length);
+
+    if(!$(e.target).hasClass('cards') && $(e.target).closest('.cards').length != 1) {
+      $('.cards').removeClass('is-active');
+    }
+  })
+});

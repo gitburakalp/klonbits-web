@@ -1,5 +1,6 @@
 .otelbits-section {
     @include media-breakpoint-up(md) {
+        padding-top: 25vh;
         height:calcPercent(1851.44,1080) + vh;
 
         .cards-section {
@@ -21,16 +22,29 @@
                 align-items: center;
                 justify-content: center;
                 z-index: 99;
+                cursor: pointer;
 
                 filter: drop-shadow(0 4px 10px rgba($color-cerulean,0.25));
+                transition: all 200ms ease-in;
+
+                border: 3px solid white;
+                z-index: 100;
+
+                &:hover {
+                    filter: drop-shadow(0 4px 10px rgba($color-warm-grey,0.5));
+                }
+
+                &.is-active {
+                    border: 3px solid $color-warm-grey
+                }
 
                 img {
-                    max-height: 127px;
+                    max-height: 5vw;
                 }
 
                 &-title {
                     font-family: $FontFamilySansSerif;
-                    font-size: fluidSize(12,14,768,1920);
+                    font-size: fluidSize(8,14,768,1920);
                     line-height: 1.2;
                     letter-spacing: vw(0.64,1920);
                     color: $color-bluish-grey;
@@ -48,20 +62,25 @@
 
             .cards {
                 &:nth-child(1) {
-                    transform: translateX(-50%);
+                    left: 50%;
+                    transform: translate(-50%,80%);
                 }
 
                 &:nth-child(2) {
-                    left: 9.6vw;
-                    transform: translateY(-50%)
+                    transform: translateX(-50%);
                 }
 
                 &:nth-child(3) {
-                    right: 9.6vw;
-                    transform: translateY(-50%)
+                    left: 9.6vw;
+                    transform: translateY(-70%)
                 }
 
                 &:nth-child(4) {
+                    right: 9.6vw;
+                    transform: translateY(-70%)
+                }
+
+                &:nth-child(5) {
                     right: 0;
                     transform: translate(48%,0%)
                 }
