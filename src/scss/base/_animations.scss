@@ -35,65 +35,22 @@ $b2bPathTopWidth: 231.9432830810547;
 $b2bPathBottomWidth: 231.94174194335938;
 $fomPathWidth: 813.947509765625;
 
-$scLineWidth:466;
+$scLineWidth: 466;
 $scPathLeftTopWidth: 338.9432678222656;
 $scPathLeftBottomWidth: 465.9416809082031;
 $scPathRightTopWidth: 338.94366455078125;
-$scPathRightBottomWidth:465.94366455078125;
+$scPathRightBottomWidth: 465.94366455078125;
 $scPathOffWidth: 778.1371459960938;
 
-#otelbitsPath-left {
-  // stroke-dasharray: $leftPathOtelbitsWidth;
-  // stroke-dashoffset: $leftPathOtelbitsWidth;
-  // animation: path1Anim 1s linear alternate forwards;
-  // animation-delay: 1s;
-  @include pathAnimationProps($leftPathOtelbitsWidth,$leftPathOtelbitsWidth,path1Anim,1s,1s);
-}
+@include makePathKeyframe(
+  path1Anim,
+  $leftPathOtelbitsWidth,
+  $leftPathOtelbitsWidth * 2
+);
 
-@include makePathKeyframe(path1Anim,$leftPathOtelbitsWidth,$leftPathOtelbitsWidth * 2);
+@include makePathKeyframe(path2Anim, $rightPathOtelbitsWidth, 0);
 
-// @keyframes path1Anim {
-//   from {
-//     stroke-dashoffset: $leftPathOtelbitsWidth;
-//   }
-//   to {
-//     stroke-dashoffset: $leftPathOtelbitsWidth * 2;
-//   }
-// }
-
-#otelbitsPath-right {
-  // stroke-dasharray: $rightPathOtelbitsWidth;
-  // stroke-dashoffset: $rightPathOtelbitsWidth;
-  // animation: path2Anim 1s linear alternate forwards;
-  // animation-delay: 1s;
-  @include pathAnimationProps($rightPathOtelbitsWidth,$rightPathOtelbitsWidth,path2Anim,1s,1s);
-}
-
-@keyframes path2Anim {
-  from {
-    stroke-dashoffset: $rightPathOtelbitsWidth;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-#otelbitsLine-1,
-#otelbitsLine-2 {
-  stroke-dasharray: 264;
-  stroke-dashoffset: 264;
-  animation: line1draw 1s ease-in alternate forwards;
-  animation-delay: 1s;
-}
-
-@keyframes line1draw {
-  from {
-    stroke-dashoffset: 264;
-  }
-  to {
-    stroke-dashoffset: 528;
-  }
-}
+@include makePathKeyframe(line1draw, 264, 264 * 2);
 
 @keyframes fadeIn {
   from {
@@ -129,71 +86,37 @@ $scPathOffWidth: 778.1371459960938;
   }
 }
 
-#svgOtelBitsB2B {
-  #pathStart {
-    stroke-dasharray: $b2bPathStartWidth;
-    stroke-dashoffset: $b2bPathStartWidth;
-    animation: pathStartAnim 500ms ease-in alternate forwards;
-    animation-delay: 1s;
-  }
+@include makePathKeyframe(pathStartAnim, $b2bPathStartWidth, 0);
 
-  #pathTop {
-    stroke-dasharray: $b2bPathTopWidth;
-    stroke-dashoffset: $b2bPathTopWidth;
-    animation: pathTopAnim 1s ease-in alternate forwards;
-    animation-delay: 1.5s;
-  }
+@include makePathKeyframe(pathTopAnim, $b2bPathTopWidth, $b2bPathTopWidth * 2);
 
-  #pathBottom {
-    stroke-dasharray: $b2bPathBottomWidth;
-    stroke-dashoffset: $b2bPathBottomWidth;
-    animation: pathBottomAnim 1s ease-in alternate forwards;
-    animation-delay: 1.5s;
-  }
-}
+@include makePathKeyframe(
+  pathBottomAnim,
+  $b2bPathBottomWidth,
+  $b2bPathBottomWidth * 2
+);
 
-@keyframes pathStartAnim {
-  from {
-    stroke-dashoffset: $b2bPathStartWidth;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
+@include makePathKeyframe(pathFOMAnim, $fomPathWidth, 0);
 
-@keyframes pathTopAnim {
-  from {
-    stroke-dashoffset: $b2bPathTopWidth;
-  }
-  to {
-    stroke-dashoffset: $b2bPathTopWidth * 2;
-  }
-}
+@include makePathKeyframe(scPathLeftTopAnim, $scPathLeftTopWidth, 0);
 
-@keyframes pathBottomAnim {
-  from {
-    stroke-dashoffset: $b2bPathBottomWidth;
-  }
-  to {
-    stroke-dashoffset: $b2bPathBottomWidth * 2;
-  }
-}
+@include makePathKeyframe(scPathTopAnim, $scPathRightTopWidth, 0);
 
-#svgOtelbitsFOM #pathFOM {
-  stroke-dasharray: $fomPathWidth;
-  stroke-dashoffset: $fomPathWidth;
-  animation: pathFOMAnim 2s ease-in alternate forwards;
-  animation-delay: 1s;
-}
+@include makePathKeyframe(scLineAnim, $scLineWidth, 0);
 
-@keyframes pathFOMAnim {
-  from {
-    stroke-dashoffset: $fomPathWidth;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
+@include makePathKeyframe(
+  scPathLeftBottomAnim,
+  $scPathRightBottomWidth,
+  $scPathRightBottomWidth * 2
+);
+
+@include makePathKeyframe(
+  scPathRightBottomAnim,
+  $scPathRightBottomWidth,
+  $scPathRightBottomWidth * 2
+);
+
+@include makePathKeyframe(scPathOffAnim, $scPathOffWidth, $scPathOffWidth * 2);
 
 @keyframes bottomToTop {
   from {
@@ -206,104 +129,128 @@ $scPathOffWidth: 778.1371459960938;
   }
 }
 
-#svgSalesChannelsPath #pathLeftTop {
-  stroke-dasharray: $scPathLeftTopWidth;
-  stroke-dashoffset: $scPathLeftTopWidth;
-  animation: scPathLeftTopAnim 1.25s ease-in alternate forwards;
-  animation-delay: 1s;
+#otelbitsPath-left {
+  @include pathAnimationProps(
+    $leftPathOtelbitsWidth,
+    $leftPathOtelbitsWidth,
+    path1Anim,
+    1s,
+    1s
+  );
 }
 
-@keyframes scPathLeftTopAnim {
-  from {
-    stroke-dashoffset: $scPathLeftTopWidth;
+#otelbitsPath-right {
+  @include pathAnimationProps(
+    $rightPathOtelbitsWidth,
+    $rightPathOtelbitsWidth,
+    path2Anim,
+    1s,
+    1s
+  );
+}
+
+#otelbitsLine-1,
+#otelbitsLine-2 {
+  @include pathAnimationProps(264, 264, line1draw, 1s, 1s);
+}
+
+#svgOtelBitsB2B {
+  #pathStart {
+    @include pathAnimationProps(
+      $b2bPathStartWidth,
+      $b2bPathStartWidth,
+      pathStartAnim,
+      500ms,
+      1s
+    );
   }
-  to {
-    stroke-dashoffset: 0;
+
+  #pathTop {
+    @include pathAnimationProps(
+      $b2bPathTopWidth,
+      $b2bPathTopWidth,
+      pathTopAnim,
+      1s,
+      1.5s
+    );
   }
+
+  #pathBottom {
+    @include pathAnimationProps(
+      $b2bPathBottomWidth,
+      $b2bPathBottomWidth,
+      pathBottomAnim,
+      1s,
+      1.5s
+    );
+  }
+}
+
+#svgOtelbitsFOM #pathFOM {
+  @include pathAnimationProps(
+    $fomPathWidth,
+    $fomPathWidth,
+    pathFOMAnim,
+    2s,
+    1s
+  );
+}
+
+#svgSalesChannelsPath #pathLeftTop {
+  @include pathAnimationProps(
+    $scPathLeftTopWidth,
+    $scPathLeftTopWidth,
+    scPathLeftTopAnim,
+    1.25s,
+    1s
+  );
 }
 
 #svgSalesChannelsPath #pathRightTop {
-  stroke-dasharray: $scPathRightTopWidth;
-  stroke-dashoffset: $scPathRightTopWidth;
-  animation: scPathTopAnim 1.25s ease-in alternate forwards;
-  animation-delay: 1s;
-}
-
-@keyframes scPathTopAnim {
-  from {
-    stroke-dashoffset: $scPathRightTopWidth;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  @include pathAnimationProps(
+    $scPathRightTopWidth,
+    $scPathRightTopWidth,
+    scPathTopAnim,
+    1.25s,
+    1s
+  );
 }
 
 #svgSalesChannelsPath #pathLine {
-  stroke-dasharray: $scLineWidth;
-  stroke-dashoffset: $scLineWidth;
-  animation: scLineAnim 2s ease-in alternate forwards;
-  animation-delay: 1.5s;
-}
-
-@keyframes scLineAnim {
-  from {
-    stroke-dashoffset: $scLineWidth;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  @include pathAnimationProps($scLineWidth, $scLineWidth, scLineAnim, 2s, 1.5s);
 }
 
 #svgSalesChannelsPath #pathLeftBottom {
-  stroke-dasharray: $scPathRightBottomWidth;
-  stroke-dashoffset: $scPathRightBottomWidth;
-  animation: scPathLeftBottomAnim 1s ease-in alternate forwards;
-  animation-delay: 2.5s;
-}
-
-@keyframes scPathLeftBottomAnim {
-  from {
-    stroke-dashoffset: $scPathRightBottomWidth;
-  }
-  to {
-    stroke-dashoffset: $scPathRightBottomWidth * 2;
-  }
+  @include pathAnimationProps(
+    $scPathRightBottomWidth,
+    $scPathRightBottomWidth,
+    scPathLeftBottomAnim,
+    1s,
+    2.5s
+  );
 }
 
 #svgSalesChannelsPath #pathRightBottom {
-  stroke-dasharray: $scPathRightBottomWidth;
-  stroke-dashoffset: $scPathRightBottomWidth;
-  animation: scPathRightBottomAnim 1s ease-in alternate forwards;
-  animation-delay: 2.5s;
-}
-
-@keyframes scPathRightBottomAnim {
-  from {
-    stroke-dashoffset: $scPathRightBottomWidth;
-  }
-  to {
-    stroke-dashoffset: $scPathRightBottomWidth * 2;
-  }
+  @include pathAnimationProps(
+    $scPathRightBottomWidth,
+    $scPathRightBottomWidth,
+    scPathRightBottomAnim,
+    1s,
+    2.5s
+  );
 }
 
 #svgSalesChannelsPath #pathOff {
-  stroke-dasharray: $scPathOffWidth;
-  stroke-dashoffset: $scPathOffWidth;
-  animation: scPathOffAnim 2s ease-in alternate forwards;
-  animation-delay: 2s;
+  @include pathAnimationProps(
+    $scPathOffWidth,
+    $scPathOffWidth,
+    scPathOffAnim,
+    2s,
+    2s
+  );
 }
 
-@keyframes scPathOffAnim {
-  from {
-    stroke-dashoffset: $scPathOffWidth;
-  }
-  to {
-    stroke-dashoffset: $scPathOffWidth * 2;
-  }
-}
-
-.otelbits-section { 
-
+.otelbits-section {
   .cards {
     opacity: 0;
     will-change: opacity;
@@ -396,7 +343,8 @@ $scPathOffWidth: 778.1371459960938;
         animation-delay: 1s;
       }
 
-      &:nth-child(2),&:nth-child(3) {
+      &:nth-child(2),
+      &:nth-child(3) {
         animation-delay: 2s;
       }
 
