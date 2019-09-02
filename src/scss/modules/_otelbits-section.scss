@@ -1,207 +1,226 @@
-.otelbits-section {
-  @include media-breakpoint-up(md) {
-    position: relative;
-    padding-top: 25vh;
-    height: calcPercent(1851.44, 1080) + vh;
+.otelbits {
+  &-section {
+    @include media-breakpoint-up(md) {
+      position: relative;
+      padding-top: 25vh;
+      height: calcPercent(1851.44, 1080) + vh;
 
-    .cards-title {
-      font-family: $FontFamilySansSerif;
-      font-size: fluidSize(8, 14, 768, 1920);
-      line-height: 1.2;
-      letter-spacing: vw(0.64, 1920);
-      color: $color-bluish-grey;
-      text-align: center;
-      margin-top: 14px;
-    }
+      background-image: url("../../images/statics/svg/otelbits-bg-path.svg");
+      background-size: 180%;
+      background-repeat: no-repeat;
+      background-position: 40% 35%;
 
-    .cards-section {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      .cards-title {
+        font-family: $FontFamilySansSerif;
+        font-size: fluidSize(8, 14, 768, 1920);
+        line-height: 1.2;
+        letter-spacing: vw(0.64, 1920);
+        color: $color-bluish-grey;
+        text-align: center;
+        margin-top: 14px;
+      }
 
-      .cards {
+      .cards-section {
         position: absolute;
-        background-color: $color-white;
-        box-shadow: 0 0 5px 0 rgba($color-black, 0.08);
-        cursor: pointer;
-        z-index: 99;
+        top: 0;
+        left: 0;
+        width: 100%;
 
-        transition: all 200ms ease-in;
-        background-color: $color-white;
+        .cards {
+          position: absolute;
+          background-color: $color-white;
+          box-shadow: 0 0 5px 0 rgba($color-black, 0.08);
+          cursor: pointer;
+          z-index: 99;
 
-        &:not(.cards--sm) {
-          width: calcPercent(206.2, 1920) + vw;
-          height: calcPercent(206.2, 1920) + vw;
-          padding: vw(12, 1920);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
+          transition: all 200ms ease-in;
+          background-color: $color-white;
 
-        &.bg-transparent {
-          box-shadow: none
-        }
+          &:not(.cards--sm) {
+            width: calcPercent(206.2, 1920) + vw;
+            height: calcPercent(206.2, 1920) + vw;
+            padding: vw(12, 1920);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
 
-        &--sm {
-          padding: vw(17, 1920) vw(28, 1920);
+          &.bg-transparent {
+            box-shadow: none;
+          }
 
-          .cards-title {
-            margin: 0;
+          &--sm {
+            padding: vw(17, 1920) vw(28, 1920);
+
+            .cards-title {
+              margin: 0;
+            }
+          }
+
+          &:hover {
+            filter: drop-shadow(0 4px 10px rgba($color-warm-grey, 0.5));
+          }
+
+          &.is-active {
+          }
+
+          img {
+            max-height: 5vw;
           }
         }
-
-        &:hover {
-          filter: drop-shadow(0 4px 10px rgba($color-warm-grey, 0.5));
-        }
-
-        &.is-active {
-        }
-
-        img {
-          max-height: 5vw;
-        }
-      }
-    }
-
-    .online-marketing-management {
-      position: relative;
-      max-width: calcPercent(880, 1920) + vw;
-      margin: 0 auto;
-
-      .cards {
-        &:nth-child(1) {
-          left: 50%;
-          transform: translate(-50%, 80%);
-        }
-
-        &:nth-child(2) {
-          transform: translateX(-50%);
-        }
-
-        &:nth-child(3) {
-          left: 9.6vw;
-          transform: translateY(-70%);
-        }
-
-        &:nth-child(4) {
-          right: 9.6vw;
-          transform: translateY(-70%);
-        }
-
-        &:nth-child(5) {
-          right: 0;
-          transform: translate(48%, 0%);
-        }
-      }
-    }
-
-    .b2b {
-      position: relative;
-      top: 12.7vh;
-      left: calcPercent(103, 1920) + vw;
-      width: calcPercent(562, 1920) + vw;
-
-      svg {
-        position: absolute;
-        right: 10.5vw;
-        transform: translateY(-16%);
-        max-width:calcPercent(155,1920) + vw;
       }
 
-      .cards {
-        &:nth-child(1) {
-          right: 0;
-        }
+      .online-marketing-management {
+        position: relative;
+        max-width: calcPercent(880, 1920) + vw;
+        margin: 0 auto;
 
-        &:nth-child(2) {
-          transform: translateY(-75%);
-        }
+        .cards {
+          &:nth-child(1) {
+            left: 50%;
+            transform: translate(-50%, 80%);
+          }
 
-        &:nth-child(3) {
-          transform: translateY(75%);
+          &:nth-child(2) {
+            transform: translateX(-50%);
+          }
+
+          &:nth-child(3) {
+            left: 9.6vw;
+            transform: translateY(-70%);
+          }
+
+          &:nth-child(4) {
+            right: 9.6vw;
+            transform: translateY(-70%);
+          }
+
+          &:nth-child(5) {
+            right: 0;
+            transform: translate(48%, 0%);
+          }
         }
       }
-    }
 
-    .finance-operation-management {
-      position: relative;
-      width: calcPercent(438.7, 1920) + vw;
-      top: calcPercent(81, 1080) + vh;
-      right: calcPercent(265, 1920) + vw;
-      margin-left: auto;
+      .b2b {
+        position: relative;
+        top: 12.7vh;
+        left: calcPercent(103, 1920) + vw;
+        width: calcPercent(562, 1920) + vw;
 
-      .hotel-system {
+        svg {
+          position: absolute;
+          right: 10.5vw;
+          transform: translateY(-16%);
+          max-width: calcPercent(155, 1920) + vw;
+        }
+
+        .cards {
+          &:nth-child(1) {
+            right: 0;
+          }
+
+          &:nth-child(2) {
+            transform: translateY(-75%);
+          }
+
+          &:nth-child(3) {
+            transform: translateY(75%);
+          }
+        }
+      }
+
+      .finance-operation-management {
+        position: relative;
+        width: calcPercent(438.7, 1920) + vw;
+        top: calcPercent(81, 1080) + vh;
+        right: calcPercent(265, 1920) + vw;
+        margin-left: auto;
+
+        .hotel-system {
           &-block {
             position: absolute;
             top: 0;
             right: 0;
             transform: translate(100%, -50%);
-            overflow: hidden
+            overflow: hidden;
           }
+        }
+
+        .cards {
+          &:nth-child(1) {
+            transform: translate(43%, 100%);
+          }
+
+          &:nth-child(2) {
+            left: calcPercent(100, 1920) + vw;
+            transform: translateY(-50%);
+          }
+
+          &:nth-child(3) {
+            right: 2vw;
+            transform: translateY(-150%);
+          }
+
+          &:nth-child(4) {
+            right: 2vw;
+            transform: translateY(50%);
+          }
+        }
       }
 
-      .cards {
-        &:nth-child(1) {
-          transform: translate(43%, 100%);
-        }
+      .sales-channels {
+        position: absolute;
+        margin-top: calcPercent(250, 1080) + vh;
+        left: 50%;
+        transform: translateX(-66%);
+        width: calcPercent(873.79, 1920) + vw;
 
-        &:nth-child(2) {
-          left: calcPercent(100, 1920) + vw;
-          transform: translateY(-50%);
-        }
+        .cards {
+          &-section {
+            min-height: 63.5vh;
+          }
 
-        &:nth-child(3) {
-          right: 2vw;
-          transform: translateY(-150%);
-        }
+          &:nth-child(1) {
+            left: 54%;
+            transform: translateY(-50%);
+          }
 
-        &:nth-child(4) {
-          right: 2vw;
-          transform: translateY(50%);
+          &:nth-child(2) {
+            left: 20%;
+            transform: translateY(45%);
+          }
+
+          &:nth-child(3) {
+            right: 0;
+            transform: translate(50%, 45%);
+          }
+
+          &:nth-child(4) {
+            left: 54%;
+            top: 18vh;
+          }
+
+          &:nth-child(5) {
+            left: 54%;
+            bottom: 0;
+            transform: translateY(50%);
+          }
         }
       }
     }
+  }
 
-    .sales-channels {
-      position: absolute;
-      margin-top: calcPercent(250, 1080) + vh;
-      left: 50%;
-      transform: translateX(-66%);
-      width: calcPercent(873.79,1920) + vw;
-
-      .cards {
-
-        &-section {
-          min-height: 63.5vh;
-        }
-
-        &:nth-child(1) {
-          left: 54%;
-          transform: translateY(-50%)
-        }
-
-        &:nth-child(2) {
-          left: 20%;
-          transform: translateY(45%)
-        }
-
-        &:nth-child(3) {
-          right: 0;
-          transform: translate(50%,45%);
-        }
-
-        &:nth-child(4) {
-          left: 54%;
-          top: 18vh;
-        }
-
-        &:nth-child(5) {
-          left: 54%;
-          bottom: 0;
-          transform: translateY(50%);
-        }
+  &-title {
+    @include media-breakpoint-up(md) {
+      &-block {
+        position: absolute;
+        display: inline-block;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
       }
     }
   }

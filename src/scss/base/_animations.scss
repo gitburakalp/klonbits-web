@@ -34,35 +34,39 @@ $b2bPathStartWidth: 66;
 $b2bPathTopWidth: 231.9432830810547;
 $b2bPathBottomWidth: 231.94174194335938;
 $fomPathWidth: 813.947509765625;
+
+$scLineWidth:466;
 $scPathLeftTopWidth: 338.9432678222656;
 $scPathLeftBottomWidth: 465.9416809082031;
 $scPathRightTopWidth: 338.94366455078125;
 $scPathRightBottomWidth:465.94366455078125;
-
+$scPathOffWidth: 778.1371459960938;
 
 #otelbitsPath-left {
-  stroke-width: 1;
-  stroke-dasharray: $leftPathOtelbitsWidth;
-  stroke-dashoffset: $leftPathOtelbitsWidth;
-  animation: path1Anim 1s linear alternate forwards;
-  animation-delay: 1s;
+  // stroke-dasharray: $leftPathOtelbitsWidth;
+  // stroke-dashoffset: $leftPathOtelbitsWidth;
+  // animation: path1Anim 1s linear alternate forwards;
+  // animation-delay: 1s;
+  @include pathAnimationProps($leftPathOtelbitsWidth,$leftPathOtelbitsWidth,path1Anim,1s,1s);
 }
 
-@keyframes path1Anim {
-  from {
-    stroke-dashoffset: $leftPathOtelbitsWidth;
-  }
-  to {
-    stroke-dashoffset: $leftPathOtelbitsWidth * 2;
-  }
-}
+@include makePathKeyframe(path1Anim,$leftPathOtelbitsWidth,$leftPathOtelbitsWidth * 2);
+
+// @keyframes path1Anim {
+//   from {
+//     stroke-dashoffset: $leftPathOtelbitsWidth;
+//   }
+//   to {
+//     stroke-dashoffset: $leftPathOtelbitsWidth * 2;
+//   }
+// }
 
 #otelbitsPath-right {
-  stroke-width: 1;
-  stroke-dasharray: $rightPathOtelbitsWidth;
-  stroke-dashoffset: $rightPathOtelbitsWidth;
-  animation: path2Anim 1s linear alternate forwards;
-  animation-delay: 1s;
+  // stroke-dasharray: $rightPathOtelbitsWidth;
+  // stroke-dashoffset: $rightPathOtelbitsWidth;
+  // animation: path2Anim 1s linear alternate forwards;
+  // animation-delay: 1s;
+  @include pathAnimationProps($rightPathOtelbitsWidth,$rightPathOtelbitsWidth,path2Anim,1s,1s);
 }
 
 @keyframes path2Anim {
@@ -202,6 +206,102 @@ $scPathRightBottomWidth:465.94366455078125;
   }
 }
 
+#svgSalesChannelsPath #pathLeftTop {
+  stroke-dasharray: $scPathLeftTopWidth;
+  stroke-dashoffset: $scPathLeftTopWidth;
+  animation: scPathLeftTopAnim 1.25s ease-in alternate forwards;
+  animation-delay: 1s;
+}
+
+@keyframes scPathLeftTopAnim {
+  from {
+    stroke-dashoffset: $scPathLeftTopWidth;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#svgSalesChannelsPath #pathRightTop {
+  stroke-dasharray: $scPathRightTopWidth;
+  stroke-dashoffset: $scPathRightTopWidth;
+  animation: scPathTopAnim 1.25s ease-in alternate forwards;
+  animation-delay: 1s;
+}
+
+@keyframes scPathTopAnim {
+  from {
+    stroke-dashoffset: $scPathRightTopWidth;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#svgSalesChannelsPath #pathLine {
+  stroke-dasharray: $scLineWidth;
+  stroke-dashoffset: $scLineWidth;
+  animation: scLineAnim 2s ease-in alternate forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes scLineAnim {
+  from {
+    stroke-dashoffset: $scLineWidth;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#svgSalesChannelsPath #pathLeftBottom {
+  stroke-dasharray: $scPathRightBottomWidth;
+  stroke-dashoffset: $scPathRightBottomWidth;
+  animation: scPathLeftBottomAnim 1s ease-in alternate forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes scPathLeftBottomAnim {
+  from {
+    stroke-dashoffset: $scPathRightBottomWidth;
+  }
+  to {
+    stroke-dashoffset: $scPathRightBottomWidth * 2;
+  }
+}
+
+#svgSalesChannelsPath #pathRightBottom {
+  stroke-dasharray: $scPathRightBottomWidth;
+  stroke-dashoffset: $scPathRightBottomWidth;
+  animation: scPathRightBottomAnim 1s ease-in alternate forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes scPathRightBottomAnim {
+  from {
+    stroke-dashoffset: $scPathRightBottomWidth;
+  }
+  to {
+    stroke-dashoffset: $scPathRightBottomWidth * 2;
+  }
+}
+
+#svgSalesChannelsPath #pathOff {
+  stroke-dasharray: $scPathOffWidth;
+  stroke-dashoffset: $scPathOffWidth;
+  animation: scPathOffAnim 2s ease-in alternate forwards;
+  animation-delay: 2s;
+}
+
+@keyframes scPathOffAnim {
+  from {
+    stroke-dashoffset: $scPathOffWidth;
+  }
+  to {
+    stroke-dashoffset: $scPathOffWidth * 2;
+  }
+}
+
 .otelbits-section { 
 
   .cards {
@@ -292,7 +392,21 @@ $scPathRightBottomWidth:465.94366455078125;
 
   .sales-channels {
     .cards {
+      &:nth-child(1) {
+        animation-delay: 1s;
+      }
 
+      &:nth-child(2),&:nth-child(3) {
+        animation-delay: 2s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 2.5s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: 3.5s;
+      }
     }
   }
 }
