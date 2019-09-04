@@ -1,4 +1,11 @@
 body {
+  overflow-x: hidden;
+
+  &::before {
+    transition: all 400ms;
+    will-change: auto;
+  }
+
   @include media-breakpoint-down(sm) {
     background: linear-gradient(
       to bottom,
@@ -10,7 +17,53 @@ body {
     );
     background-repeat: no-repeat;
     height: 1000vh;
-  } 
+  }
+
+  section + section {
+    @include media-breakpoint-down(sm) {
+      margin-top: calcPercent(50, 667) + vh !important;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 0;
+    }
+    &::-webkit-scrollbar-track {
+      margin: calcPercent(54, 1920) + vw 0 calcPercent(54, 1920) + vw;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 10px;
+      box-shadow: rgba($color-cerulean, 0.3) 0 0 0 1px;
+    }
+    &:hover::-webkit-scrollbar-thumb {
+      background: rgba($color-cerulean, 0.45);
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba($color-cerulean, 0.75);
+    }
+  }
+
+  &.loading {
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-white;
+      overflow: hidden;
+      z-index: 9999;
+    }
+  }
+}
+
+[data-parallax="true"] {
+  transition: all 1s linear;
+  will-change: transform;
 }
 
 h1,

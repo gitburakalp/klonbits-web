@@ -6,6 +6,10 @@
   box-shadow:0 2px 4px rgba($color-black,0.25);
   transition: all $duration ease;
 
+  &:hover {
+    transform: translateX(15%);
+  }
+
   @include media-breakpoint-up(md) {
     font-size: fluidSize(7, 16, 768, 1920);
   }

@@ -151,10 +151,11 @@
       font-size: 12px;
       line-height: 1.2;
       letter-spacing: 0.6px;
-      color: $color-bluish-grey;
+      color: $color-slate;
       text-transform: uppercase;
       text-align: center;
-      transition: all $duration;
+      transition: color 200ms ease-in;
+      transition-delay: 0;
 
       &:hover {
         color: $color-turquoise;

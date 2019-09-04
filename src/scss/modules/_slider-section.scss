@@ -39,6 +39,10 @@
         position: absolute;
         top: calcPercent(170, 1080) + vh;
         left: calcPercent(180, 1920) + vw;
+
+        .main-description {
+          max-width: calcPercent(424,1920) + vw
+        }
       }
     }
   }

@@ -1,0 +1,71 @@
+.other-solutions-section {
+  position: relative;
+  margin-bottom: 15vh;
+
+  @include media-breakpoint-down(sm) {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .cards {
+    position: relative;
+    background-color: $color-white-two;
+    box-shadow: 0 0 5px 0 rgba($color-black, 0.12);
+    border-radius: 10.5px;
+    padding: 13px 27px 40px;
+    text-align: center;
+
+    [class*=circle-block] {
+      + * {
+        margin-top: 24px;
+      }
+    }
+
+    &-title {
+      font-family: $FontFamilySansSerif;
+      font-size: 18px;
+      font-weight:600;
+      line-height: 1.09;
+      letter-spacing: 0.18px;
+      color: $color-cerulean; 
+      text-align: center;
+
+      + * {
+        margin-top: 12px;
+      }
+    }
+
+    &-description {
+      font-family: $FontFamilySansSerif;
+      font-size: 11px;
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: 0.43px;
+      text-align: center;
+      color: $color-slate;
+
+      + * {
+        margin-top: 12px
+      }
+    }
+  }
+
+  .title--light {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .main-title {
+    @include media-breakpoint-down(sm) {
+      font-weight: 600;
+      b {
+        display: inline-block;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: calcPercent(80, 1920) + vw;
+  }
+}

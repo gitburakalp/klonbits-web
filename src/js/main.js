@@ -7,12 +7,15 @@ let sliders = [];
 
 $(".slider-container").each(function(i, e) {
   var $this = $(e);
+  var spv = $(e).data('slides-pv');
+  var centeredSlides = $(e).data('centered-slides') == undefined ? false : true;
   var sliderConfig = {
-    slidesPerView: 1,
+    slidesPerView: spv,
     speed: 0,
     autoplay: {
       delay: 5000
     },
+    centeredSlides:centeredSlides,
     containerModifierClass: "slider-container--",
     wrapperClass: "slider-wrapper",
     slideClass: "slider-slide",
@@ -44,18 +47,20 @@ var swipersInit = () => {
   });
 };
 
-$(".cards").each(function(e){
-  $(this).on('click',function(){
-    $('.cards').removeClass('is-active');
-    $(this).toggleClass('is-active');
+$(".cards").each(function(e) {
+  $(this).on("click", function() {
+    $(".cards").removeClass("is-active");
+    $(this).toggleClass("is-active");
   });
 
-  $('html,body').on('click',function(e){
+  $("html,body").on("click", function(e) {
+    console.log($(e.target).closest(".cards").length);
 
-    console.log($(e.target).closest('.cards').length);
-
-    if(!$(e.target).hasClass('cards') && $(e.target).closest('.cards').length != 1) {
-      $('.cards').removeClass('is-active');
+    if (
+      !$(e.target).hasClass("cards") &&
+      $(e.target).closest(".cards").length != 1
+    ) {
+      $(".cards").removeClass("is-active");
     }
-  })
+  });
 });
