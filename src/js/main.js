@@ -7,32 +7,31 @@ let sliders = [];
 
 $(".slider-container").each(function(i, e) {
   var $this = $(e);
-  var spv = $(e).data('slides-pv');
-  var centeredSlides = $(e).data('centered-slides') == undefined ? false : true;
+  var config = $(e).data("slider-config");
+
   var sliderConfig = {
-    slidesPerView: spv,
-    speed: 0,
-    autoplay: {
-      delay: 5000
-    },
-    centeredSlides:centeredSlides,
     containerModifierClass: "slider-container--",
     wrapperClass: "slider-wrapper",
     slideClass: "slider-slide",
     slideActiveClass: "slider-slide--active",
     slideNextClass: "slider-slide--next",
     slidePrevClass: "slider-slide--prev",
-    navigation: {
-      nextEl: $this.find(".next"),
-      prevEl: $this.find(".prev")
-    },
-    breakpoints: {
-      767: {
-        speed: 500,
-        spaceBetween: 30
-      }
-    }
   };
+
+  if (config != undefined) {
+    var subs = /(?!<(?:\{|\[)[^}\]]+),(?![^{\[]+(?:\}|\]))(?![0-9])/g;
+    var configArray = config.split(subs);
+
+    $.each(configArray, function(i, e) {
+      var regExp = /:(.+)/;
+      var configID = e.split(regExp)[0];
+      var configValue = e.split(regExp)[1];
+
+      sliderConfig[configID] = configValue;
+    });
+  }
+
+  console.log(sliderConfig);
 
   sliders[i] = new Swiper($this, sliderConfig);
 });
