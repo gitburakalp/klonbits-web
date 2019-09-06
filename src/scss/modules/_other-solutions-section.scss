@@ -1,10 +1,40 @@
 .other-solutions-section {
   position: relative;
-  margin-bottom: 15vh;
+  padding-bottom: calcPercent(143, 667) + vh;
 
   @include media-breakpoint-down(sm) {
     max-width: 100%;
     margin-top: 40px;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: calcPercent(80, 1920) + vw;
+
+    .slider {
+      &-container {
+        width: calcPercent(1158, 1920) + vw;
+      }
+
+      &-wrapper {
+        align-items: center;
+      }
+
+      &-slide {
+        &:not(.slider-slide--active) {
+          opacity: 0.72;
+
+          .circle-block--cerulean {
+            max-height: 0;
+            overflow: hidden;
+          }
+        }
+
+        &--active {
+          animation: fadeIn 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+          will-change: auto;
+        }
+      }
+    }
   }
 
   .cards {
@@ -15,7 +45,34 @@
     padding: 13px 27px 40px;
     text-align: center;
 
-    [class*=circle-block] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .circle-block--cerulean {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 1.25vw;
+      }
+
+      img {
+        max-width: 50%;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      border-radius: 0;
+      min-height: calcPercent(429, 1080) + vh;
+      padding: 1rem vw(50, 1920) vw(25, 1920);
+    }
+
+    [class*="circle-block"] {
       + * {
         margin-top: 24px;
       }
@@ -24,14 +81,23 @@
     &-title {
       font-family: $FontFamilySansSerif;
       font-size: 18px;
-      font-weight:600;
+      font-weight: 600;
       line-height: 1.09;
       letter-spacing: 0.18px;
-      color: $color-cerulean; 
+      color: $color-cerulean;
       text-align: center;
+
+      @include media-breakpoint-up(md) {
+        font-size: fluidSize(16, 22, 768, 1920);
+        line-height: 1.2;
+      }
 
       + * {
         margin-top: 12px;
+
+        @include media-breakpoint-up(md) {
+          margin-top: 1.5vw;
+        }
       }
     }
 
@@ -45,7 +111,11 @@
       color: $color-slate;
 
       + * {
-        margin-top: 12px
+        margin-top: 12px;
+
+        @include media-breakpoint-up(md) {
+          margin-top: 1.5vw;
+        }
       }
     }
   }
@@ -53,7 +123,21 @@
   .title--light {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: calcPercent(143, 667) + vh;
+
+    @include media-breakpoint-down(sm) {
+      font-size: vw(31,375);
+
+
+      small {
+        display: inline-block;
+        font-size: inherit
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      bottom: 0;
+    }
   }
 
   .main-title {
@@ -63,9 +147,5 @@
         display: inline-block;
       }
     }
-  }
-
-  @include media-breakpoint-up(md) {
-    margin-top: calcPercent(80, 1920) + vw;
   }
 }

@@ -358,3 +358,31 @@ $scPathOffWidth: 778.1371459960938;
     }
   }
 }
+
+@include makeKeyframe(bottomToTopAnim) {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.other-solutions-section {
+  .slider-slide {
+    &--active {
+      .cards > * {
+        @for $i from 2 to 5 {
+          &:nth-child(#{$i}) {
+            opacity: 0;
+            animation: bottomToTopAnim 500ms linear forwards;
+            animation-delay: $i * 0.25s;
+          }
+        }
+      }
+    }
+  }
+}

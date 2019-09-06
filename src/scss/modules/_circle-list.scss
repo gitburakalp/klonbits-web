@@ -7,6 +7,7 @@
   height: 44px;
   border-radius: 100%;
   background-color: $color-cerulean;
+  opacity: 0.075;
   margin-right: 1rem;
 
   @include media-breakpoint-down(sm) {
@@ -61,7 +62,6 @@
 
     &::before {
       @extend %circles;
-      opacity: 0.08;
       z-index: 99;
 
       @include media-breakpoint-down(sm) {
@@ -76,7 +76,6 @@
     &:after {
       position: absolute;
       @extend %circles;
-      opacity: 0.08;
 
       @include media-breakpoint-down(sm) {
         transform: translateX(-50%);
@@ -114,7 +113,14 @@
     height: 93.8px;
     margin: 0 auto;
 
-    &::before,&::after {
+    @include media-breakpoint-up(md) {
+      $val: calcPercent(288, 1920) + vw;
+      width: $val;
+      height: $val;
+    }
+
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       top: 0;
@@ -126,20 +132,28 @@
 
     &--cerulean {
       @extend .circle-block;
+      transition: all 4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition-delay: 400ms;
 
       &::after {
         top: 7px;
+
+        @include media-breakpoint-up(md) {
+          top: calcPercent(14, 1080) + vh;
+        }
       }
 
-      &::before,&::after {
+      &::before,
+      &::after {
         background-image: linear-gradient(
           to top,
-          $color-dodger-blue 0%,
-          rgba(102, 186, 247, 0.79) 19%,
-          rgba(183, 223, 251, 0.37) 59%,
-          rgba(235, 246, 253, 0.1) 87%,
-          rgba(255, 255, 255, 0) 100%
+          rgba(#3FA9F5, 1) 0%,
+          rgba(#66BAF7, 0.79) 19%,
+          rgba(#B7DFFB, 0.37) 59%,
+          rgba(#EBF6FD, 0.10) 87%,
+          rgba(#ffffff, 0) 100%
         );
+        opacity: 0.2;
       }
     }
   }

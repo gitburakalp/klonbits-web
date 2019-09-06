@@ -6,6 +6,7 @@
     list-style: none;
     padding: 0;
     z-index: 16;
+    padding: 2px;
   }
 
   &-wrapper {
@@ -24,7 +25,6 @@
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 1px
   }
 
   &-controller {

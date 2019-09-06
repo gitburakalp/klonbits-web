@@ -7,34 +7,99 @@ let sliders = [];
 
 $(".slider-container").each(function(i, e) {
   var $this = $(e);
-  var config = $(e).data("slider-config");
-
-  var sliderConfig = {
-    containerModifierClass: "slider-container--",
-    wrapperClass: "slider-wrapper",
-    slideClass: "slider-slide",
-    slideActiveClass: "slider-slide--active",
-    slideNextClass: "slider-slide--next",
-    slidePrevClass: "slider-slide--prev",
-  };
-
-  if (config != undefined) {
-    var subs = /(?!<(?:\{|\[)[^}\]]+),(?![^{\[]+(?:\}|\]))(?![0-9])/g;
-    var configArray = config.split(subs);
-
-    $.each(configArray, function(i, e) {
-      var regExp = /:(.+)/;
-      var configID = e.split(regExp)[0];
-      var configValue = e.split(regExp)[1];
-
-      sliderConfig[configID] = configValue;
-    });
-  }
-
-  console.log(sliderConfig);
+  var sliderName = $this.data("slider-name");
+  var sliderConfig = getSliderConfig(sliderName);
 
   sliders[i] = new Swiper($this, sliderConfig);
 });
+
+window.addEventListener("resize orientationchange", function() {
+  sliders.length != 0
+    ? sliders.forEach(function(e, i) {
+        sliders[i].update(true);
+      })
+    : "";
+});
+
+function getSliderConfig(sliderName) {
+  var sliderConfig = null;
+
+  switch (sliderName) {
+    case "main-hero":
+      sliderConfig = {
+        slidesPerView: 1,
+        speed: 0,
+        autoplay: { delay: 5000 },
+        navigation: {
+          nextEl: ".slider-controller .next",
+          prevEl: ".slider-controller .prev"
+        },
+        containerModifierClass: "slider-container--",
+        wrapperClass: "slider-wrapper",
+        slideClass: "slider-slide",
+        slideActiveClass: "slider-slide--active",
+        slideNextClass: "slider-slide--next",
+        slidePrevClass: "slider-slide--prev",
+        breakpoints: {
+          767: {
+            speed: 500,
+            spaceBetween: 30
+          }
+        }
+      };
+      break;
+    case "other-solutions":
+      sliderConfig = {
+        slidesPerView: 3,
+        spaceBetween: 0,
+        centeredSlides: true,
+        speed: 1000,
+        loop: true,
+        autoplay: { delay: 5000 },
+        containerModifierClass: "slider-container--",
+        wrapperClass: "slider-wrapper",
+        slideClass: "slider-slide",
+        slideActiveClass: "slider-slide--active",
+        slideNextClass: "slider-slide--next",
+        slidePrevClass: "slider-slide--prev",
+        breakpoints: {
+          767: {
+            slidesPerView: 1.5,
+            spaceBetween: 30,
+            loop: false
+          }
+        }
+      };
+      break;
+    case "ref-slider":
+      sliderConfig = {
+        slidesPerView: 5,
+        spaceBetween: 0,
+        speed: 1000,
+        centeredSlides: true,
+        loop: true,
+        containerModifierClass: "slider-container--",
+        wrapperClass: "slider-wrapper",
+        slideClass: "slider-slide",
+        slideActiveClass: "slider-slide--active",
+        slideNextClass: "slider-slide--next",
+        slidePrevClass: "slider-slide--prev",
+        breakpoints: {
+          767: {
+            slidesPerView: 1.5,
+            spaceBetween: 30,
+          }
+        },
+        navigation: {
+          nextEl: ".next",
+          prevEl: ".prev"
+        },
+      };
+      break;
+  }
+
+  return sliderConfig;
+}
 
 window.addEventListener("resize", function() {});
 

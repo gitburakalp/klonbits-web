@@ -1,7 +1,7 @@
 .slider {
   @include media-breakpoint-up(md) {
     &-section {
-      @at-root .slider {
+      .slider {
         &-slide {
           &:not(.slider-slide--active) {
             %opacity-0 {
