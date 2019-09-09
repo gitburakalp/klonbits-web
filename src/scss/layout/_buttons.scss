@@ -5,13 +5,18 @@
   padding: 12px 36px;
   box-shadow:0 2px 4px rgba($color-black,0.25);
   transition: all $duration ease;
+  z-index: 102;
 
   &:hover {
     transform: translateX(15%);
   }
 
   @include media-breakpoint-up(md) {
-    font-size: fluidSize(7, 16, 768, 1920);
+    font-size: vw(10,1280)
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: vw(16,1920)
   }
 
   &--transparent {

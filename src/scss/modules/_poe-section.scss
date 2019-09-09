@@ -3,13 +3,13 @@
   min-height: 100vh;
 
   @include media-breakpoint-up(md) {
-    padding-top: 80vh;
+    padding-top: 90vh;
     min-height: 72.03704vh;
     background-image: url("../../images/statics/svg/poe-path.svg");
     background-repeat: no-repeat;
     background-size: 103%;
     background-position: 50% 0;
-    margin-top: -65vh;
+    margin-top: -75vh !important;
 
     &.container {
       max-width: 100%;

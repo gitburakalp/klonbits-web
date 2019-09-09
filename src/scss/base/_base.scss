@@ -23,6 +23,20 @@ body {
     @include media-breakpoint-down(sm) {
       margin-top: calcPercent(150, 667) + vh !important;
     }
+
+    @include media-breakpoint-up(md) {
+      margin-top: calcPercent(133,1920) + vw !important;
+    }
+
+    &:last-child {
+      @include media-breakpoint-down(sm) {
+        margin-bottom: calcPercent(150, 667) + vh !important;
+      }
+  
+      @include media-breakpoint-up(md) {
+        margin-bottom: calcPercent(133,1920) + vw !important;
+      }
+    }
   }
 
   @include media-breakpoint-up(md) {

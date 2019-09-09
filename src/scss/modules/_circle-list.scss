@@ -114,7 +114,7 @@
     margin: 0 auto;
 
     @include media-breakpoint-up(md) {
-      $val: calcPercent(288, 1920) + vw;
+      $val: calcPercent(225, 1920) + vw;
       width: $val;
       height: $val;
     }

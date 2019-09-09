@@ -1,0 +1,7 @@
+.partners-section {
+    @include media-breakpoint-up(md) {
+        $val: calcPercent(321.5, 1920) * 1%;
+        padding-left: $val;
+        padding-right: $val;
+    }
+}

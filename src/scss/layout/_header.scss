@@ -151,15 +151,12 @@
       font-size: 12px;
       line-height: 1.2;
       letter-spacing: 0.6px;
-      color: $color-slate;
       text-transform: uppercase;
       text-align: center;
-      transition: color 200ms ease-in;
+      
       transition-delay: 0;
 
-      &:hover {
-        color: $color-turquoise;
-      }
+      
 
       &--cerulean {
         color: $color-cerulean;
@@ -174,6 +171,16 @@
           margin-left: calcPercent(60, 1920) + vw;
           letter-spacing: 0.6px;
         }
+      }
+    }
+
+    &__link {
+      color: $color-slate;
+      transition: color 200ms;
+      will-change: transition;
+
+      &:hover {
+        color: $color-turquoise;
       }
     }
   }

@@ -87,13 +87,45 @@ function getSliderConfig(sliderName) {
         breakpoints: {
           767: {
             slidesPerView: 1.5,
-            spaceBetween: 30,
+            spaceBetween: 30
           }
         },
         navigation: {
-          nextEl: ".next",
-          prevEl: ".prev"
+          nextEl: ".ref-slider + .slider-controls .next",
+          prevEl: ".ref-slider + .slider-controls .prev"
         },
+        breakpoints: {
+          767: {
+            slidesPerView: 1.75,
+            spaceBetween: 15
+          }
+        }
+      };
+      break;
+    case "ref-slider--sm":
+      sliderConfig = {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        containerModifierClass: "slider-container--",
+        wrapperClass: "slider-wrapper",
+        slideClass: "slider-slide",
+        slideActiveClass: "slider-slide--active",
+        slideNextClass: "slider-slide--next",
+        slidePrevClass: "slider-slide--prev",
+        breakpoints: {
+          767: {
+            slidesPerView: 1.5,
+            spaceBetween: 30
+          }
+        },
+        breakpoints: {
+          767: {
+            slidesPerView: 1.75,
+            spaceBetween: 15,
+            centeredSlides: true
+          }
+        }
       };
       break;
   }
