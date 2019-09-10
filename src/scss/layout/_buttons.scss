@@ -12,11 +12,12 @@
   }
 
   @include media-breakpoint-up(md) {
-    font-size: vw(14,1280)
+    font-size: vw(12,1280);
+    padding: 0.75vw 2vw
   }
 
   @include media-breakpoint-up(xl) {
-    font-size: vw(16,1920)
+    font-size: vw(16,1920);
   }
 
   &--transparent {

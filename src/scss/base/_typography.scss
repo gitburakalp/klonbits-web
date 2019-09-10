@@ -126,7 +126,7 @@
     transition: all $duration ease;
 
     @include media-breakpoint-up(md) {
-      font-size: vw(14,1280);
+      font-size: vw(12,1280);
     }
 
     @include media-breakpoint-up(xl) {
