@@ -10,8 +10,8 @@
     @include media-breakpoint-up(md) {
         margin-left: calcPercent(148.8,1920) + vw;
         margin-right: calcPercent(34,1920) + vw;
-        height: calcPercent(793.1,1080) + vh;
-        margin-top: -9vh;
+        padding: 4.7022vw 0px;
+        margin-top: -22vw !important;
 
         img {
             width: calcPercent(600,1920) + vw;

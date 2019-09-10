@@ -9,7 +9,7 @@
     transition: all $duration ease;
 
     @include media-breakpoint-up(md) {
-      font-size: vw(22,1280);
+      font-size: vw(25,1280);
       padding-left: vw(15, 1920);
     }
 
@@ -126,7 +126,7 @@
     transition: all $duration ease;
 
     @include media-breakpoint-up(md) {
-      font-size: vw(10,1280);
+      font-size: vw(14,1280);
     }
 
     @include media-breakpoint-up(xl) {

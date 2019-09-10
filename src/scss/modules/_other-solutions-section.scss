@@ -68,7 +68,7 @@
 
     @include media-breakpoint-up(md) {
       border-radius: 0;
-      min-height: calcPercent(429, 1080) + vh;
+      min-height: 20vw;
       padding: 1rem vw(50, 1920) vw(25, 1920);
     }
 
