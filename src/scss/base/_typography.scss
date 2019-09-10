@@ -122,7 +122,7 @@
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: vw(0.64, 1920);
-    color: $color-slate;
+    color: $color-bluish-grey;
     transition: all $duration ease;
 
     @include media-breakpoint-up(md) {

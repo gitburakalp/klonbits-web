@@ -1,3 +1,21 @@
 .text-bluish-grey {
-    color: $color-bluish-grey !important;
+  color: $color-bluish-grey !important;
+}
+
+.text-slate {
+  color: $color-slate !important;
+}
+
+input,
+textarea {
+  &.form-control {
+    border-radius: 0;
+    line-height: 1.2;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 4px rgba($color-slate, 0.35);
+      border-color: $color-slate;
+    }
+  }
 }

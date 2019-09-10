@@ -39,6 +39,16 @@ body {
     }
   }
 
+  .main {
+    > div > section:first-child {
+      margin-top: 80px;
+
+      @include media-breakpoint-up(md) {
+        margin-top: vw(80,1920);
+      }
+    }
+  }
+
   @include media-breakpoint-up(md) {
     &::-webkit-scrollbar {
       width: 7px;

@@ -26,8 +26,6 @@
     }
 
     @include media-breakpoint-up(md) {
-      padding-top: 70px;
-
       .slider-slide {
         display: flex;
         flex-direction: row;

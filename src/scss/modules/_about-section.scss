@@ -1,0 +1,20 @@
+.about-us {
+    height: 5600px;
+
+    @include media-breakpoint-up(md) {
+        background-repeat: no-repeat;
+        background-image: url("../../images/statics/about/svg/about-bg-path.svg");
+        background-size: 102%;
+        background-position: 50% 10%;
+    }
+}
+
+.section {
+    &-about-us {
+
+        @include media-breakpoint-up(md) {
+            margin-top: calcPercent(224,1920) + vw !important;
+        }
+    }
+}
+
