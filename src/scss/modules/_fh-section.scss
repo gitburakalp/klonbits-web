@@ -1,0 +1,21 @@
+.fh-section {
+
+    @include media-breakpoint-up(md) {
+        background-repeat: no-repeat;
+        background-position: 0 70%;
+        background-size: 102%;
+        background-image: url("../../images/statics/svg/last-sect-path.svg");
+        padding-top: 12vw;
+        margin-top: -12vw !important;
+    }
+
+    > div {
+        + div {
+            margin-top: 33px;
+
+            @include media-breakpoint-up(md) {
+                margin-top: calcPercent(133,1920) + vw;
+            }
+        }
+    }
+}

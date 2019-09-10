@@ -4,12 +4,12 @@
 
   @include media-breakpoint-up(md) {
     padding-top: 37vw;
-    min-height: 72.03704vh;
     background-image: url("../../images/statics/svg/poe-path.svg");
     background-repeat: no-repeat;
     background-size: 103%;
     background-position: 50% 0;
     margin-top: -38vw !important;
+    padding-bottom: 10vw;
 
     &.container {
       max-width: 100%;
