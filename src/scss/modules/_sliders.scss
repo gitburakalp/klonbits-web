@@ -28,7 +28,7 @@
   }
 
   &-controller {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       position: absolute;
       top: 50%;
       left: calcPercent(64, 1920) + vw;

@@ -1,13 +1,17 @@
 .other-solutions-section {
   position: relative;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     max-width: 100%;
     margin-top: 40px;
-    padding-bottom: calcPercent(143, 667) + vh;
+    padding-bottom: calcPercent(143, 375) + vw;
   }
 
   @include media-breakpoint-up(md) {
+    margin-top: 80px;
+  }
+
+  @include media-breakpoint-up(xl) {
     margin-top: calcPercent(80, 1920) + vw;
 
     .slider {
@@ -42,7 +46,7 @@
     background-color: $color-white;
     box-shadow: 0 0 5px 0 rgba($color-black, 0.12);
     border-radius: 10.5px;
-    padding: 13px 27px 40px;
+    padding: 40px 38px 40px;
     text-align: center;
 
     display: flex;
@@ -57,7 +61,7 @@
       justify-content: center;
       margin-bottom: 12px;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         margin-bottom: 1.25vw;
       }
 
@@ -66,7 +70,7 @@
       }
     }
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       border-radius: 0;
       min-height: 20vw;
       padding: 1rem vw(50, 1920) vw(25, 1920);
@@ -88,18 +92,18 @@
       text-align: center;
 
       @include media-breakpoint-up(md) {
-        font-size: vw(16,1280);
+        font-size: 35px;
         line-height: 1.2;
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         font-size: vw(22,1920);
       }
 
       + * {
         margin-top: 12px;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
           margin-top: 1.5vw;
         }
       }
@@ -115,7 +119,7 @@
       color: $color-slate;
 
       @include media-breakpoint-up(md) {
-        font-size: vw(10,1280);
+        font-size: 21px;
       }
 
       @include media-breakpoint-up(xl) {
@@ -125,7 +129,7 @@
       + * {
         margin-top: 12px;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
           margin-top: 1.5vw;
         }
       }
@@ -153,7 +157,7 @@
   }
 
   .main-title {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       font-weight: 600;
       b {
         display: inline-block;

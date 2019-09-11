@@ -10,18 +10,23 @@
   opacity: 0.075;
   margin-right: 1rem;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     left: 50%;
   }
 
   @include media-breakpoint-up(md) {
-    width: fluidSize(44, 79, 768, 1920);
-    height: fluidSize(44, 79, 768, 1920);
+    width: 79px;
+    height: 79px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: fluidSize(44, 79, 1280, 1920);
+    height: fluidSize(44, 79, 1280, 1920);
   }
 }
 
 .circle-list {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     max-width: calcPercent(562, 1920) + vw;
   }
 
@@ -46,29 +51,32 @@
     }
 
     @include media-breakpoint-up(md) {
-      font-size: fluidSize(10, 12, 768, 1280);
+      display: block;
+      font-size: 16px;
       font-weight: 500;
       line-height: 1.7;
       letter-spacing: normal;
-      text-align: justify;
       flex-direction: row;
-      height: fluidSize(44, 79, 768, 1920);
-      padding-left: fluidSize(50, 100, 768, 1920);
+      padding-top: 109px;
+      height: 79px;
     }
 
     @include media-breakpoint-up(xl) {
-      font-size: fluidSize(12, 16, 1280, 1920);
+      font-size: vw(16, 1920);
+      padding-left: fluidSize(50, 100, 768, 1920);
+      height: fluidSize(44, 79, 768, 1920);
+      text-align: justify;
     }
 
     &::before {
       @extend %circles;
       z-index: 99;
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         transform: translate(-50%, -6px);
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         transform: translateY(-6px);
       }
     }
@@ -77,11 +85,11 @@
       position: absolute;
       @extend %circles;
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         transform: translateX(-50%);
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         left: 0;
       }
     }
@@ -89,7 +97,7 @@
     + * {
       margin-top: 80px;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         margin-top: calcPercent(60, 1920) + vw;
       }
     }
@@ -114,6 +122,11 @@
     margin: 0 auto;
 
     @include media-breakpoint-up(md) {
+      width: 213px;
+      height: 213px;
+    }
+
+    @include media-breakpoint-up(xl) {
       $val: calcPercent(225, 1920) + vw;
       width: $val;
       height: $val;
@@ -138,7 +151,7 @@
       &::after {
         top: 7px;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
           top: calcPercent(14, 1080) + vh;
         }
       }
@@ -147,10 +160,10 @@
       &::after {
         background-image: linear-gradient(
           to top,
-          rgba(#3FA9F5, 1) 0%,
-          rgba(#66BAF7, 0.79) 19%,
-          rgba(#B7DFFB, 0.37) 59%,
-          rgba(#EBF6FD, 0.10) 87%,
+          rgba(#3fa9f5, 1) 0%,
+          rgba(#66baf7, 0.79) 19%,
+          rgba(#b7dffb, 0.37) 59%,
+          rgba(#ebf6fd, 0.1) 87%,
           rgba(#ffffff, 0) 100%
         );
         opacity: 0.2;

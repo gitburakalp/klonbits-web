@@ -43,6 +43,48 @@
     }
   }
 
+  &--primary {
+    border: 1px solid $color-cerulean;
+    background-color: transparent;
+    color: $color-cerulean;
+
+    font-size: 12px;
+    border-radius: 3px;
+    line-height: 1.2;
+    padding: 0.5rem 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      font-size: 20px;
+      border-radius: 5px;
+      padding: 0.75rem 2.75rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      font-size: vw(15.33,1920);
+      padding: 0.75rem 2.75rem;
+    }
+
+    &:hover {
+      background-color: $color-cerulean;
+      color: $color-white;
+    }
+
+    &-revert {
+      @extend .btn--primary;
+
+      @include media-breakpoint-up(xl) {
+        background-color: $color-cerulean;
+        color: $white;
+
+        &:hover {
+          color: $color-cerulean;
+          border: 1px solid $color-cerulean;
+          background-color: $color-white;
+        }
+      }
+    }
+  }
+
   &--secondary {
     background-color: $color-cerulean;
     color: $color-white;

@@ -1,6 +1,6 @@
 .footer {
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
         $val: calcPercent(167,1920) * 1%;
         padding-top: $val;
         padding-left: $val;
@@ -78,19 +78,30 @@
         color: $color-slate;
         font-size: 18px;
 
+        @include media-breakpoint-down(md) {
+            &::after {
+                content: "\f078";
+                font-family: "Font Awesome 5 Pro";
+                font-weight: 300;
+
+                position: absolute;
+                right: 15px;
+            }
+        }
+
         + * {
             margin-top: 16px;
 
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 margin-top: vw(23,1920);
             }
         }
 
         @include media-breakpoint-up(md) {
-            font-size: vw(16,1280);
+            font-size: vw(16,768);
         }
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             font-size: vw(28,1920);
         }
     }
@@ -98,6 +109,18 @@
     &-list {
 
         &-section {
+            @include media-breakpoint-down(md) {
+                [class*=col-] {
+                    margin-top: 1.5rem;
+
+                    .footer-title {
+                        + .footer-list {
+                            display: none
+                        }
+                    }
+                }
+            }
+
             @include media-breakpoint-up(md) {
                 [class*=col-md] {
                     $val:calcPercent(240,1920) + vw;
@@ -117,7 +140,7 @@
             + * {
                 margin-top: 0.5rem;
 
-                @include media-breakpoint-up(md) {
+                @include media-breakpoint-up(lg) {
                     margin-top: vw(16,1920);
                 }
             }
@@ -130,7 +153,7 @@
             color: $color-bluish-grey;
 
             @include media-breakpoint-up(md) {
-                font-size: vw(12,1280);
+                font-size: vw(12,768);
             }
 
             @include media-breakpoint-up(xl) {

@@ -1,9 +1,15 @@
-.text-bluish-grey {
-  color: $color-bluish-grey !important;
-}
+.text {
+  &-steel {
+    color: $color-steel !important;
+  }
 
-.text-slate {
-  color: $color-slate !important;
+  &-slate {
+    color: $color-slate !important;
+  }
+
+  &-bluish-grey {
+    color: $color-bluish-grey !important
+  }
 }
 
 input,

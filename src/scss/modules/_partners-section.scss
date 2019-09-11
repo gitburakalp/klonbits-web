@@ -1,5 +1,15 @@
 .partners-section {
-    @include media-breakpoint-up(md) {
+
+    @include media-breakpoint-down(md) {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        [class*=col-] {
+            margin-top: 1.5rem;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
         $val: calcPercent(321.5, 1920) * 1%;
         padding-left: $val;
         padding-right: $val;

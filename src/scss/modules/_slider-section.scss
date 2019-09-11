@@ -2,19 +2,33 @@
   &-section {
     position: relative;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       background-image: url("../../images/statics/svg/slider-section-bg-path.svg");
       background-repeat: no-repeat;
       background-position: 73% 100%;
       background-size: 150vw;
-      padding: 32.422vw 0px;
+      margin-top: 0px !important;
+      padding: 80px 0 30vw;
+
+      .video-section {
+        position: unset;
+
+        video {
+          position: absolute;
+          top:0%;
+          width: 85%;
+          right: 0;
+          z-index: -1;
+          border: none
+        }
+      }
     }
 
     .slider-container {
       max-width: calcPercent(335, 375) * 1%;
       margin: 0 auto;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         max-width: calcPercent(1586, 1920) * 1%;
         background-color: $color-white;
         border-radius: 5px;
@@ -34,14 +48,17 @@
     }
 
     &__contents {
+      text-align: center;
+
       @include media-breakpoint-down(sm) {
         margin-top: 1rem;
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         position: relative;
         top: 8vw;
         left: calcPercent(180, 1920) + vw;
+        text-align: left;
 
         .main-description {
           max-width: calcPercent(424, 1920) + vw;

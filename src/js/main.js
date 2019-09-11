@@ -29,7 +29,7 @@ function getSliderConfig(sliderName) {
       sliderConfig = {
         slidesPerView: 1,
         speed: 0,
-        autoplay: { delay: 5000 },
+        // autoplay: { delay: 5000 },
         navigation: {
           nextEl: ".slider-controller .next",
           prevEl: ".slider-controller .prev"
@@ -63,6 +63,11 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         breakpoints: {
+          1023: {
+            slidesPerView: 1.875,
+            spaceBetween: 50,
+            loop: false
+          },
           767: {
             slidesPerView: 1.5,
             spaceBetween: 30,
@@ -84,18 +89,12 @@ function getSliderConfig(sliderName) {
         slideActiveClass: "slider-slide--active",
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
-        breakpoints: {
-          767: {
-            slidesPerView: 1.5,
-            spaceBetween: 30
-          }
-        },
         navigation: {
           nextEl: ".ref-slider + .slider-controls .next",
           prevEl: ".ref-slider + .slider-controls .prev"
         },
         breakpoints: {
-          767: {
+          1023: {
             slidesPerView: 1.75,
             spaceBetween: 15
           }
@@ -160,3 +159,15 @@ $(".cards").each(function(e) {
     }
   });
 });
+
+$('.footer').each(function(){
+  $(this).find('.footer-title').on('click',function(){
+    var ww = $(window).width();
+
+    if (ww < 1024) {
+      $(this).siblings().slideToggle();
+    }
+  });
+});
+
+

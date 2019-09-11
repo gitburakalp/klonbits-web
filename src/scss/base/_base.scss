@@ -1,12 +1,16 @@
-body {
+html,body {
   overflow-x: hidden;
+}
+
+body {
+  // background-color: rgba($color-black,0.5);
 
   &::before {
     transition: all 400ms;
     will-change: auto;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     background: linear-gradient(
       to bottom,
       $color-pale-grey,
@@ -16,12 +20,11 @@ body {
       rgba(255, 255, 255, 0)
     );
     background-repeat: no-repeat;
-    height: 1000vh;
   }
 
   section + section {
     @include media-breakpoint-down(sm) {
-      margin-top: calcPercent(150, 667) + vh !important;
+      margin-top: calcPercent(66, 375) + vw !important;
     }
 
     @include media-breakpoint-up(md) {
@@ -41,10 +44,14 @@ body {
 
   .main {
     > div > section:first-child {
-      margin-top: 80px;
+      padding-top: 33px;
 
       @include media-breakpoint-up(md) {
-        margin-top: vw(80,1920);
+        padding-top: 80px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        padding-top: vw(120,1920);
       }
     }
   }
