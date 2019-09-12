@@ -1,0 +1,33 @@
+.square-cards {
+    position: relative;
+    max-width: 220px;
+    
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @include media-breakpoint-down(sm) {
+        > * {
+            &:nth-child(n+3) {
+                margin-top: 6px;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        max-width: 440px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: calcPercent(908,1920) + vw;
+    }
+
+    .special-cards {
+        width: 103px;
+        height: 103px;
+    }
+}

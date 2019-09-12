@@ -63,6 +63,7 @@
 
     @include media-breakpoint-up(xl) {
       font-size: vw(16, 1920);
+      padding-top: 0;
       padding-left: fluidSize(50, 100, 768, 1920);
       height: fluidSize(44, 79, 768, 1920);
       text-align: justify;
