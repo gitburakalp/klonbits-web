@@ -85,3 +85,4 @@ gulp.task("sass", functionsSass);
 gulp.task("html", functionsHtml);
 gulp.task("watch", functionsWatch);
 gulp.task("default", gulp.series("browser-sync", "html", "sass", "watch"));
+
