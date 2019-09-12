@@ -5,7 +5,7 @@ $(".hamburger").on("click", function() {
 
 let sliders = [];
 
-$(".slider-container").each(function(i, e) {
+$("[data-slider-name]").each(function(i, e) {
   var $this = $(e);
   var sliderName = $this.data("slider-name");
   var sliderConfig = getSliderConfig(sliderName);
@@ -114,19 +114,13 @@ function getSliderConfig(sliderName) {
         slidePrevClass: "slider-slide--prev",
         breakpoints: {
           767: {
-            slidesPerView: 1.5,
-            spaceBetween: 30
-          }
-        },
-        breakpoints: {
-          767: {
             slidesPerView: 1.75,
             spaceBetween: 15,
             centeredSlides: true
           }
         }
       };
-      break;
+      break; 
   }
 
   return sliderConfig;
@@ -160,14 +154,44 @@ $(".cards").each(function(e) {
   });
 });
 
-$('.footer').each(function(){
-  $(this).find('.footer-title').on('click',function(){
-    var ww = $(window).width();
+$(".footer").each(function() {
+  $(this)
+    .find(".footer-title")
+    .on("click", function() {
+      var ww = $(window).width();
 
-    if (ww < 1024) {
-      $(this).siblings().slideToggle();
-    }
-  });
+      if (ww < 1024) {
+        $(this)
+          .siblings()
+          .slideToggle();
+      }
+    });
 });
 
+let rectangleSlider = null;
 
+$('.rectangle-cards').each(function() {
+  var ww = $(window).width();
+
+  var sliderConfig = {
+    slidesPerView: 1.735089,
+    spaceBetween: 23.2,
+    speed: 1000,
+    centeredSlides:true,
+    loop:true,
+    containerModifierClass: "rectangle-cards--",
+    wrapperClass: "special-cards-details",
+    slideClass: "special-cards",
+    slideActiveClass: "special-cards--active",
+    slideNextClass: "special-cards--next",
+    slidePrevClass: "special-cards--prev",
+    breakpoints: {
+      767: {
+        slidesPerView:1.69076,
+        spaceBetween: 11.7
+      }
+    }
+  };
+
+  ww < 1024 ? rectangleSlider = new Swiper($(this), sliderConfig) : "";
+})

@@ -32,6 +32,7 @@
         line-height: 1.2;
         letter-spacing: 0.8px;
         color: $color-bluish-grey;
+        text-transform: uppercase;
 
         @include media-breakpoint-up(md) {
             font-size: 16px;
@@ -58,6 +59,48 @@
 
         @include media-breakpoint-up(xl) {
             font-size: vw(14.5,1920);
+        }
+    }
+
+    &__menu {
+        text-align: left;
+        
+        &-item {
+            position: relative;
+            font-family: $FontFamilySansSerif;
+            font-size: 8px;
+            letter-spacing: 0.24px;
+            font-weight: 300;
+            color: $color-bluish-grey;
+
+            padding-left: 10px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                border-radius: 100%;
+                background-color: rgba($color-cerulean,0.35);
+                width: 4px;
+                height: 4px;
+
+                @include media-breakpoint-up(md) {
+                    width: 6px;
+                    height: 6px;
+                }
+            }
+            
+            @include media-breakpoint-up(md) {
+                font-size: 12px;
+                letter-spacing: 0.48px;
+            }
+
+            @include media-breakpoint-up(xl) {
+                font-size: vw(12,1920);
+                letter-spacing: vw(0.48,1920);
+            }
         }
     }
 }
