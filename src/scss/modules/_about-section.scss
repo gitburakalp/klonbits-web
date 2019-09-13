@@ -16,7 +16,7 @@
 
   @include media-breakpoint-up(md) {
     background-repeat: no-repeat;
-    background-image: url("../../images/statics/about/svg/about-bg-path.svg");
+    background-image: url("../../Storage/svg/about-bg-path.svg");
     background-size: 102%;
     background-position: 50% 0%;
   }
@@ -34,7 +34,7 @@
       }
 
       @include media-breakpoint-up(xl) {
-        width: calcPercent(500,1920) + vw;
+        width: calcPercent(500, 1920) + vw;
       }
 
       &-block {
@@ -47,14 +47,12 @@
         flex-wrap: wrap;
 
         &--row {
-
           @include media-breakpoint-down(lg) {
             align-items: center;
           }
 
           > * {
             @include media-breakpoint-down(lg) {
-
               + * {
                 margin-top: 2.5rem;
               }
@@ -71,7 +69,7 @@
             flex-direction: row;
             justify-content: space-around;
 
-            max-width: calcPercent(1240,1920) + vw;
+            max-width: calcPercent(1240, 1920) + vw;
             margin-left: auto;
             margin-right: auto;
           }
@@ -82,7 +80,7 @@
           counter-reset: sc;
 
           @include media-breakpoint-up(xl) {
-            max-width: calcPercent(1332,1920) + vw;
+            max-width: calcPercent(1332, 1920) + vw;
 
             &::before {
               background: none !important;
@@ -136,7 +134,7 @@
             }
 
             @include media-breakpoint-up(xl) {
-              width: calcPercent(566,1920) + vw;
+              width: calcPercent(566, 1920) + vw;
             }
 
             &__icon {

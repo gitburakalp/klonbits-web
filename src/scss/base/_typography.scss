@@ -14,7 +14,7 @@
     }
 
     @include media-breakpoint-up(xl) {
-      font-size: vw(40,1920);
+      font-size: vw(40, 1920);
     }
 
     &--lg {
@@ -23,11 +23,11 @@
       font-size: 25px;
 
       @include media-breakpoint-up(md) {
-        font-size: 50px
+        font-size: 50px;
       }
 
       @include media-breakpoint-up(xl) {
-        font-size: vw(50,1920);
+        font-size: vw(50, 1920);
       }
     }
 
@@ -35,7 +35,7 @@
       margin-top: 1.5rem;
 
       @include media-breakpoint-up(md) {
-        margin-top: 2rem
+        margin-top: 2rem;
       }
 
       @include media-breakpoint-up(xl) {
@@ -103,7 +103,7 @@
           &::before {
             background-image: linear-gradient(
               5deg,
-              rgba($color-cerulean, 0.50) 0%,
+              rgba($color-cerulean, 0.5) 0%,
               rgba($color-cerulean, 0.35) 22%,
               rgba($color-cerulean, 0.15) 60%,
               rgba($color-cerulean, 0.05) 87%,
@@ -130,6 +130,24 @@
     &-block {
       position: relative;
 
+      text-align: center;
+
+      @include media-breakpoint-up(xl) {
+        text-align: left;
+      }
+
+      &--modified {
+        @include media-breakpoint-down(md) {
+          .main-title {
+            font-weight: bold;
+
+            b {
+              display: inline-block;
+            }
+          }
+        }
+      }
+
       + * {
         margin-top: 25px;
 
@@ -154,8 +172,8 @@
     }
 
     @include media-breakpoint-up(xl) {
-      font-size: vw(16,1920);
-      font-weight: 500
+      font-size: vw(16, 1920);
+      font-weight: 500;
     }
 
     + * {
@@ -177,9 +195,13 @@
   color: $color-bluish-grey;
   text-transform: uppercase;
 
-  
   @include media-breakpoint-up(md) {
-    font-size: fluidSize(10, 14, 768, 1920);
+    font-size: 14px;
+    letter-spacing: 0.64px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: vw(14, 1920);
     letter-spacing: vw(0.64, 1920);
   }
 
@@ -192,7 +214,7 @@
     color: $color-slate;
 
     @include media-breakpoint-down(md) {
-      display: none
+      display: none;
     }
 
     @include media-breakpoint-up(xl) {
@@ -247,7 +269,7 @@
     flex-direction: column;
     align-items: center;
 
-    margin-top: calcPercent(335,1920) + vw;
+    margin-top: calcPercent(335, 1920) + vw;
 
     .title--light {
       transform: translateY(-50%) rotate(180deg);

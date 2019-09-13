@@ -1,0 +1,54 @@
+.iconic-cards {
+  cursor: pointer;
+
+  &-section {
+    position: relative;
+    margin-top: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    > * {
+      $val: 39%;
+
+      position: relative;
+      max-width: $val;
+      flex: 0 0 $val;
+      text-align: center;
+
+      &:nth-child(n + 3) {
+        margin-top: 1rem;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      margin-top: vw(50, 1920);
+    }
+  }
+
+  &__icon {
+    max-height: 55px;
+    height: 55px;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-slate;
+
+    + * {
+      display: none;
+    }
+  }
+
+  &__description {
+    font-size: 12px;
+    text-align: left;
+    line-height: 1.47;
+    color: $color-steel;
+  }
+}

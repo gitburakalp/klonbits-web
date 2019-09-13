@@ -120,7 +120,37 @@ function getSliderConfig(sliderName) {
           }
         }
       };
-      break; 
+      break;
+    case "product-slider":
+      sliderConfig = {
+        slidesPerView: 3,
+        spaceBetween: "9.1281%",
+        loop: true,
+        speed: 1000,
+        containerModifierClass: "slider-container--",
+        wrapperClass: "slider-wrapper",
+        slideClass: "slider-slide",
+        slideActiveClass: "slider-slide--active",
+        slideNextClass: "slider-slide--next",
+        slidePrevClass: "slider-slide--prev",
+        breakpoints: {
+          1023: {
+            slidesPerView: 1.75,
+            spaceBetween: "70",
+            centeredSlides: true
+          },
+          767: {
+            slidesPerView: 1.75,
+            spaceBetween: "30",
+            centeredSlides: true
+          }
+        },
+        navigation: {
+          nextEl: ".product-slider .slider-controller .next",
+          prevEl: ".product-slider .slider-controller .prev"
+        }
+      };
+      break;
   }
 
   return sliderConfig;
@@ -170,15 +200,15 @@ $(".footer").each(function() {
 
 let rectangleSlider = null;
 
-$('.rectangle-cards').each(function() {
+$(".rectangle-cards").each(function() {
   var ww = $(window).width();
 
   var sliderConfig = {
     slidesPerView: 1.735089,
     spaceBetween: 23.2,
     speed: 1000,
-    centeredSlides:true,
-    loop:true,
+    centeredSlides: true,
+    loop: true,
     containerModifierClass: "rectangle-cards--",
     wrapperClass: "special-cards-details",
     slideClass: "special-cards",
@@ -187,11 +217,30 @@ $('.rectangle-cards').each(function() {
     slidePrevClass: "special-cards--prev",
     breakpoints: {
       767: {
-        slidesPerView:1.69076,
+        slidesPerView: 1.69076,
         spaceBetween: 11.7
       }
     }
   };
 
-  ww < 1024 ? rectangleSlider = new Swiper($(this), sliderConfig) : "";
-})
+  ww < 1024 ? (rectangleSlider = new Swiper($(this), sliderConfig)) : "";
+});
+
+$(".iconic-cards").each(function() {
+  $(this).on("click", function() {
+    $(".iconic-cards__description").slideUp();
+    $(this)
+      .find(".iconic-cards__description")
+      .slideDown();
+  });
+
+  $("html").on("click", function(e) {
+    var $thisTarget = $(e.target).parent();
+
+    console.log($thisTarget);
+
+    if (!$thisTarget.hasClass("iconic-cards")) {
+      $(".iconic-cards__description").slideUp();
+    }
+  });
+});

@@ -5,6 +5,11 @@
 
     box-shadow: 0 0 1px rgba($color-slate,0.35);
     cursor: default;
+    padding: 10px;
+
+    @include media-breakpoint-up(xl) {
+        padding: vw(20,1920)
+    }
 
     &-title {
         font-family: $FontFamilySansSerif;
@@ -13,7 +18,15 @@
         font-weight: 400;
         text-transform: uppercase;
         color: $color-cerulean;
-        text-align: center
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            font-size: 16px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: vw(16,1920)
+        }
     }
 
     &-blocks {
