@@ -379,6 +379,10 @@
         bottom: -4%;
         width: 90%;
 
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+
         @include media-breakpoint-up(xl) {
           display: flex;
           justify-content: space-between;

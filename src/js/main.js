@@ -228,7 +228,19 @@ $(".rectangle-cards").each(function() {
 
 $(".iconic-cards").each(function() {
   $(this).on("click", function() {
+    var thisTop = $(this).offset().top;
+
+    console.log(thisTop);
+
     $(".iconic-cards__description").slideUp();
+
+    $("html,body").animate(
+      {
+        scrollTop: thisTop
+      },
+      500
+    );
+
     $(this)
       .find(".iconic-cards__description")
       .slideDown();
@@ -243,4 +255,41 @@ $(".iconic-cards").each(function() {
       $(".iconic-cards__description").slideUp();
     }
   });
+});
+
+$(".accordion-menu").each(function() {
+  var $accordionMenu = $(this);
+  var ww = $(window).width();
+  var $accordionMenuContents = $(".accordion-menu-contents");
+
+  $accordionMenu.find(".accordion-menu-item").each(function() {
+    if ($(this).hasClass("active")) {
+      var showTab = $(this).data("show-tab");
+      $accordionMenuContents.find(`[data-tab-content=${showTab}]`).fadeIn(1);
+    }
+  });
+
+  $accordionMenu.find(".accordion-menu-item").on("click", function() {
+    var $this = $(this);
+    var elemHeight = $this.offset().top + $this.innerHeight() - 20;
+    var showTab = $this.data("show-tab");
+    ww = $(window).width();
+
+    $(".accordion-menu-item").removeClass("active");
+    $this.addClass("active");
+
+    $accordionMenuContents.find(`[data-tab-content]`).fadeOut(1);
+    $accordionMenuContents.find(`[data-tab-content=${showTab}]`).fadeIn();
+
+    if (ww < 1024) {
+      $accordionMenuContents.attr("style", `top:${elemHeight}px`);
+      $accordionMenuContents.fadeIn();
+    }
+  });
+
+  if (ww < 1024) {
+    $(".back-button").on("click", function() {
+      $accordionMenuContents.fadeOut();
+    });
+  }
 });

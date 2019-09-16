@@ -1,9 +1,11 @@
-html,body {
+html,
+body {
   overflow-x: hidden;
 }
 
 body {
   // background-color: rgba($color-black,0.5);
+  -webkit-tap-highlight-color: rgba($color-black, 0);
 
   &::before {
     transition: all 400ms;
@@ -28,16 +30,16 @@ body {
     }
 
     @include media-breakpoint-up(md) {
-      margin-top: calcPercent(133,1920) + vw !important;
+      margin-top: calcPercent(133, 1920) + vw !important;
     }
 
     &:last-child {
       @include media-breakpoint-down(sm) {
         margin-bottom: calcPercent(150, 667) + vh !important;
       }
-  
+
       @include media-breakpoint-up(md) {
-        margin-bottom: calcPercent(133,1920) + vw !important;
+        margin-bottom: calcPercent(133, 1920) + vw !important;
       }
     }
   }
@@ -51,7 +53,7 @@ body {
       }
 
       @include media-breakpoint-up(xl) {
-        padding-top: vw(180,1920);
+        padding-top: vw(180, 1920);
       }
     }
   }
@@ -122,5 +124,20 @@ a {
   &:hover {
     text-decoration: none;
     color: inherit;
+  }
+}
+
+.services {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+  background-image: url("../../Storage/svg/services-bg-path.svg");
+
+  min-height: 100vh;
+
+  section:first-child {
+    @include media-breakpoint-up(xl) {
+      padding-top: vw(120, 1920) !important;
+    }
   }
 }
