@@ -3,7 +3,7 @@
   min-height: 100vh;
 
   @include media-breakpoint-up(xl) {
-    padding-top: 37vw;
+    padding-top: 37vw !important;
     background-image: url("../../Storage/svg/poe-path.svg");
     background-repeat: no-repeat;
     background-size: 103%;

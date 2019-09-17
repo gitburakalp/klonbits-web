@@ -17,32 +17,6 @@
       font-size: vw(40, 1920);
     }
 
-    &--lg {
-      @extend .main-title;
-
-      font-size: 25px;
-
-      @include media-breakpoint-up(md) {
-        font-size: 50px;
-      }
-
-      @include media-breakpoint-up(xl) {
-        font-size: vw(50, 1920);
-      }
-    }
-
-    + * {
-      margin-top: 1.5rem;
-
-      @include media-breakpoint-up(md) {
-        margin-top: 2rem;
-      }
-
-      @include media-breakpoint-up(xl) {
-        margin-top: calcPercent(34, 1920) + vw;
-      }
-    }
-
     &--colored {
       display: inline-block;
       @extend .main-title;
@@ -127,6 +101,56 @@
       }
     }
 
+    &--sm {
+      @extend .main-title;
+
+      font-size: 18px;
+      font-weight: 300;
+
+      @include media-breakpoint-up(md) {
+        font-size: 36px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        font-size: 1.25vw;
+      }
+
+      b {
+        font-weight: 300 !important;
+
+        &::before {
+          height: 36px;
+          bottom: unset;
+        }
+      }
+    }
+
+    &--lg {
+      @extend .main-title;
+
+      font-size: 25px;
+
+      @include media-breakpoint-up(md) {
+        font-size: 50px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        font-size: vw(50, 1920);
+      }
+    }
+
+    + * {
+      margin-top: 1.5rem;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 2rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-top: calcPercent(34, 1920) + vw;
+      }
+    }
+
     &-block {
       position: relative;
 
@@ -160,11 +184,11 @@
 
   &-description {
     font-family: $FontFamilySansSerif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.47;
     letter-spacing: vw(0.64, 1920);
-    color: $color-bluish-grey;
+    color: $color-steel;
     transition: all $duration ease;
 
     @include media-breakpoint-up(md) {
@@ -172,7 +196,7 @@
     }
 
     @include media-breakpoint-up(xl) {
-      font-size: vw(16, 1920);
+      font-size: vw(16.25, 1920);
       font-weight: 500;
     }
 
