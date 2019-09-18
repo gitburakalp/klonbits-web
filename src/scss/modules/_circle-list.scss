@@ -82,16 +82,37 @@
       }
     }
 
-    &:after {
+    &::after {
+      content: "";
       position: absolute;
-      @extend %circles;
+      top: 40%;
+      left: 39.5px;
+      transform: translate(-50%,-50%);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+      width: 25px;
+      height: 25px;
+      z-index: 99;
 
-      @include media-breakpoint-down(md) {
-        transform: translateX(-50%);
+      @include media-breakpoint-up(md) {
+
       }
 
       @include media-breakpoint-up(xl) {
-        left: 0;
+        width: vw(45,1920);
+        height: vw(45,1920);
+      }
+    }
+
+    &.icon {
+      &-job-seeker {
+        &::after {
+          background-image: url("../../Storage/svg/homepage/job-seeker.svg");
+        }
+      }
+
+      &-orange {
       }
     }
 
