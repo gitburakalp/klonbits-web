@@ -27,7 +27,7 @@
 
 .circle-list {
   @include media-breakpoint-up(xl) {
-    max-width: calcPercent(562, 1920) + vw;
+    max-width: 35vw;
   }
 
   &-item {
@@ -65,7 +65,7 @@
       font-size: vw(16, 1920);
       padding-top: 0;
       padding-left: fluidSize(50, 100, 768, 1920);
-      height: fluidSize(44, 79, 768, 1920);
+      height: 4vw;
       text-align: justify;
     }
 
@@ -99,7 +99,7 @@
       margin-top: 80px;
 
       @include media-breakpoint-up(xl) {
-        margin-top: calcPercent(60, 1920) + vw;
+        margin-top: 4vw;
       }
     }
   }
