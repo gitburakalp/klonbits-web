@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: 125%;
   background-position: 100% -30%;
-  background-image: url("../../images/statics/svg/contact/contact-us-path.svg");
+  background-image: url("../../Storage/svg/contactpage/contact-us-path.svg");
 
   @include media-breakpoint-down(md) {
     .container {
@@ -61,17 +61,6 @@
       @include media-breakpoint-up(md) {
         height: calcPercent(484, 1920) + vw;
       }
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 99%;
-      background-color: $color-cerulean;
-      opacity: 0.28;
     }
   }
 }
