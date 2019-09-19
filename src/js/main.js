@@ -278,8 +278,26 @@ $(".accordion-menu").each(function() {
     $(".accordion-menu-item").removeClass("active");
     $this.addClass("active");
 
+    var  a = document.getElementsByClassName("accordion-menu-item active")[0];
+    var titleText=a.getElementsByTagName("h3")[0].innerHTML.trim();
+    console.log(titleText);
+    
+    var descriptionText=a.getElementsByTagName("p")[0].innerHTML.trim();
+    console.log(descriptionText);
+    document.getElementsByClassName("main-title main-title--colored cerulean innerText")[0].innerHTML=titleText;
+    document.getElementsByClassName("main-description longDescription")[0].innerHTML=descriptionText;
+    
+  
+
+    // var thisTitle = $this.find('.main-title').html().trim();
+    // var thisDesc = $this.find('.main-description').html().trim();
+
+    // $('.accordion-contents .main-title').html(thisTitle);
+    // $('.accordion-contents .main-description').html(thisDesc);
+
     $accordionMenuContents.find(`[data-tab-content]`).fadeOut(1);
-    $accordionMenuContents.find(`[data-tab-content=${showTab}]`).fadeIn();
+    $accordionMenuContents.find(`[data-tab-content]`).fadeIn();
+    
 
     if (ww < 1024) {
       $accordionMenuContents.attr("style", `top:${elemHeight}px`);
