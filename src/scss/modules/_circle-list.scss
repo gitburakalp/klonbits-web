@@ -26,6 +26,10 @@
 }
 
 .circle-list {
+  @include media-breakpoint-down(md) {
+    margin-top: 1rem;
+  }
+
   @include media-breakpoint-up(xl) {
     max-width: 35vw;
   }
@@ -44,11 +48,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 44px;
-
-    @include media-breakpoint-down(sm) {
-      padding-top: 50px;
-    }
 
     @include media-breakpoint-up(md) {
       display: block;
@@ -58,50 +57,42 @@
       letter-spacing: normal;
       flex-direction: row;
       padding-top: 109px;
-      height: 79px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 50px;
     }
 
     @include media-breakpoint-up(xl) {
       font-size: vw(16, 1920);
       padding-top: 0;
       padding-left: fluidSize(50, 100, 768, 1920);
-      height: 4vw;
       text-align: justify;
-    }
-
-    &::before {
-      @extend %circles;
-      z-index: 99;
-
-      @include media-breakpoint-down(md) {
-        transform: translate(-50%, -6px);
-      }
-
-      @include media-breakpoint-up(xl) {
-        transform: translateY(-6px);
-      }
     }
 
     &::after {
       content: "";
       position: absolute;
-      top: 40%;
-      left: 39.5px;
-      transform: translate(-50%,-50%);
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: center;
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      height: 40px;
       z-index: 99;
-
-      @include media-breakpoint-up(md) {
-
+      filter: drop-shadow(1px 2px 1px rgba($color-slate, 0.35));
+      @include media-breakpoint-down(md) {
+        top: -5%;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       @include media-breakpoint-up(xl) {
-        width: vw(60,1920);
-        height: vw(60,1920);
+        width: vw(60, 1920);
+        height: vw(60, 1920);
+
+        top: 50%;
+        left: vw(25, 1920);
+        transform: translateY(-50%);
       }
     }
 
@@ -113,24 +104,24 @@
       }
 
       &-direct {
-        &::after{
-          background-image: url("../../Storage/svg/homepage/direct-booking.svg")
+        &::after {
+          background-image: url("../../Storage/svg/homepage/direct-booking.svg");
         }
       }
-      &-robust{
-        &::after{
-          background-image: url("../../Storage/svg/homepage/robust-booking.svg")
+      &-robust {
+        &::after {
+          background-image: url("../../Storage/svg/homepage/robust-booking.svg");
         }
       }
-      &-online-payment{
-        &::after{
-          background-image: url("../../Storage/svg/homepage/online-payment.svg")
+      &-online-payment {
+        &::after {
+          background-image: url("../../Storage/svg/homepage/online-payment.svg");
         }
       }
     }
 
     + * {
-      margin-top: 80px;
+      margin-top: 40px;
 
       @include media-breakpoint-up(xl) {
         margin-top: 4vw;
