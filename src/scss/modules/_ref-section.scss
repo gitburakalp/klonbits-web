@@ -26,13 +26,13 @@
 
       margin-top: 2rem;
 
-      + * {
+      +* {
         margin-top: 4rem;
       }
     }
 
     @include media-breakpoint-up(xl) {
-      + * {
+      +* {
         margin-top: calcPercent(100, 1080) + vh;
       }
     }
@@ -105,7 +105,7 @@
           left: -3vw;
           right: -3vw;
 
-          > * {
+          >* {
             position: absolute;
             bottom: 5%;
             cursor: pointer;
@@ -168,7 +168,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             width: 80%;
             background-color: $color-white;
 
