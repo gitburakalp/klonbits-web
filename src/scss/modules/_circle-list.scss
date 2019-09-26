@@ -70,7 +70,6 @@
       text-align: justify;
     }
 
-<<<<<<< HEAD
     &::before {
       @extend %circles;
       z-index: 99;
@@ -87,43 +86,24 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-=======
-    &::after {
-      content: "";
-      position: absolute;
->>>>>>> d03a88d384b124473b45887a579e0614fcdfd15c
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: center;
       width: 40px;
       height: 40px;
       z-index: 99;
-<<<<<<< HEAD
 
       @include media-breakpoint-down(md) {
         transform: translate(-50%,-125%)
-=======
-      filter: drop-shadow(1px 2px 1px rgba($color-slate, 0.35));
-      @include media-breakpoint-down(md) {
-        top: -5%;
-        left: 50%;
-        transform: translateX(-50%);
->>>>>>> d03a88d384b124473b45887a579e0614fcdfd15c
       }
 
       @include media-breakpoint-up(xl) {
         width: vw(60, 1920);
         height: vw(60, 1920);
 
-<<<<<<< HEAD
         top: 40%;
         left: 39.5px;
       transform: translate(-50%,-50%);
-=======
-        top: 50%;
-        left: vw(25, 1920);
-        transform: translateY(-50%);
->>>>>>> d03a88d384b124473b45887a579e0614fcdfd15c
       }
     }
 
