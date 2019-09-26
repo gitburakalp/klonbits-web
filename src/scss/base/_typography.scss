@@ -200,6 +200,18 @@
       font-weight: 500;
     }
 
+    &.fs-lg {
+      font-size: 18px;
+
+      @include media-breakpoint-up(md) {
+        font-size: 24px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        font-size: vw(20,1920);
+      }
+    }
+
     + * {
       margin-top: 1rem;
 
