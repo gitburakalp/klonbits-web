@@ -44,10 +44,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 44px;
+    height: auto;
 
     @include media-breakpoint-down(sm) {
-      padding-top: 50px;
+      padding-top: 25px;
+
     }
 
     @include media-breakpoint-up(md) {
@@ -65,7 +66,6 @@
       font-size: vw(16, 1920);
       padding-top: 0;
       padding-left: fluidSize(50, 100, 768, 1920);
-      height: 4vw;
       text-align: justify;
     }
 
@@ -73,9 +73,7 @@
       @extend %circles;
       z-index: 99;
 
-      @include media-breakpoint-down(md) {
-        transform: translate(-50%, -6px);
-      }
+      
 
       @include media-breakpoint-up(xl) {
         transform: translateY(-6px);
@@ -85,23 +83,26 @@
     &::after {
       content: "";
       position: absolute;
-      top: 40%;
-      left: 39.5px;
-      transform: translate(-50%,-50%);
+      left: 50%;
+      transform: translateX(-50%);
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: center;
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      height: 40px;
       z-index: 99;
 
-      @include media-breakpoint-up(md) {
-
+      @include media-breakpoint-down(md) {
+        transform: translate(-50%,-125%)
       }
 
       @include media-breakpoint-up(xl) {
-        width: vw(60,1920);
-        height: vw(60,1920);
+        width: vw(60, 1920);
+        height: vw(60, 1920);
+
+        top: 40%;
+        left: 39.5px;
+      transform: translate(-50%,-50%);
       }
     }
 
@@ -113,24 +114,26 @@
       }
 
       &-direct {
-        &::after{
+        &::after {
           background-image: url("../../Storage/svg/homepage/direct-booking.svg")
         }
       }
-      &-robust{
-        &::after{
+
+      &-robust {
+        &::after {
           background-image: url("../../Storage/svg/homepage/robust-booking.svg")
         }
       }
-      &-online-payment{
-        &::after{
+
+      &-online-payment {
+        &::after {
           background-image: url("../../Storage/svg/homepage/online-payment.svg")
         }
       }
     }
 
-    + * {
-      margin-top: 80px;
+    +* {
+      margin-top: 45px;
 
       @include media-breakpoint-up(xl) {
         margin-top: 4vw;
@@ -193,14 +196,12 @@
 
       &::before,
       &::after {
-        background-image: linear-gradient(
-          to top,
-          rgba(#3fa9f5, 1) 0%,
-          rgba(#66baf7, 0.79) 19%,
-          rgba(#b7dffb, 0.37) 59%,
-          rgba(#ebf6fd, 0.1) 87%,
-          rgba(#ffffff, 0) 100%
-        );
+        background-image: linear-gradient(to top,
+            rgba(#3fa9f5, 1) 0%,
+            rgba(#66baf7, 0.79) 19%,
+            rgba(#b7dffb, 0.37) 59%,
+            rgba(#ebf6fd, 0.1) 87%,
+            rgba(#ffffff, 0) 100%);
         opacity: 0.2;
       }
     }
