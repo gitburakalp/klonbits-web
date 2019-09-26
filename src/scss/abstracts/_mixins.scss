@@ -15,9 +15,15 @@
   }
 }
 
-@mixin pathAnimationProps($strokeDashArrayWidth,$strokeDashOffsetWidth,$animName,$animDuration,$animDelay) {
-    stroke-dasharray: $strokeDashArrayWidth;
-    stroke-dashoffset: $strokeDashOffsetWidth;
-    animation: $animName $animDuration ease-in alternate forwards;
-    animation-delay: $animDelay;
+@mixin pathAnimationProps(
+  $strokeDashArrayWidth,
+  $strokeDashOffsetWidth,
+  $animName,
+  $animDuration,
+  $animDelay
+) {
+  stroke-dasharray: $strokeDashArrayWidth;
+  stroke-dashoffset: $strokeDashOffsetWidth;
+  animation: $animName $animDuration ease-in alternate forwards;
+  animation-delay: $animDelay;
 }

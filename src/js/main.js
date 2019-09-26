@@ -344,11 +344,11 @@ $(".square-cards .special-cards").each(function(i, e) {
 
     var thisIdx = $sqCards.index($(e.target).closest(".special-cards"));
 
-    var thisDescription = $(this).data('description');
+    var thisDescription = $(this).data("description");
 
-    setTimeout(function(){
-      $specialCardsDetails.find('.main-description').html(thisDescription);
-    },500);
+    setTimeout(function() {
+      $specialCardsDetails.find(".main-description").html(thisDescription);
+    }, 500);
 
     if (!$specialCardsDetails.is(":visible")) {
       $specialCardsDetails.slideDown();
