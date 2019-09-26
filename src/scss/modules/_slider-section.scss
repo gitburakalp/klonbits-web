@@ -3,7 +3,7 @@
     position: relative;
 
     @include media-breakpoint-up(md) {
-      padding-top: vw(80,1920) !important;
+      padding-top: vw(72, 1920) !important;
     }
 
     @include media-breakpoint-up(xl) {
@@ -19,11 +19,11 @@
 
         video {
           position: absolute;
-          top:0%;
+          top: 0%;
           width: 85%;
           right: 0;
           z-index: -1;
-          border: none
+          border: none;
         }
       }
     }
@@ -49,7 +49,7 @@
         flex-direction: row;
         padding: 1.75vw 0;
 
-        min-height: vw(705,1920);
+        min-height: vw(705, 1920);
       }
     }
 

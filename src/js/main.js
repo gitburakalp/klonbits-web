@@ -3,6 +3,27 @@ $(".hamburger").on("click", function() {
   $(".header").toggleClass("is-shown");
 });
 
+$(".header-menu").each(function() {
+  let ww = window.innerWidth;
+
+  if (ww < 1024) {
+    $(this)
+      .find(".header-menu__link")
+      .on("click", function(e) {
+        e.preventDefault();
+
+        $(".header-menu .header-menu__item").removeClass("active");
+        $(this)
+          .parent()
+          .toggleClass("active");
+
+        $(this)
+          .siblings()
+          .slideToggle();
+      });
+  }
+});
+
 let sliders = [];
 
 $("[data-slider-name]").each(function(i, e) {

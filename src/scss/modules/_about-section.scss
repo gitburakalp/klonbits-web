@@ -25,8 +25,8 @@
 .section {
   &-about-us {
     .special-cards {
-      width: 290px;
-      max-height: 114px;
+      width: 340px;
+      height: auto;
 
       @include media-breakpoint-up(md) {
         width: 500px;
@@ -118,7 +118,7 @@
             }
 
             width: 313px;
-            max-height: 143px;
+            height: auto;
 
             text-align: center;
 

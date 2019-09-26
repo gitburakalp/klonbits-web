@@ -62,8 +62,8 @@
 
   &__title {
     font-family: $FontFamilySansSerif;
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.8px;
     color: $color-bluish-grey;
@@ -81,8 +81,8 @@
 
   &__description {
     font-family: $FontFamilySansSerif;
-    font-size: 10px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 300;
     line-height: 1.2;
     color: $color-steel;
     text-shadow: 1px 1px 1px rgba($color-steel, 0.08);
