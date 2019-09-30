@@ -94,12 +94,8 @@
             z-index: -1;
           }
 
-          &:not(.cards--sm) {
-          }
-
           &:not(.is-active) {
             .cards-menu {
-              opacity: 0;
               visibility: hidden;
               z-index: -1;
               max-height: 0px;
@@ -108,8 +104,8 @@
 
           &.is-active {
             &:before {
-              opacity: 1;
               transition: all 400ms ease;
+              opacity: 1;
             }
           }
 
@@ -145,7 +141,6 @@
           }
 
           &-menu {
-            position: absolute;
             list-style: disc;
             padding-left: 24px;
             margin-left: -24px;
@@ -161,6 +156,21 @@
             box-shadow: 0 1px 4px rgba($color-steel, 0.35);
 
             background-color: rgba($color-white, 0.85);
+
+            &::before {
+              content: "i";
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              visibility: visible;
+              border: 1px solid rgba($color-cerulean, 0.35);
+              border-radius: 100%;
+              color: rgba($color-cerulean, 0.5);
+              font-weight: 600;
+              padding: 0px 8px;
+              font-size: fluidSize(10, 14, 768, 1920);
+              font-style: italic;
+            }
 
             &-item {
               font-family: $FontFamilySansSerif;
@@ -283,12 +293,12 @@
 
           &:nth-child(2) {
             left: calcPercent(100, 1920) + vw;
-            transform: translateY(-50%);
+            transform: translateY(-75%);
           }
 
           &:nth-child(3) {
             right: 2vw;
-            transform: translateY(-150%);
+            transform: translateY(-200%);
           }
 
           &:nth-child(4) {

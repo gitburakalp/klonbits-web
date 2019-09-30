@@ -119,6 +119,44 @@ function getSliderConfig(sliderName) {
             slidesPerView: 1.75,
             spaceBetween: 15
           }
+        },
+        on: {
+          transitionStart: function() {
+            $(".ref-slider-block--sm")
+              .find(".slider-wrapper > *")
+              .remove();
+            $(".ref-slider-block--sm").removeClass("fade-in");
+          },
+          transitionEnd: function() {
+            $(".ref-slider-block--sm").addClass("fade-in");
+            var refSliderSm = $(".ref-slider-block--sm .slider-container")[0]
+              .swiper;
+
+            var $activeSlide = $(".ref-slider-block .slider-slide--active");
+            var projects =
+              $activeSlide.data("projects") != undefined &&
+              $activeSlide.data("projects") != ""
+                ? $activeSlide.data("projects").split(/,(?![^{}]*\})/gm)
+                : "";
+
+            $.each(projects, function(i, e) {
+              var jsonVal = JSON.parse(e);
+              var content = `<div class="slider-slide"><div class="card text-center"><img class="img-fluid" src="https://via.placeholder.com/100x40" /><h2 class="card-title">${
+                jsonVal.projectType
+              }</h2><span class="card-blocks ${
+                i % 2 == 0
+                  ? "card-blocks--cerulean"
+                  : "card-blocks--dull-orange"
+              }">${jsonVal.projectDetail}</span><a href="${
+                jsonVal.url
+              }" class="btn btn--primary">READ MORE</a></div></div>`;
+              $(".ref-slider-block--sm")
+                .find(".slider-wrapper")
+                .append(content);
+            });
+
+            refSliderSm != undefined ? refSliderSm.update() : "";
+          }
         }
       };
       break;
@@ -126,7 +164,6 @@ function getSliderConfig(sliderName) {
       sliderConfig = {
         slidesPerView: 3,
         spaceBetween: 20,
-        loop: true,
         containerModifierClass: "slider-container--",
         wrapperClass: "slider-wrapper",
         slideClass: "slider-slide",
@@ -194,8 +231,6 @@ $(".cards").each(function(e) {
   });
 
   $("html,body").on("click", function(e) {
-    console.log($(e.target).closest(".cards").length);
-
     if (
       !$(e.target).hasClass("cards") &&
       $(e.target).closest(".cards").length != 1
@@ -360,5 +395,21 @@ $(".square-cards .special-cards").each(function(i, e) {
     }
 
     lastIdx = thisIdx;
+  });
+});
+
+window.addEventListener("DOMContentLoaded", event => {
+  window.addEventListener("scroll", () => {
+    var thisY = window.pageYOffset;
+
+    $(".main div section").each(function(i) {
+      var $this = $(this);
+      var elemTop = $this.position().top;
+      var elemBottom = $this.position().top + $this.outerHeight();
+
+      thisY > elemTop / 1.5 && thisY <= elemBottom
+        ? $this.addClass("is-shown")
+        : $this.removeClass("is-shown");
+    });
   });
 });

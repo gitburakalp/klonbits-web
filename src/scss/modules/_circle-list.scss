@@ -79,7 +79,7 @@
       width: 40px;
       height: 40px;
       z-index: 99;
-      filter: drop-shadow(1px 2px 1px rgba($color-slate, 0.35));
+      filter: drop-shadow(1px 2px 1px rgba($color-slate, 0.075));
       @include media-breakpoint-down(md) {
         top: -5%;
         left: 50%;

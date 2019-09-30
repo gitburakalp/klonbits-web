@@ -33,7 +33,7 @@
       padding: 15px;
     }
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lg) {
       position: relative;
       max-width: 82vw;
       margin-left: auto;
@@ -159,7 +159,7 @@
       width: 100vw;
     }
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lg) {
       flex-direction: row;
     }
 
@@ -169,8 +169,8 @@
       font-size: 16px;
       line-height: 1.2;
       letter-spacing: 0.6px;
-      text-transform: uppercase;
       text-align: center;
+      cursor: pointer;
 
       @include media-breakpoint-down(md) {
         padding: 8px;
@@ -184,7 +184,7 @@
         }
       }
 
-      @include media-breakpoint-up(xl) {
+      @include media-breakpoint-up(lg) {
         font-size: fluidSize(12, 14, 1280, 1920);
       }
 
@@ -193,20 +193,18 @@
       }
 
       + * {
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lg) {
           letter-spacing: 0.6px;
         }
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         &:hover {
-          &:hover {
-            background-color: $color-white;
-            box-shadow: 0 0 1px rgba($color-slate, 0.25);
+          background-color: $color-white;
+          box-shadow: 0 0 1px rgba($color-slate, 0.25);
 
-            .header-menu__link {
-              color: $color-cerulean;
-            }
+          .header-menu__link {
+            color: $color-cerulean;
           }
 
           .sub-menu {
@@ -223,7 +221,7 @@
       transition: color 200ms, background-color $duration;
       will-change: transition;
 
-      @include media-breakpoint-up(xl) {
+      @include media-breakpoint-up(lg) {
         padding: vw(25, 1920);
       }
     }
@@ -237,7 +235,7 @@
         margin-top: 1rem;
       }
 
-      @include media-breakpoint-up(xl) {
+      @include media-breakpoint-up(lg) {
         position: absolute;
         max-width: vw(475, 1920);
         background-color: $color-white;
@@ -269,8 +267,8 @@
         line-height: 1.47;
         letter-spacing: -0.025vw;
 
-        @include media-breakpoint-up(xl) {
-          font-size: fluidSize(12, 16, 1280, 1920);
+        @include media-breakpoint-up(lg) {
+          font-size: fluidSize(12.25, 16, 1280, 1920);
         }
       }
 
@@ -280,10 +278,9 @@
         line-height: 1.47;
         letter-spacing: -0.025vw;
         color: $color-slate;
-        text-transform: capitalize;
-
-        @include media-breakpoint-up(xl) {
-          font-size: fluidSize(10, 14, 1280, 1920);
+        text-shadow: 1px 1px 1px rgba($color-slate, 0.025);
+        @include media-breakpoint-up(lg) {
+          font-size: fluidSize(11.25, 14, 1280, 1920);
         }
       }
     }

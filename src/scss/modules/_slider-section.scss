@@ -9,8 +9,8 @@
     @include media-breakpoint-up(xl) {
       background-image: url("../../Storage/svg/slider-section-bg-path.svg");
       background-repeat: no-repeat;
-      background-position: 73% 100%;
-      background-size: 150vw;
+      background-position: 16% 166%;
+      background-size: 112vw;
       margin-top: 0px !important;
       padding: 80px 0 30vw;
 
@@ -36,6 +36,7 @@
         max-width: calcPercent(1586, 1920) * 1%;
         background-color: $color-white;
         border-radius: 5px;
+        box-shadow: 1px 1px 4px rgba($color-slate, 0.25);
 
         background-image: url("../../Storage/svg/slider-section-path.svg");
         background-repeat: no-repeat;

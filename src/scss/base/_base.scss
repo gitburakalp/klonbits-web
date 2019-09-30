@@ -24,26 +24,6 @@ body {
     background-repeat: no-repeat;
   }
 
-  // section + section {
-  //   @include media-breakpoint-down(sm) {
-  //     margin-top: calcPercent(66, 375) + vw !important;
-  //   }
-
-  //   @include media-breakpoint-up(md) {
-  //     margin-top: calcPercent(133, 1920) + vw !important;
-  //   }
-
-  //   &:last-child {
-  //     @include media-breakpoint-down(sm) {
-  //       margin-bottom: calcPercent(150, 667) + vh !important;
-  //     }
-
-  //     @include media-breakpoint-up(md) {
-  //       margin-bottom: calcPercent(133, 1920) + vw !important;
-  //     }
-  //   }
-  // }
-
   .main {
     section {
       &:first-child {
@@ -88,6 +68,7 @@ body {
       background: transparent;
       border-radius: 10px;
       box-shadow: rgba($color-cerulean, 0.3) 0 0 0 1px;
+      background: rgba($color-cerulean, 0.75);
     }
     &:hover::-webkit-scrollbar-thumb {
       background: rgba($color-cerulean, 0.45);
@@ -151,11 +132,16 @@ a {
   background-size: 100%;
   background-image: url("../../Storage/svg/services-bg-path.svg");
 
-  min-height: 100vh;
-
   section:first-child {
     @include media-breakpoint-up(xl) {
       padding-top: vw(120, 1920) !important;
     }
   }
+}
+
+.projects {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+  background-image: url("../../Storage/svg/projects-bg-path.svg");
 }

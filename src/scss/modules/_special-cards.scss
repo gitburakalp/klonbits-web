@@ -13,6 +13,36 @@
     padding: 30px 20px 45px;
   }
 
+  + [special-cards-details] {
+    overflow: auto;
+
+    &::after {
+      background-color: transparent !important;
+    }
+
+    @include media-breakpoint-up(md) {
+      &::-webkit-scrollbar {
+        width: 7px;
+        height: 0;
+      }
+      &::-webkit-scrollbar-track {
+        margin: 10px 0;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 10px;
+        box-shadow: rgba($color-cerulean, 0.3) 0 0 0 1px;
+        background: rgba($color-cerulean, 0.75);
+      }
+      &:hover::-webkit-scrollbar-thumb {
+        background: rgba($color-cerulean, 0.45);
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba($color-cerulean, 0.75);
+      }
+    }
+  }
+
   &:not(.active) {
     &::after {
       content: "";
@@ -60,6 +90,20 @@
     }
   }
 
+  &__icon {
+    max-width: unset;
+    width: auto;
+    max-height: unset;
+
+    + * {
+      margin-top: 0.5rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      height: vw(100, 1920);
+    }
+  }
+
   &__title {
     font-family: $FontFamilySansSerif;
     font-size: 16px;
@@ -68,6 +112,10 @@
     letter-spacing: 0.8px;
     color: $color-bluish-grey;
     text-transform: uppercase;
+
+    + * {
+      margin-top: 0.5rem;
+    }
 
     @include media-breakpoint-up(md) {
       font-size: 16px;
@@ -86,6 +134,10 @@
     line-height: 1.2;
     color: $color-steel;
     text-shadow: 1px 1px 1px rgba($color-steel, 0.08);
+
+    + * {
+      margin-top: 0.5rem;
+    }
 
     @include media-breakpoint-up(md) {
       font-size: 14px;
@@ -136,6 +188,32 @@
         font-size: vw(12, 1920);
         letter-spacing: vw(0.48, 1920);
       }
+    }
+  }
+
+  &-details {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      width: 1px;
+      background-color: rgba($color-steel, 0.25);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 12%;
+      top: 35%;
+      height: 1px;
+      transform: translateX(-50%);
+      background-color: rgba($color-steel, 0.25);
+      z-index: -1;
     }
   }
 }
