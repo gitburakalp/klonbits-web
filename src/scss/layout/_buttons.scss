@@ -4,7 +4,9 @@
   line-height: 1.2;
   padding: 12px 36px;
   box-shadow: 0 2px 4px rgba($color-black, 0.25);
-  transition: all $duration ease;
+  transition: background-color $duration ease-in, color $duration ease-in,
+    opacity $duration ease-in;
+  will-change: background-color, color, opacity;
   z-index: 102;
 
   &:hover {

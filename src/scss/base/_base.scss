@@ -91,6 +91,10 @@ body {
       z-index: 9999;
     }
   }
+
+  * {
+    font-family: $FontFamilySansSerif;
+  }
 }
 
 [data-parallax="true"] {

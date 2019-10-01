@@ -122,7 +122,7 @@
 
             text-align: center;
 
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(lg) {
               + * {
                 margin-top: 3rem;
               }

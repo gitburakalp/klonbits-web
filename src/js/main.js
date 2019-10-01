@@ -6,7 +6,7 @@ $(".hamburger").on("click", function() {
 $(".header-menu").each(function() {
   let ww = window.innerWidth;
 
-  if (ww < 1024) {
+  if (ww < 1280) {
     $(this)
       .find(".header-menu__link")
       .on("click", function(e) {
@@ -62,7 +62,7 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         breakpoints: {
-          767: {
+          1279: {
             speed: 500,
             spaceBetween: 30
           }
@@ -84,7 +84,7 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         breakpoints: {
-          1023: {
+          1279: {
             slidesPerView: 1.875,
             spaceBetween: 50,
             loop: false
@@ -115,7 +115,7 @@ function getSliderConfig(sliderName) {
           prevEl: ".ref-slider + .slider-controls .prev"
         },
         breakpoints: {
-          1023: {
+          1279: {
             slidesPerView: 1.75,
             spaceBetween: 15
           }
@@ -171,7 +171,7 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         breakpoints: {
-          767: {
+          1279: {
             slidesPerView: 1.75,
             spaceBetween: 15,
             centeredSlides: true
@@ -192,7 +192,7 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         breakpoints: {
-          1023: {
+          1279: {
             slidesPerView: 1.75,
             spaceBetween: "70",
             centeredSlides: true
@@ -246,7 +246,7 @@ $(".footer").each(function() {
     .on("click", function() {
       var ww = $(window).width();
 
-      if (ww < 1024) {
+      if (ww < 1280) {
         $(this)
           .siblings()
           .slideToggle();
@@ -272,14 +272,14 @@ $(".rectangle-cards").each(function() {
     slideNextClass: "special-cards--next",
     slidePrevClass: "special-cards--prev",
     breakpoints: {
-      767: {
+      1279: {
         slidesPerView: 1.69076,
         spaceBetween: 11.7
       }
     }
   };
 
-  ww < 1024 ? (rectangleSlider = new Swiper($(this), sliderConfig)) : "";
+  ww < 1280 ? (rectangleSlider = new Swiper($(this), sliderConfig)) : "";
 });
 
 $(".iconic-cards").each(function() {
@@ -354,13 +354,13 @@ $(".accordion-menu").each(function() {
     $accordionMenuContents.find(`[data-tab-content]`).fadeOut(1);
     $accordionMenuContents.find(`[data-tab-content]`).fadeIn();
 
-    if (ww < 1024) {
+    if (ww < 1280) {
       $accordionMenuContents.attr("style", `top:${elemHeight}px`);
       $accordionMenuContents.fadeIn();
     }
   });
 
-  if (ww < 1024) {
+  if (ww < 1280) {
     $(".back-button").on("click", function() {
       $accordionMenuContents.fadeOut();
     });
@@ -399,6 +399,8 @@ $(".square-cards .special-cards").each(function(i, e) {
 });
 
 window.addEventListener("DOMContentLoaded", event => {
+  $("body").removeClass("loading");
+
   window.addEventListener("scroll", () => {
     var thisY = window.pageYOffset;
 

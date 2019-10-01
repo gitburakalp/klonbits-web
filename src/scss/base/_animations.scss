@@ -387,6 +387,26 @@ $scPathOffWidth: 778.1371459960938;
   animation: fadeIn 400ms ease-in;
 }
 
+.main section {
+  .title--light.lo {
+    transition: all 400ms ease-in;
+  }
+
+  &:not(.is-shown) {
+    .title--light.lo {
+      opacity: 0;
+      top: -15px;
+    }
+  }
+
+  &.is-shown {
+    .title--light.lo {
+      opacity: 1;
+      top: 0;
+    }
+  }
+}
+
 .poe-section {
   &:not(.is-shown) {
     img {

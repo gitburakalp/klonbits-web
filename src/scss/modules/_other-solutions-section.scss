@@ -7,7 +7,7 @@
     padding-bottom: calcPercent(143, 375) + vw;
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     margin-top: 80px;
   }
 
@@ -64,7 +64,7 @@
       color: $color-cerulean;
       text-align: center;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         font-size: 35px;
         line-height: 1.2;
       }
@@ -90,7 +90,7 @@
       letter-spacing: 0.43px;
       color: $color-slate;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         font-size: 21px;
       }
 
@@ -124,7 +124,7 @@
       }
     }
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       bottom: 0;
     }
   }

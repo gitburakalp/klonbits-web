@@ -6,7 +6,8 @@
     font-weight: 300;
     line-height: 1.2;
     color: $color-black;
-    transition: all $duration ease;
+    transition: opacity $duration ease-in;
+    will-change: opacity;
 
     @include media-breakpoint-up(md) {
       font-size: 52px;
@@ -161,7 +162,7 @@
       }
 
       &--modified {
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
           .main-title {
             font-weight: bold;
 
@@ -189,7 +190,8 @@
     line-height: 1.47;
     letter-spacing: vw(0.64, 1920);
     color: $color-steel;
-    transition: all $duration ease;
+    transition: opacity $duration ease-in;
+    will-change: opacity;
 
     @include media-breakpoint-up(md) {
       font-size: 20px;
@@ -249,7 +251,7 @@
     letter-spacing: 2.51px;
     color: $color-slate;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       display: none;
     }
 
