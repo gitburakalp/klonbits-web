@@ -141,7 +141,7 @@ function getSliderConfig(sliderName) {
 
             $.each(projects, function(i, e) {
               var jsonVal = JSON.parse(e);
-              var content = `<div class="slider-slide"><div class="card text-center"><img class="img-fluid" src="https://via.placeholder.com/100x40" /><h2 class="card-title">${
+              var content = `<div class="slider-slide"><div class="card text-center"><h2 class="card-title">${
                 jsonVal.projectType
               }</h2><span class="card-blocks ${
                 i % 2 == 0
