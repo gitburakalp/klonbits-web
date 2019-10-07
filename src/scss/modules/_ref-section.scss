@@ -105,7 +105,7 @@
     }
 
     img {
-      max-width: unset;
+      max-width: 100%;
       width: auto;
       height: vw(120, 1920);
     }
@@ -118,14 +118,14 @@
 
       &__contents {
         img {
-          max-width: unset;
+          max-width: 100%;
           width: auto;
           height: vw(40, 1920);
         }
 
         > * {
           + * {
-            margin-top: 1.5rem;
+            margin-top: vw(16, 1920);
           }
         }
       }
@@ -271,7 +271,7 @@
       @include media-breakpoint-up(xl) {
         height: calcPercent(309, 1920) + vw;
         background-color: $color-white;
-        padding: 20px;
+        padding: vw(35, 1920);
 
         display: flex;
         flex-direction: column;
@@ -293,8 +293,27 @@
             width: calcPercent(483, 1920) + vw !important;
             z-index: 9;
 
+            .ref-slider__contents {
+              .ref-slider__title {
+                transition: all 400ms ease-in;
+                transition-delay: 800ms;
+              }
+
+              img {
+                opacity: 0;
+                height: 2.75vw;
+                animation: fadeIn 400ms forwards;
+                animation-delay: 1.25s;
+              }
+
+              .ref-slider__description {
+                transition: all 400ms ease-in;
+                transition-delay: 1.35s;
+              }
+            }
+
             .ref-slider__cards {
-              box-shadow: -10px 10px 10px #d7e6ff;
+              box-shadow: 0 10px 20px rgba($color-cerulean, 0.45);
             }
           }
         }
@@ -302,6 +321,7 @@
         &:not(.slider-slide--active) {
           .ref-slider__contents {
             align-items: center;
+            text-align: center;
 
             *:not(img) {
               opacity: 0;

@@ -3,6 +3,26 @@ $(".hamburger").on("click", function() {
   $(".header").toggleClass("is-shown");
 });
 
+var callRefCount = () => {
+  $(".ref-count .count").each(function() {
+    var $this = $(this);
+    jQuery({ Counter: 0 }).animate(
+      { Counter: $this.data("count") },
+      {
+        duration: 2500,
+        easing: "swing",
+        step: function(now) {
+          $this.text(
+            Math.ceil(now)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "+"
+          );
+        }
+      }
+    );
+  });
+};
+
 $(".header-menu").each(function() {
   let ww = window.innerWidth;
 
@@ -409,7 +429,23 @@ window.addEventListener("DOMContentLoaded", event => {
       var elemTop = $this.position().top;
       var elemBottom = $this.position().top + $this.outerHeight();
 
-      thisY > elemTop / 1.5 && thisY <= elemBottom
+      if ($this.hasClass("fh-section")) {
+        $this.find("> div").each(function() {
+          var $this = $(this);
+          var eTop = $this.position().top;
+          var eBottom = $this.position().top + $this.outerHeight();
+
+          thisY > eTop / 1.15 && thisY <= eBottom
+            ? $this.addClass("is-shown")
+            : $this.removeClass("is-shown");
+
+          $this.hasClass("ref-section") && !$this.hasClass("is-shown")
+            ? callRefCount()
+            : "";
+        });
+      }
+
+      thisY > elemTop / 1.85 && thisY <= elemBottom
         ? $this.addClass("is-shown")
         : $this.removeClass("is-shown");
     });
