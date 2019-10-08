@@ -27,6 +27,10 @@
     align-items: center;
     justify-content: center;
 
+    @include media-breakpoint-down(lg) {
+      min-height: 400px;
+    }
+
     .circle-block--cerulean {
       display: flex;
       flex-direction: column;

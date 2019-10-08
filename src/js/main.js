@@ -302,35 +302,6 @@ $(".rectangle-cards").each(function() {
   ww < 1280 ? (rectangleSlider = new Swiper($(this), sliderConfig)) : "";
 });
 
-$(".iconic-cards").each(function() {
-  $(this).on("click", function() {
-    var thisTop = $(this).offset().top;
-
-    console.log(thisTop);
-
-    $(".iconic-cards__description").slideUp();
-
-    $("html,body").animate(
-      {
-        scrollTop: thisTop
-      },
-      500
-    );
-
-    $(this)
-      .find(".iconic-cards__description")
-      .slideDown();
-  });
-
-  $("html").on("click", function(e) {
-    var $thisTarget = $(e.target).parent();
-
-    if (!$thisTarget.hasClass("iconic-cards")) {
-      $(".iconic-cards__description").slideUp();
-    }
-  });
-});
-
 $(".accordion-menu").each(function() {
   var $accordionMenu = $(this);
   var ww = $(window).width();

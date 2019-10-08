@@ -387,56 +387,114 @@ $scPathOffWidth: 778.1371459960938;
   animation: fadeIn 400ms ease-in;
 }
 
-.main section {
-  .title--light.lo {
-    transition: all 400ms ease-in;
-  }
-
-  &:not(.is-shown) {
-    .title--light.lo {
-      opacity: 0;
-      top: -15px;
+@include media-breakpoint-down(lg) {
+  .header {
+    &-menu__item {
+      transition: opacity $duration ease-in;
     }
-  }
 
-  &.is-shown {
-    .title--light.lo {
-      opacity: 1;
-      top: 0;
+    &:not(.is-shown) {
+      .header-menu__item {
+        opacity: 0;
+      }
+    }
+
+    &.is-shown {
+      @for $i from 1 to 6 {
+        .header-menu__item:nth-child(#{$i}) {
+          transition-delay: $i * 0.35s;
+        }
+      }
     }
   }
 }
 
-.poe-section {
-  &:not(.is-shown) {
-    img {
-      transform: translateX(-25%);
+@include media-breakpoint-up(xl) {
+  .main section {
+    .title--light.lo {
+      transition: all 400ms ease-in;
     }
 
-    .main-title,
-    img,
-    .circle-list-item {
-      opacity: 0;
+    &:not(.is-shown) {
+      .title--light.lo {
+        opacity: 0;
+        top: -15px;
+      }
+    }
+
+    &.is-shown {
+      .title--light.lo {
+        opacity: 1;
+        top: 0;
+      }
     }
   }
 
-  &.is-shown {
-    .main-title {
-      transition-delay: 400ms;
-    }
+  .poe-section {
+    &:not(.is-shown) {
+      img {
+        transform: translateX(-25%);
+      }
 
-    img {
-      transition: all 750ms ease-in;
-      transition-delay: 550ms;
-    }
-
-    @for $i from 1 to 5 {
+      .main-title,
+      img,
       .circle-list-item {
-        transition: opacity 400ms ease-in;
-        will-change: opacity;
-        &:nth-child(#{$i}) {
-          transition-delay: 1s + ($i * 0.25s);
+        opacity: 0;
+      }
+    }
+
+    &.is-shown {
+      .main-title {
+        transition-delay: 400ms;
+      }
+
+      img {
+        transition: all 750ms ease-in;
+        transition-delay: 550ms;
+      }
+
+      @for $i from 1 to 5 {
+        .circle-list-item {
+          transition: opacity 400ms ease-in;
+          will-change: opacity;
+          &:nth-child(#{$i}) {
+            transition-delay: 1s + ($i * 0.25s);
+          }
         }
+      }
+    }
+  }
+
+  .content-img-section {
+    &:not(.is-shown) {
+      * {
+        opacity: 0;
+      }
+    }
+
+    &.is-shown {
+      .main {
+        &-title {
+          transition-delay: 250ms;
+        }
+
+        &-description {
+          transition-delay: 600ms;
+        }
+      }
+
+      @for $i from 1 to 5 {
+        .line-menu-item:nth-child(#{$i}) {
+          transition-delay: 600ms + ($i * 350ms);
+        }
+      }
+
+      .btn {
+        transition-delay: 2250ms;
+      }
+
+      img {
+        transition-delay: 2650ms;
       }
     }
   }

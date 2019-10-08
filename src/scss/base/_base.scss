@@ -13,14 +13,17 @@ body {
   }
 
   @include media-breakpoint-down(md) {
-    background: linear-gradient(
-      to bottom,
-      $color-pale-grey,
-      rgba(237, 242, 250, 0.78) 20%,
-      rgba(246, 249, 252, 0.36) 60%,
-      rgba(252, 253, 254, 0.1) 87%,
-      rgba(255, 255, 255, 0)
-    );
+    // background: linear-gradient(
+    //   to bottom,
+    //   $color-pale-grey,
+    //   rgba(237, 242, 250, 0.78) 20%,
+    //   rgba(246, 249, 252, 0.36) 60%,
+    //   rgba(252, 253, 254, 0.1) 87%,
+    //   rgba(255, 255, 255, 0)
+    // );
+
+    background-color: $color-white;
+
     background-repeat: no-repeat;
   }
 

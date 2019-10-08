@@ -7,7 +7,8 @@ var gulp = require("gulp"),
   browserSync = require("browser-sync").create(),
   size = require("gulp-size"),
   plumber = require("gulp-plumber"),
-  sourcemaps = require("gulp-sourcemaps");
+  sourcemaps = require("gulp-sourcemaps"),
+  browserslist = require("browserslist");
 
 var roots = {
     srcDir: "./src/",
@@ -19,8 +20,8 @@ var roots = {
     outputStyle: "compressed"
   },
   prefixerOptions = {
-      grid:true,
-      browsers: ['last 2 versions']
+    grid: true,
+    browsers: ["last 2 versions"]
   },
   jsFiles = [];
 
@@ -60,7 +61,11 @@ var functionsBrowserSync = function(done) {
           showFiles: true
         })
       )
-      .pipe(autoprefixer(prefixerOptions))
+      .pipe(
+        autoprefixer({
+          grid: true
+        })
+      )
       .pipe(
         rename({
           suffix: ".min"
@@ -85,4 +90,3 @@ gulp.task("sass", functionsSass);
 gulp.task("html", functionsHtml);
 gulp.task("watch", functionsWatch);
 gulp.task("default", gulp.series("browser-sync", "html", "sass", "watch"));
-

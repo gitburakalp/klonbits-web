@@ -40,7 +40,7 @@
 
           @include media-breakpoint-down(sm) {
             width: 16px;
-            height: 4rem;
+            height: 2rem;
             bottom: 0;
           }
 
@@ -203,7 +203,7 @@
     }
 
     &.fs-lg {
-      font-size: 18px;
+      font-size: 16px;
 
       @include media-breakpoint-up(md) {
         font-size: 24px;
