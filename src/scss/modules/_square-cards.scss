@@ -38,6 +38,7 @@
     height: $amount;
     text-align: center;
     padding: vw(15, 375);
+    cursor: pointer;
 
     &[special-cards-details] {
       position: absolute;

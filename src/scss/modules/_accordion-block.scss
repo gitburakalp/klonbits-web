@@ -6,10 +6,16 @@
     display: flex;
     flex-wrap: wrap;
 
-    > * {
-      position: relative;
-      min-height: 1px;
-      width: 100%;
+    > .main-title {
+      @include media-breakpoint-up(xl) {
+        width: calc(25.36458vw + 7.13542%);
+      }
+
+      + .main-title-block {
+        @include media-breakpoint-up(xl) {
+          width: calc(100% - (25.36458vw + 7.13542%));
+        }
+      }
     }
 
     @include media-breakpoint-up(md) {
@@ -102,6 +108,10 @@
     }
 
     &-contents {
+      .main-description {
+        line-height: 1.675;
+      }
+
       @include media-breakpoint-down(md) {
         display: none;
 
@@ -137,7 +147,7 @@
       .special-cards {
         border-radius: 3px;
         box-shadow: 0 0 4px rgba($color-slate, 0.65);
-        margin-top: 1.5rem;
+        margin-top: 0;
 
         @include media-breakpoint-down(md) {
           max-height: vw(375, 375);

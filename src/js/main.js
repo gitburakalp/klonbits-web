@@ -307,13 +307,6 @@ $(".accordion-menu").each(function() {
   var ww = $(window).width();
   var $accordionMenuContents = $(".accordion-menu-contents");
 
-  $accordionMenu.find(".accordion-menu-item").each(function() {
-    if ($(this).hasClass("active")) {
-      var showTab = $(this).data("show-tab");
-      $accordionMenuContents.find(`[data-tab-content=${showTab}]`).fadeIn(1);
-    }
-  });
-
   $accordionMenu.find(".accordion-menu-item").on("click", function() {
     var $this = $(this);
     var elemHeight = $this.offset().top + $this.innerHeight() - 20;
@@ -335,12 +328,6 @@ $(".accordion-menu").each(function() {
     document.getElementsByClassName(
       "main-description longDescription"
     )[0].innerHTML = descriptionText;
-
-    // var thisTitle = $this.find('.main-title').html().trim();
-    // var thisDesc = $this.find('.main-description').html().trim();
-
-    // $('.accordion-contents .main-title').html(thisTitle);
-    // $('.accordion-contents .main-description').html(thisDesc);
 
     $accordionMenuContents.find(`[data-tab-content]`).fadeOut(1);
     $accordionMenuContents.find(`[data-tab-content]`).fadeIn();
