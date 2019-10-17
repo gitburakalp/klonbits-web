@@ -31,7 +31,7 @@
         font-weight: 600;
         line-height: 1;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
           position: relative;
         }
 
@@ -40,23 +40,21 @@
           display: inline-block;
           position: absolute;
           margin-left: -1.25rem;
+          bottom: 0;
           left: 0;
 
           @include media-breakpoint-down(sm) {
             width: 16px;
             height: 2rem;
-            bottom: 0;
           }
 
           @include media-breakpoint-up(md) {
             width: 16px;
             height: 8rem;
-            bottom: 0;
           }
 
           @include media-breakpoint-up(xl) {
             width: 12px;
-            bottom: 0.5vh;
             height: 4vw;
           }
         }
@@ -198,7 +196,7 @@
     will-change: opacity;
 
     @include media-breakpoint-up(md) {
-      font-size: 20px;
+      font-size: vw(20, 1280);
     }
 
     @include media-breakpoint-up(xl) {

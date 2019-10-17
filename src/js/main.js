@@ -409,3 +409,36 @@ window.addEventListener("DOMContentLoaded", event => {
     });
   });
 });
+
+$(function() {
+  var accordionItemList = [];
+  var oldIdx = -1;
+  var isShown = false;
+  var duration = 600;
+
+  $(".accordion-item").each(function(idx, e) {
+    accordionItemList.push(e);
+
+    $(this).on("click", function(e) {
+      var $this = $(this);
+      var thisIdx = accordionItemList.indexOf(e.target);
+
+      if (oldIdx == thisIdx) {
+        $this.next().slideToggle(duration);
+        isShown != isShown;
+      } else if (!isShown && oldIdx !== thisIdx) {
+        $this.next().slideDown(duration);
+        isShown = true;
+      } else if (isShown && oldIdx !== thisIdx) {
+        $(".accordion-item-cards").slideUp(duration);
+        $this.next().slideDown(duration);
+        isShown = true;
+      } else {
+        $(".accordion-item-cards").slideUp(duration);
+        isShown = false;
+      }
+
+      oldIdx = accordionItemList.indexOf(e.target);
+    });
+  });
+});

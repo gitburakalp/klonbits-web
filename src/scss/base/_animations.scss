@@ -479,22 +479,22 @@ $scPathOffWidth: 778.1371459960938;
         }
 
         &-description {
-          transition-delay: 600ms;
+          transition-delay: 350ms;
         }
       }
 
       @for $i from 1 to 5 {
         .line-menu-item:nth-child(#{$i}) {
-          transition-delay: 600ms + ($i * 350ms);
+          transition-delay: 400ms + ($i * 250ms);
         }
       }
 
       .btn {
-        transition-delay: 2250ms;
+        transition-delay: 1450ms;
       }
 
       img {
-        transition-delay: 2650ms;
+        transition-delay: 1650ms;
       }
     }
   }
