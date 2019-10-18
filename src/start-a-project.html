@@ -85,6 +85,7 @@
                   type="text"
                   class="form-control"
                   placeholder="First Name"
+                  id="inpName"
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -93,11 +94,14 @@
                   type="text"
                   class="form-control"
                   placeholder="Last Name"
+                  id="inpLName"
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
               <div class="iconic-inputs email">
-                <input type="text" class="form-control" placeholder="E-Mail" />
+                <input type="text" class="form-control" placeholder="E-Mail" 
+                  id="inpEmail"
+                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
               <div class="iconic-inputs phone">
@@ -105,6 +109,7 @@
                   type="number"
                   class="form-control"
                   placeholder="Phone Number"
+                  id="inpPhone"
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -113,6 +118,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Property/Company Name"
+                  id="inpCompany"
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -121,6 +127,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Select Country"
+                  id="inpCountry"
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -129,6 +136,7 @@
                   rows="5"
                   class="form-control"
                   placeholder="Comments"
+                  id="txtMessage"
                 ></textarea>
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -140,7 +148,7 @@
                 </label>
               </div>
               <div class="text-center mt-3">
-                <a href="#" class="btn btn--primary">
+                <a href="#" id="sendMail" class="btn btn--primary">
                   START A PROJECT!
                 </a>
               </div>
@@ -325,5 +333,41 @@
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <!-- <script src="js/smooth-scrolling.js"></script> -->
     <script src="js/main.js"></script>
+    <script>
+    $(document).ready(function(){
+      
+      $('#sendMail').click(function(){
+        var name = $('#inpName').val();
+        var lastName = $('#inpLName').val();
+        var email = $('#inpEmail').val();
+        var phone = $('#inpPhone').val();
+        var company = $('#inpCompany').val();
+        var country = $('#inpCountry').val();
+        var message = $('#txtMessage').val();
+        var mail = {
+          "name":name,
+          "lastName":lastName,
+          "email":email,
+          "phone":phone,
+          "company":company,
+          "country":country,
+          "message":message
+        }
+
+        $.ajax({
+          type: "POST",
+          contentType: "application/json; charset=utf-8",
+          url: "http://beta.klonbits.com/tr/book-SendContactMail",
+          data: mail,
+          success: function (response) {console.log(response);
+            },
+          error: function (err) {
+            console.log(err);
+          },
+          dataType: "json"
+        });
+       });
+    });
+    </script>
   </body>
 </html>
