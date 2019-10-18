@@ -120,6 +120,7 @@ function getSliderConfig(sliderName) {
         slidesPerView: 5,
         spaceBetween: 0,
         speed: 1000,
+        autoplay: { delay: 5000 },
         centeredSlides: true,
         loop: true,
         containerModifierClass: "slider-container--",
@@ -159,6 +160,17 @@ function getSliderConfig(sliderName) {
 
             $.each(projects, function(i, e) {
               var jsonVal = JSON.parse(e);
+              var currentLang = $("html").attr("lang");
+              var btnText = "";
+
+              if (jsonVal.projectType !== undefined) {
+                if (jsonVal.projectType.toLowerCase().includes("web")) {
+                  btnText = currentLang != "tr" ? "EXPLORER" : "İNCELE";
+                } else {
+                  btnText = currentLang != "tr" ? "READ MORE" : "DAHA FAZLASI";
+                }
+              }
+
               var content = `<div class="slider-slide"><div class="card text-center"><h2 class="card-title">${
                 jsonVal.projectType
               }</h2><span class="card-blocks ${
@@ -167,7 +179,7 @@ function getSliderConfig(sliderName) {
                   : "card-blocks--dull-orange"
               }">${jsonVal.projectDetail}</span><a href="${
                 jsonVal.url
-              }" class="btn btn--primary">READ MORE</a></div></div>`;
+              }" class="btn btn--primary">${btnText}</a></div></div>`;
               $(".ref-slider-block--sm")
                 .find(".slider-wrapper")
                 .append(content);
@@ -231,10 +243,6 @@ function getSliderConfig(sliderName) {
 
   return sliderConfig;
 }
-
-window.addEventListener("resize", function() {});
-
-window.addEventListener("orientationchange", function() {});
 
 var swipersInit = () => {
   sliders.forEach((elem, idx) => {
@@ -343,36 +351,36 @@ $(".accordion-menu").each(function() {
   }
 });
 
-var lastIdx = null;
+// var lastIdx = null;
 
-$(".square-cards .special-cards").each(function(i, e) {
-  $(this).on("click", function(e) {
-    var $sqCards = $(".square-cards .special-cards");
-    var $specialCardsDetails = $("[special-cards-details]");
+// $(".square-cards .special-cards").each(function(i, e) {
+//   $(this).on("click", function(e) {
+//     var $sqCards = $(".square-cards .special-cards");
+//     var $specialCardsDetails = $("[special-cards-details]");
 
-    $sqCards.removeClass("active");
-    $(this).addClass("active");
+//     $sqCards.removeClass("active");
+//     $(this).addClass("active");
 
-    var thisIdx = $sqCards.index($(e.target).closest(".special-cards"));
+//     var thisIdx = $sqCards.index($(e.target).closest(".special-cards"));
 
-    var thisDescription = $(this).data("description");
+//     var thisDescription = $(this).data("description");
 
-    setTimeout(function() {
-      $specialCardsDetails.find(".main-description").html(thisDescription);
-    }, 500);
+//     setTimeout(function() {
+//       $specialCardsDetails.find(".main-description").html(thisDescription);
+//     }, 500);
 
-    if (!$specialCardsDetails.is(":visible")) {
-      $specialCardsDetails.slideDown();
-    } else if ($specialCardsDetails.is(":visible") && lastIdx !== thisIdx) {
-      $specialCardsDetails.slideUp();
-      $specialCardsDetails.slideDown();
-    } else if ($specialCardsDetails.is(":visible")) {
-      $specialCardsDetails.slideUp();
-    }
+//     if (!$specialCardsDetails.is(":visible")) {
+//       $specialCardsDetails.slideDown();
+//     } else if ($specialCardsDetails.is(":visible") && lastIdx !== thisIdx) {
+//       $specialCardsDetails.slideUp();
+//       $specialCardsDetails.slideDown();
+//     } else if ($specialCardsDetails.is(":visible")) {
+//       $specialCardsDetails.slideUp();
+//     }
 
-    lastIdx = thisIdx;
-  });
-});
+//     lastIdx = thisIdx;
+//   });
+// });
 
 window.addEventListener("DOMContentLoaded", event => {
   $("body").removeClass("loading");
@@ -410,6 +418,11 @@ window.addEventListener("DOMContentLoaded", event => {
 
 $(function() {
   var accordionItemList = [];
+  var specialCardsList = [];
+
+  var $sqCards = $(".square-cards > .special-cards:not(:last-child)");
+  var $specialCardsDetails = $("[special-cards-details]");
+
   var oldIdx = -1;
   var isShown = false;
   var duration = 600;
@@ -438,5 +451,57 @@ $(function() {
 
       oldIdx = accordionItemList.indexOf(e.target);
     });
+  });
+
+  $(".square-cards > .special-cards:not(:last-child)").each(function(idx, e) {
+    specialCardsList.push(e);
+
+    var ww = $(window).width();
+
+    if (ww > 1280) {
+      var $firstSqCard = $(".square-cards > .special-cards:nth-child(1)");
+      var firstCardDesc = $firstSqCard.data("description");
+
+      $firstSqCard.addClass("active");
+      $specialCardsDetails.find(".main-description").html(firstCardDesc);
+      $specialCardsDetails.fadeIn();
+    }
+
+    $(this).on("click", function() {
+      var $this = $(this);
+      var thisIdx = specialCardsList.indexOf($this[0]);
+      var ww = $(window).width();
+      var cardDesc = $this.data("description");
+
+      $sqCards.removeClass("active");
+      $this.addClass("active");
+
+      $specialCardsDetails.fadeIn();
+      $specialCardsDetails.find(".main-description").html(cardDesc);
+
+      if (ww < 1280) {
+        $("html").addClass("i-overflow-x-hidden");
+        $("html").addClass("i-overflow-y-hidden");
+      } else {
+      }
+    });
+  });
+
+  $("html,body").on("click", function(e) {
+    var ww = $(window).width();
+
+    var $activeSquareCards = $(e.target).closest(
+      ".special-cards:not('[special-cards-details]')"
+    );
+
+    if ($activeSquareCards.length === 0) {
+      $sqCards.removeClass("active");
+      $specialCardsDetails.fadeOut();
+
+      if (ww < 1280) {
+        $("html").removeClass("i-overflow-x-hidden");
+        $("html").removeClass("i-overflow-y-hidden");
+      }
+    }
   });
 });

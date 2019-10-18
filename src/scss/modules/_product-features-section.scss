@@ -24,6 +24,32 @@
         max-width: calcPercent(1042.3, 1920) + vw;
         margin-left: auto;
         margin-right: auto;
+
+        .special-cards {
+          transition: all 450ms ease;
+
+          ul {
+            display: none;
+          }
+
+          &:hover {
+            display: flex;
+            justify-content: center;
+
+            transform: rotateY(180deg);
+
+            img,
+            h3,
+            p {
+              display: none;
+            }
+
+            ul {
+              display: block;
+              transform: rotateY(180deg);
+            }
+          }
+        }
       }
 
       > .special-cards-block > .special-cards {
