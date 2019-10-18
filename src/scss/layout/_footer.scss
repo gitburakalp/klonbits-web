@@ -6,6 +6,15 @@
     padding-right: $val;
   }
 
+  .fab {
+    color: $color-steel;
+    cursor: pointer;
+
+    + .fab {
+      margin-left: 0.5rem;
+    }
+  }
+
   .border-right {
     border-color: $color-bluish-grey !important;
   }

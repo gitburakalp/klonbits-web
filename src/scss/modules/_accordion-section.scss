@@ -1,0 +1,100 @@
+.accordion {
+  &-block {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @include media-breakpoint-up(xl) {
+      max-width: calcPercent(1470, 1920) * 1%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &-section {
+    position: relative;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    padding-top: 1.5rem !important;
+
+    @include media-breakpoint-up(xl) {
+      max-width: calc(81vw + 30px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &-item {
+    position: relative;
+    padding: 10px 25px;
+    background-color: $color-white;
+    box-shadow: 0 0 4px 0 rgba($color-black, 0.35);
+    border-radius: 3px;
+    font-family: $FontFamilySansSerif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba($color-cerulean, 0.65);
+    line-height: 1.2;
+    cursor: pointer;
+    transition: color 200ms ease-out;
+    will-change: color;
+    z-index: 9;
+    cursor: pointer;
+
+    @include media-breakpoint-up(md) {
+      font-size: 14px;
+      padding: 14px 40px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      font-size: fluidSize(12, 16, 768, 1920);
+      padding: vw(15, 1920) vw(40, 1920);
+
+      &:hover {
+        color: rgba($color-cerulean, 1);
+        box-shadow: 0 0 4px 0 rgba($color-black, 0.35),
+          0 0 4px 0 rgba($color-black, 0.35);
+      }
+    }
+
+    ~ .accordion-item {
+      margin-top: 10px;
+
+      @include media-breakpoint-up(md) {
+        margin-top: vw(14, 768);
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-top: vw(16, 1920);
+      }
+    }
+
+    &-cards {
+      display: none;
+
+      position: relative;
+      background-color: $color-white;
+      box-shadow: 0 8px 8px 0px rgba($color-black, 0.15);
+      border-radius: 3px;
+      padding: 15px;
+
+      @include media-breakpoint-up(xl) {
+        padding: vw(24, 1920);
+        margin-top: -4px;
+      }
+
+      .main-title {
+        @include media-breakpoint-up(xl) {
+          font-size: vw(25, 1920);
+
+          b {
+            &::before {
+              height: 3vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

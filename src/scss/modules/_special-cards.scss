@@ -96,7 +96,13 @@
     max-height: unset;
 
     + * {
-      margin-top: 0.5rem;
+      @include media-breakpoint-down(lg) {
+        margin-top: vw(16, 375);
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-top: 0.5rem;
+      }
     }
 
     @include media-breakpoint-up(xl) {
@@ -129,7 +135,7 @@
 
   &__description {
     font-family: $FontFamilySansSerif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     line-height: 1.2;
     color: $color-steel;
@@ -155,7 +161,7 @@
     &-item {
       position: relative;
       font-family: $FontFamilySansSerif;
-      font-size: 8px;
+      font-size: 10px;
       letter-spacing: 0.24px;
       font-weight: 300;
       color: $color-bluish-grey;

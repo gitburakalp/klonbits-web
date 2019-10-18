@@ -1,6 +1,7 @@
 .line-menu-block {
   position: relative;
-
+  transition: opacity $duration ease-out;
+  will-change: opacity;
   + * {
     margin-top: 1rem;
   }

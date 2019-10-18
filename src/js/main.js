@@ -3,6 +3,26 @@ $(".hamburger").on("click", function() {
   $(".header").toggleClass("is-shown");
 });
 
+var callRefCount = () => {
+  $(".ref-count .count").each(function() {
+    var $this = $(this);
+    jQuery({ Counter: 0 }).animate(
+      { Counter: $this.data("count") },
+      {
+        duration: 2500,
+        easing: "swing",
+        step: function(now) {
+          $this.text(
+            Math.ceil(now)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "+"
+          );
+        }
+      }
+    );
+  });
+};
+
 $(".header-menu").each(function() {
   let ww = window.innerWidth;
 
@@ -10,8 +30,6 @@ $(".header-menu").each(function() {
     $(this)
       .find(".header-menu__link")
       .on("click", function(e) {
-        e.preventDefault();
-
         $(".header-menu .header-menu__item").removeClass("active");
         $(this)
           .parent()
@@ -111,8 +129,8 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         navigation: {
-          nextEl: ".ref-slider + .slider-controls .next",
-          prevEl: ".ref-slider + .slider-controls .prev"
+          nextEl: ".ref-slider-block .slider-controls .next",
+          prevEl: ".ref-slider-block .slider-controls .prev"
         },
         breakpoints: {
           1279: {
@@ -282,46 +300,10 @@ $(".rectangle-cards").each(function() {
   ww < 1280 ? (rectangleSlider = new Swiper($(this), sliderConfig)) : "";
 });
 
-$(".iconic-cards").each(function() {
-  $(this).on("click", function() {
-    var thisTop = $(this).offset().top;
-
-    console.log(thisTop);
-
-    $(".iconic-cards__description").slideUp();
-
-    $("html,body").animate(
-      {
-        scrollTop: thisTop
-      },
-      500
-    );
-
-    $(this)
-      .find(".iconic-cards__description")
-      .slideDown();
-  });
-
-  $("html").on("click", function(e) {
-    var $thisTarget = $(e.target).parent();
-
-    if (!$thisTarget.hasClass("iconic-cards")) {
-      $(".iconic-cards__description").slideUp();
-    }
-  });
-});
-
 $(".accordion-menu").each(function() {
   var $accordionMenu = $(this);
   var ww = $(window).width();
   var $accordionMenuContents = $(".accordion-menu-contents");
-
-  $accordionMenu.find(".accordion-menu-item").each(function() {
-    if ($(this).hasClass("active")) {
-      var showTab = $(this).data("show-tab");
-      $accordionMenuContents.find(`[data-tab-content=${showTab}]`).fadeIn(1);
-    }
-  });
 
   $accordionMenu.find(".accordion-menu-item").on("click", function() {
     var $this = $(this);
@@ -344,12 +326,6 @@ $(".accordion-menu").each(function() {
     document.getElementsByClassName(
       "main-description longDescription"
     )[0].innerHTML = descriptionText;
-
-    // var thisTitle = $this.find('.main-title').html().trim();
-    // var thisDesc = $this.find('.main-description').html().trim();
-
-    // $('.accordion-contents .main-title').html(thisTitle);
-    // $('.accordion-contents .main-description').html(thisDesc);
 
     $accordionMenuContents.find(`[data-tab-content]`).fadeOut(1);
     $accordionMenuContents.find(`[data-tab-content]`).fadeIn();
@@ -409,9 +385,58 @@ window.addEventListener("DOMContentLoaded", event => {
       var elemTop = $this.position().top;
       var elemBottom = $this.position().top + $this.outerHeight();
 
-      thisY > elemTop / 1.5 && thisY <= elemBottom
+      if ($this.hasClass("fh-section")) {
+        $this.find("> div").each(function() {
+          var $this = $(this);
+          var eTop = $this.position().top;
+          var eBottom = $this.position().top + $this.outerHeight();
+
+          thisY > eTop / 1.15 && thisY <= eBottom
+            ? $this.addClass("is-shown")
+            : "";
+
+          $this.hasClass("ref-section") && !$this.hasClass("is-shown")
+            ? callRefCount()
+            : "";
+        });
+      }
+
+      thisY > elemTop / 1.85 && thisY <= elemBottom
         ? $this.addClass("is-shown")
-        : $this.removeClass("is-shown");
+        : "";
+    });
+  });
+});
+
+$(function() {
+  var accordionItemList = [];
+  var oldIdx = -1;
+  var isShown = false;
+  var duration = 600;
+
+  $(".accordion-item").each(function(idx, e) {
+    accordionItemList.push(e);
+
+    $(this).on("click", function(e) {
+      var $this = $(this);
+      var thisIdx = accordionItemList.indexOf(e.target);
+
+      if (oldIdx == thisIdx) {
+        $this.next().slideToggle(duration);
+        isShown != isShown;
+      } else if (!isShown && oldIdx !== thisIdx) {
+        $this.next().slideDown(duration);
+        isShown = true;
+      } else if (isShown && oldIdx !== thisIdx) {
+        $(".accordion-item-cards").slideUp(duration);
+        $this.next().slideDown(duration);
+        isShown = true;
+      } else {
+        $(".accordion-item-cards").slideUp(duration);
+        isShown = false;
+      }
+
+      oldIdx = accordionItemList.indexOf(e.target);
     });
   });
 });

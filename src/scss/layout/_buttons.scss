@@ -8,6 +8,7 @@
     opacity $duration ease-in;
   will-change: background-color, color, opacity;
   z-index: 102;
+  cursor: pointer;
 
   &:hover {
     // transform: translateX(5%);
@@ -67,8 +68,9 @@
     }
 
     &:hover {
-      background-color: $color-cerulean;
-      color: $color-white;
+      color: $color-cerulean;
+      box-shadow: 0 5px 11px 0 rgba($color-black, 0.18),
+        0 4px 15px 0 rgba($color-black, 0.15);
     }
 
     &-revert {

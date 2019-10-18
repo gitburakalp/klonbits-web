@@ -6,12 +6,10 @@
     text-align: center;
 
     > *:first-child {
-      
-
       @include media-breakpoint-down(md) {
-          + * {
-              margin-top: 5rem
-          }
+        + * {
+          margin-top: 5rem;
+        }
       }
 
       @include media-breakpoint-up(xl) {
@@ -25,6 +23,23 @@
       justify-content: start;
       align-items: center;
       text-align: left;
+    }
+  }
+
+  .video-div {
+    background-color: $color-white;
+
+    video {
+      object-fit: contain;
+    }
+
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      top: 5.2%;
+      left: 5.5%;
+      width: 88.8%;
+      height: 24.45vw;
+      overflow: hidden;
     }
   }
 }

@@ -35,8 +35,7 @@
       @include media-breakpoint-up(xl) {
         max-width: calcPercent(1586, 1920) * 1%;
         background-color: $color-white;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
+        border-radius: 15px;
         box-shadow: 1px 1px 4px rgba($color-slate, 0.25);
 
         background-image: url("../../Storage/svg/slider-section-path.svg");
@@ -60,7 +59,7 @@
       text-align: center;
 
       @include media-breakpoint-down(md) {
-        margin-top: 1rem;
+        margin-bottom: 1rem;
       }
 
       @include media-breakpoint-up(xl) {
