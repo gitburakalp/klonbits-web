@@ -467,7 +467,7 @@ $scPathOffWidth: 778.1371459960938;
 
   .content-img-section {
     &:not(.is-shown) {
-      * {
+      [class*="col"] > * {
         opacity: 0;
       }
     }
@@ -475,26 +475,24 @@ $scPathOffWidth: 778.1371459960938;
     &.is-shown {
       .main {
         &-title {
-          transition-delay: 250ms;
+          transition-delay: 150ms;
         }
 
         &-description {
-          transition-delay: 350ms;
+          transition-delay: 450ms;
         }
       }
 
-      @for $i from 1 to 5 {
-        .line-menu-item:nth-child(#{$i}) {
-          transition-delay: 400ms + ($i * 250ms);
-        }
+      .line-menu-block {
+        transition-delay: 600ms;
       }
 
       .btn {
-        transition-delay: 1450ms;
+        transition-delay: 700ms;
       }
 
       img {
-        transition-delay: 1650ms;
+        transition-delay: 750ms;
       }
     }
   }

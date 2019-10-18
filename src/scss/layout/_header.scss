@@ -204,7 +204,7 @@
       @include media-breakpoint-up(lg) {
         &:hover {
           background-color: $color-white;
-          box-shadow: 0 0 1px rgba($color-slate, 0.25);
+          box-shadow: 0 0 1px rgba($color-slate, 0.125);
 
           .header-menu__link {
             color: $color-cerulean;
@@ -223,6 +223,7 @@
       color: $color-slate;
       transition: color 200ms, background-color $duration;
       will-change: transition;
+      cursor: pointer;
 
       @include media-breakpoint-up(lg) {
         padding: vw(25, 1920);
@@ -242,7 +243,8 @@
         position: absolute;
         max-width: vw(475, 1920);
         background-color: $color-white;
-        box-shadow: 0 0 4px rgba($color-slate, 0.25);
+        box-shadow: 0 4px 4px rgba($color-slate, 0.25);
+        margin-top: -3px;
       }
 
       &-item {

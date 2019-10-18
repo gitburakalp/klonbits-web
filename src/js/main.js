@@ -30,8 +30,6 @@ $(".header-menu").each(function() {
     $(this)
       .find(".header-menu__link")
       .on("click", function(e) {
-        e.preventDefault();
-
         $(".header-menu .header-menu__item").removeClass("active");
         $(this)
           .parent()
@@ -131,8 +129,8 @@ function getSliderConfig(sliderName) {
         slideNextClass: "slider-slide--next",
         slidePrevClass: "slider-slide--prev",
         navigation: {
-          nextEl: ".ref-slider + .slider-controls .next",
-          prevEl: ".ref-slider + .slider-controls .prev"
+          nextEl: ".ref-slider-block .slider-controls .next",
+          prevEl: ".ref-slider-block .slider-controls .prev"
         },
         breakpoints: {
           1279: {
@@ -395,7 +393,7 @@ window.addEventListener("DOMContentLoaded", event => {
 
           thisY > eTop / 1.15 && thisY <= eBottom
             ? $this.addClass("is-shown")
-            : $this.removeClass("is-shown");
+            : "";
 
           $this.hasClass("ref-section") && !$this.hasClass("is-shown")
             ? callRefCount()
@@ -405,7 +403,7 @@ window.addEventListener("DOMContentLoaded", event => {
 
       thisY > elemTop / 1.85 && thisY <= elemBottom
         ? $this.addClass("is-shown")
-        : $this.removeClass("is-shown");
+        : "";
     });
   });
 });

@@ -8,6 +8,7 @@
     opacity $duration ease-in;
   will-change: background-color, color, opacity;
   z-index: 102;
+  cursor: pointer;
 
   &:hover {
     // transform: translateX(5%);
