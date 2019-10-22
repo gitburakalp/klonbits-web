@@ -87,6 +87,7 @@
                   placeholder="First Name"
                   id="inpName"
                   data-validation="true"
+                  required
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -96,15 +97,19 @@
                   class="form-control"
                   placeholder="Last Name"
                   id="inpLName"
+                  data-validation="true"
+                  required
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
               <div class="iconic-inputs email">
                 <input
-                  type="text"
+                  type="email"
                   class="form-control"
                   placeholder="E-Mail"
                   id="inpEmail"
+                  data-validation="true"
+                  required
                 />
                 <span class="iconic-inputs__icon"></span>
               </div>
@@ -113,6 +118,7 @@
                   type="number"
                   class="form-control"
                   placeholder="Phone Number"
+                  data-validation="true"
                   id="inpPhone"
                 />
                 <span class="iconic-inputs__icon"></span>
@@ -336,6 +342,7 @@
     <script src="js/swiper.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <!-- <script src="js/smooth-scrolling.js"></script> -->
+    <script src="js/functions.js"></script>
     <script src="js/main.js"></script>
     <script>
       $(document).ready(function() {

@@ -1,3 +1,228 @@
+var countries = [
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Anguilla",
+  "Antigua & Barbuda",
+  "Argentina",
+  "Armenia",
+  "Aruba",
+  "Australia",
+  "Austria",
+  "Azerbaijan",
+  "Bahamas",
+  "Bahrain",
+  "Bangladesh",
+  "Barbados",
+  "Belarus",
+  "Belgium",
+  "Belize",
+  "Benin",
+  "Bermuda",
+  "Bhutan",
+  "Bolivia",
+  "Bosnia & Herzegovina",
+  "Botswana",
+  "Brazil",
+  "British Virgin Islands",
+  "Brunei",
+  "Bulgaria",
+  "Burkina Faso",
+  "Burundi",
+  "Cambodia",
+  "Cameroon",
+  "Canada",
+  "Cape Verde",
+  "Cayman Islands",
+  "Central Arfrican Republic",
+  "Chad",
+  "Chile",
+  "China",
+  "Colombia",
+  "Congo",
+  "Cook Islands",
+  "Costa Rica",
+  "Cote D Ivoire",
+  "Croatia",
+  "Cuba",
+  "Curacao",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Djibouti",
+  "Dominica",
+  "Dominican Republic",
+  "Ecuador",
+  "Egypt",
+  "El Salvador",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Estonia",
+  "Ethiopia",
+  "Falkland Islands",
+  "Faroe Islands",
+  "Fiji",
+  "Finland",
+  "France",
+  "French Polynesia",
+  "French West Indies",
+  "Gabon",
+  "Gambia",
+  "Georgia",
+  "Germany",
+  "Ghana",
+  "Gibraltar",
+  "Greece",
+  "Greenland",
+  "Grenada",
+  "Guam",
+  "Guatemala",
+  "Guernsey",
+  "Guinea",
+  "Guinea Bissau",
+  "Guyana",
+  "Haiti",
+  "Honduras",
+  "Hong Kong",
+  "Hungary",
+  "Iceland",
+  "India",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Ireland",
+  "Isle of Man",
+  "Israel",
+  "Italy",
+  "Jamaica",
+  "Japan",
+  "Jersey",
+  "Jordan",
+  "Kazakhstan",
+  "Kenya",
+  "Kiribati",
+  "Kosovo",
+  "Kuwait",
+  "Kyrgyzstan",
+  "Laos",
+  "Latvia",
+  "Lebanon",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Liechtenstein",
+  "Lithuania",
+  "Luxembourg",
+  "Macau",
+  "Macedonia",
+  "Madagascar",
+  "Malawi",
+  "Malaysia",
+  "Maldives",
+  "Mali",
+  "Malta",
+  "Marshall Islands",
+  "Mauritania",
+  "Mauritius",
+  "Mexico",
+  "Micronesia",
+  "Moldova",
+  "Monaco",
+  "Mongolia",
+  "Montenegro",
+  "Montserrat",
+  "Morocco",
+  "Mozambique",
+  "Myanmar",
+  "Namibia",
+  "Nauro",
+  "Nepal",
+  "Netherlands",
+  "Netherlands Antilles",
+  "New Caledonia",
+  "New Zealand",
+  "Nicaragua",
+  "Niger",
+  "Nigeria",
+  "North Korea",
+  "Norway",
+  "Oman",
+  "Pakistan",
+  "Palau",
+  "Palestine",
+  "Panama",
+  "Papua New Guinea",
+  "Paraguay",
+  "Peru",
+  "Philippines",
+  "Poland",
+  "Portugal",
+  "Puerto Rico",
+  "Qatar",
+  "Reunion",
+  "Romania",
+  "Russia",
+  "Rwanda",
+  "Saint Pierre & Miquelon",
+  "Samoa",
+  "San Marino",
+  "Sao Tome and Principe",
+  "Saudi Arabia",
+  "Senegal",
+  "Serbia",
+  "Seychelles",
+  "Sierra Leone",
+  "Singapore",
+  "Slovakia",
+  "Slovenia",
+  "Solomon Islands",
+  "Somalia",
+  "South Africa",
+  "South Korea",
+  "South Sudan",
+  "Spain",
+  "Sri Lanka",
+  "St Kitts & Nevis",
+  "St Lucia",
+  "St Vincent",
+  "Sudan",
+  "Suriname",
+  "Swaziland",
+  "Sweden",
+  "Switzerland",
+  "Syria",
+  "Taiwan",
+  "Tajikistan",
+  "Tanzania",
+  "Thailand",
+  "Timor L'Este",
+  "Togo",
+  "Tonga",
+  "Trinidad & Tobago",
+  "Tunisia",
+  "Turkey",
+  "Turkmenistan",
+  "Turks & Caicos",
+  "Tuvalu",
+  "Uganda",
+  "Ukraine",
+  "United Arab Emirates",
+  "United Kingdom",
+  "United States of America",
+  "Uruguay",
+  "Uzbekistan",
+  "Vanuatu",
+  "Vatican City",
+  "Venezuela",
+  "Vietnam",
+  "Virgin Islands (US)",
+  "Yemen",
+  "Zambia",
+  "Zimbabwe"
+];
+
 document.addEventListener("DOMContentLoaded", function() {
   $(".preload").fadeOut(500);
 });
@@ -37,6 +262,10 @@ $(".header").each(function() {
 $(".hamburger").on("click", function() {
   $("body").toggleClass("header-shown");
   $(".header").toggleClass("is-shown");
+});
+
+$("#inpCountry").each((i, e) => {
+  autocomplete(e, countries);
 });
 
 var callRefCount = () => {
@@ -296,11 +525,14 @@ $(".cards").each(function(e) {
     $(".cards").removeClass("is-active");
     $(this).toggleClass("is-active");
 
-    var cardsMenuStatus= $(this).find('.cards-menu').find('li').length;
-    
-    if (cardsMenuStatus==0)
-    $(this).find('.cards-menu').addClass('d-none');
+    var cardsMenuStatus = $(this)
+      .find(".cards-menu")
+      .find("li").length;
 
+    if (cardsMenuStatus == 0)
+      $(this)
+        .find(".cards-menu")
+        .addClass("d-none");
   });
 
   $("html,body").on("click", function(e) {
@@ -456,7 +688,7 @@ window.addEventListener("DOMContentLoaded", event => {
         });
       }
 
-      thisY > elemTop / 1.85 && thisY <= elemBottom
+      thisY > elemTop / 2.75 && thisY <= elemBottom
         ? $this.addClass("is-shown")
         : "";
     });
@@ -557,30 +789,117 @@ $(".rectangle-cards .special-cards").on("click", function() {
   $(this).toggleClass("is-rotated");
 });
 
+var notValidCssClass = "not-valid";
+
 $('[data-validation="true"]').each(function() {
   var $this = $(this);
   var thisType = $(this).attr("type");
   var regex = "";
+  var isValid = false;
 
   switch (thisType) {
     case "text":
-      regex = /^[a-zA-ZğüşöçİĞÜŞÖÇ]+$/;
+      regex = /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/;
       break;
     case "number":
       regex = /^[0-9]+$/;
       break;
     case "email":
       regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    default:
+      regex = /./g;
+      break;
   }
 
-  $this.on("keypress", function() {
-    var inpVal = $(this).val();
-    var isValid = regex.test($(this).val());
+  if (thisType == "email") {
+    $this.on("focus keyup", event => {
+      isValid = regex.test($this.val());
 
-    console.log(inpVal, isValid);
+      if (!isValid) {
+        $this.addClass(notValidCssClass);
+      } else {
+        $this.removeClass(notValidCssClass);
+      }
+    });
+  } else if (thisType !== undefined) {
+    var isRequired = $this.attr("required");
 
-    if (!isValid) {
-      // return false;
+    $this.on("keypress", function(event) {
+      var key = String.fromCharCode(
+        !event.charCode ? event.which : event.charCode
+      );
+
+      isValid = regex.test(key);
+
+      if (!isValid) {
+        return false;
+      }
+    });
+
+    $this.on("focusout", () => {
+      if (isRequired !== undefined) {
+        $this.val() === ""
+          ? $this.addClass(notValidCssClass)
+          : $this.removeClass(notValidCssClass);
+      }
+    });
+  }
+});
+
+var checkIsValid = () => {
+  var isValid = false;
+
+  $("*[required]").each(function() {
+    var $this = $(this);
+    var type = $(this).attr("type");
+
+    if (type == "checkbox") {
+      if (!$this.is(":checked")) {
+        $this.addClass("not-valid");
+        isValid = false;
+      } else {
+        isValid = true;
+      }
+    } else {
+      if ($this.val() == "") {
+        $this.addClass(notValidCssClass);
+        isValid = false;
+      } else {
+        isValid = true;
+      }
     }
   });
+
+  return isValid;
+};
+
+$("#sendMail").on("click", function(e) {
+  e.preventDefault();
+  var isValid = checkIsValid();
+
+  if (isValid) {
+    var mailBody = {
+      name: $("#inpName").val(),
+      lastName: $("#inpLName").val(),
+      email: $("#inpEmail").val(),
+      phone: $("#inpPhone").val(),
+      company: $("#inpCompany").val(),
+      country: $("#inpCountry").val(),
+      message: $("#txtMessage").val()
+    };
+
+    sendMail(mailBody, "ProjectForm");
+  } else {
+    var $firstErrorItem = $("." + notValidCssClass).eq(0);
+    var firstTop = $firstErrorItem.offset().top - 150;
+
+    $("html,body").animate(
+      {
+        scrollTop: firstTop
+      },
+      1000
+    );
+
+    $firstErrorItem.focus();
+  }
 });

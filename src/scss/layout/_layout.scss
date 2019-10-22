@@ -23,6 +23,13 @@ textarea {
       box-shadow: 0 0 4px rgba($color-slate, 0.35);
       border-color: $color-slate;
     }
+
+    &.not-valid {
+      border-color: $color-pastel-red;
+      &:focus {
+        box-shadow: 0 0 4px rgba($color-pastel-red, 0.35);
+      }
+    }
   }
 }
 
