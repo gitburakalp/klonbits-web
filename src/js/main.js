@@ -295,6 +295,12 @@ $(".cards").each(function(e) {
   $(this).on("click", function() {
     $(".cards").removeClass("is-active");
     $(this).toggleClass("is-active");
+
+    var cardsMenuStatus= $(this).find('.cards-menu').find('li').length;
+    
+    if (cardsMenuStatus==0)
+    $(this).find('.cards-menu').addClass('d-none');
+
   });
 
   $("html,body").on("click", function(e) {
