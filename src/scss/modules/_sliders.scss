@@ -7,6 +7,62 @@
     padding: 0;
     z-index: 16;
     padding: 2px;
+
+    &[data-slider-name="main-hero"] {
+      .slider-pagination {
+        position: relative;
+        z-index: 9;
+        text-align: center;
+
+        @include media-breakpoint-up(xl) {
+          position: absolute;
+          left: 50%;
+          bottom: 1rem;
+        }
+
+        > * {
+          display: inline-block;
+          background-color: $color-warm-grey;
+          transition: opacity $duration ease-out,
+            background-color $duration ease-out,
+            height $duration cubic-bezier(0.645, 0.045, 0.355, 1),
+            width $duration ease-out;
+          transition-delay: $duration / 2;
+          will-change: height, opacity, background-color;
+          cursor: pointer;
+          width: 12px;
+          height: 12px;
+          border-radius: 8px;
+
+          @include media-breakpoint-down(lg) {
+            border: 1px solid $color-cerulean;
+            background-color: transparent;
+
+            &[class*="active"] {
+              background-color: $color-cerulean;
+              width: 25px;
+            }
+          }
+
+          @include media-breakpoint-up(xl) {
+            width: 5px;
+            border-radius: 5px;
+            height: 25px;
+          }
+
+          + * {
+            margin-left: 8px;
+          }
+
+          &:not([class*="active"]) {
+            @include media-breakpoint-up(xl) {
+              opacity: 0.35;
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
   }
 
   &-wrapper {
@@ -39,6 +95,7 @@
         position: relative;
         cursor: pointer;
         transition: all $duration;
+        padding: 0 15px;
 
         &[class*="-disabled"] {
           opacity: 0.35;

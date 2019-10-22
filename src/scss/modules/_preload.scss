@@ -1,0 +1,164 @@
+@keyframes obj_1 {
+  25% {
+    transform: translate(0, -50px) rotate(-180deg);
+    -webkit-transform: translate(0, -50px) rotate(-180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-180deg);
+    -webkit-transform: translate(0, 0) rotate(-180deg);
+  }
+}
+
+@keyframes obj_2 {
+  25% {
+    transform: translate(50px, 0) rotate(-180deg);
+    -webkit-transform: translate(50px, 0) rotate(-180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-180deg);
+    -webkit-transform: translate(0, 0) rotate(-180deg);
+  }
+}
+
+@keyframes obj_3 {
+  25% {
+    transform: translate(-50px, 0) rotate(-180deg);
+    -webkit-transform: translate(-50px, 0) rotate(-180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-180deg);
+    -webkit-transform: rtranslate(0, 0) rotate(-180deg);
+  }
+}
+
+@keyframes obj_4 {
+  25% {
+    transform: translate(0, 50px) rotate(-180deg);
+    -webkit-transform: translate(0, 50px) rotate(-180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-180deg);
+    -webkit-transform: translate(0, 0) rotate(-180deg);
+  }
+}
+
+@keyframes loading-center-absolute {
+  100% {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+}
+
+@keyframes animLoadedLoader {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes el1 {
+  0% {
+    transform: translate(47.709px, 171%);
+  }
+
+  50% {
+    transform: translate(47.709px, 240%);
+  }
+
+  100% {
+    transform: translate(47.709px, 171%);
+  }
+}
+
+@keyframes el2 {
+  0% {
+    transform: translate(47.709px, 239%);
+  }
+
+  50% {
+    transform: translate(47.709px, 171%);
+  }
+
+  100% {
+    transform: translate(47.709px, 239%);
+  }
+}
+
+#Ellipse_5 {
+  animation: el1 1.75s infinite;
+}
+
+#Ellipse_6 {
+  animation: el2 1.75s infinite;
+}
+
+body.loaded .preload {
+  // animation: animLoadedLoader 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  // animation-delay: 250ms;
+}
+
+.preload {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1009;
+  background-color: $color-white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-object {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    // animation: loading-center-absolute 1.5s infinite;
+
+    @keyframes logoAnim {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.25);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .obj {
+      width: 25px;
+      height: 25px;
+      background-color: $color-cerulean;
+
+      &:nth-child(1) {
+        animation: obj_1 1.5s infinite;
+      }
+
+      &:nth-child(2) {
+        animation: obj_2 1.5s infinite;
+      }
+
+      &:nth-child(3) {
+        animation: obj_3 1.5s infinite;
+      }
+
+      &:nth-child(4) {
+        animation: obj_4 1.5s infinite;
+      }
+    }
+  }
+}

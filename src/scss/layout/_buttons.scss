@@ -113,3 +113,40 @@
     }
   }
 }
+
+#btnBackToTop {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  z-index: 999;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba($color-cerulean, 0.25),
+    rgba($color-cerulean, 0.85)
+  );
+
+  border-radius: 100%;
+
+  &::before {
+    content: "\f077";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 300;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-white;
+    font-size: 175%;
+    line-height: 1;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: vw(48, 1920);
+    height: vw(48, 1920);
+  }
+}

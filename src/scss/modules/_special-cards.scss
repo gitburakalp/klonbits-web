@@ -135,7 +135,7 @@
 
   &__description {
     font-family: $FontFamilySansSerif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.2;
     color: $color-steel;
@@ -171,9 +171,8 @@
       &::before {
         content: "";
         position: absolute;
-        top: 50%;
+        top: 7px;
         left: 0;
-        transform: translateY(-50%);
         border-radius: 100%;
         background-color: rgba($color-cerulean, 0.35);
         width: 4px;
@@ -191,7 +190,7 @@
       }
 
       @include media-breakpoint-up(xl) {
-        font-size: vw(12, 1920);
+        font-size: vw(14, 1920);
         letter-spacing: vw(0.48, 1920);
       }
     }

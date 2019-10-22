@@ -1,3 +1,39 @@
+document.addEventListener("DOMContentLoaded", function() {
+  $(".preload").fadeOut(500);
+});
+
+$(".header").each(function() {
+  $header = $(this);
+  $backToTopBtn = $("#btnBackToTop");
+  $langBtn = $(".lang-trigger");
+
+  $langBtn.on("click", function() {
+    $(this)
+      .closest(".lang-section")
+      .toggleClass("is-opened");
+  });
+
+  $backToTopBtn.on("click", () => {
+    $("html,body").animate(
+      {
+        scrollTop: 0
+      },
+      1000
+    );
+  });
+
+  window.addEventListener("scroll", function() {
+    var thisY = $(window).scrollTop();
+    if (thisY > 250) {
+      $header.addClass("is-sticky");
+      $backToTopBtn.fadeIn();
+    } else {
+      $header.removeClass("is-sticky");
+      $backToTopBtn.fadeOut();
+    }
+  });
+});
+
 $(".hamburger").on("click", function() {
   $("body").toggleClass("header-shown");
   $(".header").toggleClass("is-shown");
@@ -72,6 +108,11 @@ function getSliderConfig(sliderName) {
         navigation: {
           nextEl: ".slider-controller .next",
           prevEl: ".slider-controller .prev"
+        },
+        pagination: {
+          el: "[data-slider-name=main-hero] > .slider-pagination",
+          type: "bullets",
+          clickable: true
         },
         containerModifierClass: "slider-container--",
         wrapperClass: "slider-wrapper",
@@ -502,6 +543,38 @@ $(function() {
         $("html").removeClass("i-overflow-x-hidden");
         $("html").removeClass("i-overflow-y-hidden");
       }
+    }
+  });
+});
+
+$(".rectangle-cards .special-cards").on("click", function() {
+  $(this).toggleClass("is-rotated");
+});
+
+$('[data-validation="true"]').each(function() {
+  var $this = $(this);
+  var thisType = $(this).attr("type");
+  var regex = "";
+
+  switch (thisType) {
+    case "text":
+      regex = /^[a-zA-ZğüşöçİĞÜŞÖÇ]+$/;
+      break;
+    case "number":
+      regex = /^[0-9]+$/;
+      break;
+    case "email":
+      regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  }
+
+  $this.on("keypress", function() {
+    var inpVal = $(this).val();
+    var isValid = regex.test($(this).val());
+
+    console.log(inpVal, isValid);
+
+    if (!isValid) {
+      // return false;
     }
   });
 });

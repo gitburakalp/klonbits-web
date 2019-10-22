@@ -1,6 +1,7 @@
 .otelbits {
   &-section {
     @include media-breakpoint-down(lg) {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -8,19 +9,81 @@
 
       min-height: calcPercent(474.4, 375) + vw;
 
-      background-image: url("../../Storage/homepage/otelbits-bg.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      div {
-        &:not(.otelbits-title-block) {
+      > div {
+        &:not(.otelbits-title-block):not(.only-mobile) {
           display: none;
+        }
+
+        &.only-mobile {
+          position: absolute;
+          top: vw(88, 375);
+          width: 90%;
+          height: 100%;
+
+          .cards {
+            &-section {
+              .cards {
+                position: absolute;
+
+                &:nth-child(1) {
+                  top: 0;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+
+                &:nth-child(2) {
+                  top: 35vw;
+                  left: -2.5%;
+                  transform: translate(0%, -50%);
+                }
+
+                &:nth-child(3) {
+                  top: 35vw;
+                  right: -2.5%;
+                  transform: translate(0%, -50%);
+                }
+
+                &:nth-child(4) {
+                  top: 50vw;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+              }
+            }
+
+            &-block {
+              position: relative;
+              background-color: $color-white;
+              width: vw(100, 375);
+              height: vw(100, 375);
+              padding: vw(12, 375);
+
+              box-shadow: 0 0 3px 0 rgba($color-black, 0.15);
+              cursor: pointer;
+              z-index: 99;
+
+              text-align: center;
+
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+              > * + * {
+                margin-top: 0.25rem;
+              }
+
+              img {
+                max-height: vw(40, 375);
+              }
+            }
+          }
         }
 
         &.otelbits-title-block {
           position: absolute;
-          max-width: 65%;
+          width: 50%;
+          bottom: 0;
 
           object {
             max-width: 100%;
@@ -31,6 +94,7 @@
 
     .cards-title {
       font-family: $FontFamilySansSerif;
+      font-size: 11px;
       line-height: 1.2;
       color: $color-slate;
       text-align: center;
@@ -60,6 +124,10 @@
       background-repeat: no-repeat;
       background-position: 40% 35%;
       z-index: 1;
+
+      .only-mobile {
+        display: none;
+      }
 
       .cards-section {
         position: absolute;

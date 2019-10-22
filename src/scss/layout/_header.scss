@@ -3,7 +3,107 @@
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 9999;
+
+  transition: background-color $duration ease-out;
+  will-change: background-color;
+
+  @keyframes headerAnim {
+    0% {
+      top: -44px;
+    }
+
+    100% {
+      top: 0;
+    }
+  }
+
+  &.is-sticky {
+    position: fixed;
+    top: -80px;
+    background-color: rgba($color-white, 0.9);
+    box-shadow: 0 0 4px rgba($color-slate, 0.25);
+    animation: headerAnim $duration forwards;
+    animation-delay: 250ms;
+  }
+
+  .lang {
+    &-section {
+      position: relative;
+      margin-left: auto;
+      margin-right: 0;
+
+      &:not(.is-opened) .lang-menu {
+        display: none;
+      }
+
+      &.is-opened {
+        .lang-trigger {
+          color: $color-cerulean;
+        }
+      }
+    }
+
+    &-trigger {
+      font-family: $FontFamilySansSerif;
+      font-weight: 500;
+      color: $color-steel;
+      cursor: pointer;
+
+      @include media-breakpoint-up(xl) {
+        font-size: fluidSize(12, 14, 1280, 1920);
+        color: $color-cerulean;
+        font-weight: 600;
+      }
+
+      &::after {
+        display: inline-block;
+        vertical-align: middle;
+        content: "\f107";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 300;
+        margin-left: 0.5rem;
+        line-height: 1;
+        font-size: 125%;
+        color: inherit;
+      }
+    }
+
+    &-menu {
+      position: absolute;
+      background-color: $color-white;
+      box-shadow: 0 0 4px rgba($color-slate, 0.25);
+      margin-top: 1rem;
+      width: 200%;
+      padding: 10px;
+
+      @include media-breakpoint-up(xl) {
+        margin-top: 23px;
+      }
+
+      > * {
+        color: $color-steel;
+
+        @include media-breakpoint-up(xl) {
+          font-size: fluidSize(12, 14, 1280, 1920);
+        }
+
+        > * {
+          display: block;
+          font-weight: 600;
+
+          &:hover {
+            color: $color-cerulean;
+          }
+        }
+
+        + * {
+          margin-top: 5px;
+          padding-top: 5px;
+        }
+      }
+    }
+  }
 
   @include media-breakpoint-only(md) {
     &-logo {
@@ -125,7 +225,7 @@
     @include media-breakpoint-down(md) {
       display: block;
       width: 25px;
-      margin-left: auto;
+      margin-left: 1rem;
 
       span {
         position: relative;
@@ -226,7 +326,7 @@
       cursor: pointer;
 
       @include media-breakpoint-up(lg) {
-        padding: vw(25, 1920);
+        padding: 25px;
       }
     }
 
