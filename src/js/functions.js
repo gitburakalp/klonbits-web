@@ -104,26 +104,61 @@ var autocomplete = (inp, arr) => {
   });
 };
 
+var getRegexByType = thisType => {
+  var regex = null;
+
+  switch (thisType) {
+    case "text":
+      regex = /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/;
+      break;
+    case "number":
+      regex = /^[0-9]+$/;
+      break;
+    case "email":
+      regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      break;
+    default:
+      regex = /./g;
+      break;
+  }
+
+  return regex;
+};
+
+var focusFirstErrorItem = () => {
+  var $firstErrorItem = $("." + notValidCssClass).eq(0);
+  var firstTop = $firstErrorItem.offset().top - 150;
+
+  $("html,body").animate(
+    {
+      scrollTop: firstTop
+    },
+    1000
+  );
+
+  $firstErrorItem.focus();
+  toastr["error"]("Please Fill Required Fields.");
+};
+
 var sendMail = (mailBody, formType) => {
   var returnedValue = false;
 
-  $.ajax({
-    type: "POST",
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    url: "http://beta.klonbits.com/tr/book-SendCmsContactForm",
-    data: mailBody,
-    success: function(response) {
-      returnedValue = response;
-      window["clear" + formType]();
-
-      console.log(response);
-
-      alert("mail gönderildi");
-    },
-    error: function(err) {
-      console.log(err);
-    }
+  new Promise((resolve, reject) => {
+    $.ajax({
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      url: "http://beta.klonbits.com/tr/book-SendContactMail",
+      data: JSON.stringify(mailBody)
+    })
+      .then(resolve => {
+        toastr["success"]("Mail Gönderildi");
+        window["clear" + formType]();
+        $(`btnSubmit${formType}`).removeAttr("disabled");
+      })
+      .catch(reject => {
+        toastr["error"]("Mail Gönderme Başarısız");
+      });
   });
 };
 
@@ -134,8 +169,18 @@ var clearProjectForm = () => {
 
     if (thisType == "checkbox") {
       $this.prop("checked", false);
+      $this.removeAttr(notValidCssClass);
     } else {
       $this.val("");
+      $this.removeAttr(notValidCssClass);
     }
+  });
+};
+
+var clearContactForm = () => {
+  $(".contact-us-form input,.contact-us-form textarea").each((i, e) => {
+    var $this = $(e);
+    $this.val("");
+    $this.removeAttr(notValidCssClass);
   });
 };

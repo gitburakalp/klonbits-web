@@ -176,3 +176,42 @@ a {
   background-size: 100%;
   background-image: url("../../Storage/svg/projects-bg-path.svg");
 }
+
+#toast-container {
+  .toast {
+    &-success {
+      background-color: $color-cerulean;
+    }
+
+    &-error {
+      background-color: $color-pastel-red;
+    }
+  }
+}
+
+[id*="btnSubmit"][disabled] {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.5;
+
+  @keyframes disabledAnim {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &::before {
+    content: "\f3f4";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 300;
+
+    position: absolute;
+    left: 1rem;
+
+    animation: disabledAnim 2s linear infinite;
+    font-size: 110%;
+  }
+}
