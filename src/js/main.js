@@ -238,6 +238,16 @@ $(".header").each(function() {
       .toggleClass("is-opened");
   });
 
+  $("html,body").on("click", function(e) {
+    var ww = $(window).width();
+
+    var target = $(e.target).closest(".lang-section");
+
+    if (target.length === 0) {
+      $(".lang-section").removeClass("is-opened");
+    }
+  });
+
   $backToTopBtn.on("click", () => {
     $("html,body").animate(
       {

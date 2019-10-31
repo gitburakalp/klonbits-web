@@ -19,7 +19,7 @@
     padding-top: 1.5rem !important;
 
     @include media-breakpoint-up(xl) {
-      max-width: calc(81vw + 30px);
+      max-width: 50%;
       margin-left: auto;
       margin-right: auto;
     }

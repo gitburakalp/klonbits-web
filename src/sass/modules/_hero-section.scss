@@ -15,7 +15,7 @@
       @include media-breakpoint-up(xl) {
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: calcPercent(207, 1920) + vw;
+        // margin-bottom: calcPercent(207, 1920) + vw;
       }
     }
 

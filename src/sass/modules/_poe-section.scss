@@ -32,5 +32,10 @@
     position: absolute;
     right: calcPercent(140, 1920) + vw;
     bottom: 0;
+    top: unset;
+
+    @include media-breakpoint-up(xl) {
+      bottom: 10vw;
+    }
   }
 }

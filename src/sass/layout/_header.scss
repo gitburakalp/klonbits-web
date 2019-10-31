@@ -54,6 +54,7 @@
         font-size: fluidSize(12, 14, 1280, 1920);
         color: $color-cerulean;
         font-weight: 600;
+        padding-right: 1rem;
       }
 
       &::after {
@@ -324,6 +325,7 @@
       transition: color 200ms, background-color $duration;
       will-change: transition;
       cursor: pointer;
+      text-transform: uppercase;
 
       @include media-breakpoint-up(lg) {
         padding: 25px;

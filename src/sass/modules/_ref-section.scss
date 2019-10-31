@@ -35,6 +35,7 @@
     @include media-breakpoint-up(xl) {
       + * {
         margin-top: calcPercent(100, 1080) + vh;
+        margin-bottom: calcPercent(100, 1080) + vh;
       }
     }
 
