@@ -154,7 +154,7 @@ var sendMail = (mailBody, formType) => {
       .then(resolve => {
         toastr["success"]("Mail Gönderildi");
         window["clear" + formType]();
-        $(`btnSubmit${formType}`).removeAttr("disabled");
+        $(`#btnSubmit${formType}`).removeAttr("disabled");
       })
       .catch(reject => {
         toastr["error"]("Mail Gönderme Başarısız");

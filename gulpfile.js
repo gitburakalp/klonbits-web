@@ -14,7 +14,7 @@ var roots = {
     srcDir: "./src/",
     jsDir: "./src/js/",
     distDir: "./dist/",
-    sourceDir: "./src/sources/"
+    sourceDir: "../sources/"
   },
   sassOptions = {
     outputStyle: "compressed"
@@ -37,7 +37,7 @@ var functionsBrowserSync = function(done) {
   functionsScripts = function() {
     return gulp
       .src(jsFiles)
-      .pipe(sourcemaps.init())
+      .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(concat("scripts.js"))
       .pipe(gulp.dest(roots.jsDir))
       .pipe(uglify())
@@ -51,9 +51,9 @@ var functionsBrowserSync = function(done) {
   },
   functionsSass = function() {
     return gulp
-      .src(roots.srcDir + "scss/main.scss")
+      .src(roots.srcDir + "sass/main.scss")
       .pipe(plumber())
-      .pipe(sourcemaps.init())
+      .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(sass(sassOptions))
       .pipe(
         size({
@@ -71,7 +71,7 @@ var functionsBrowserSync = function(done) {
           suffix: ".min"
         })
       )
-      .pipe(sourcemaps.write(roots.sourceDir))
+      .pipe(sourcemaps.write(roots.sourceDir, { includeContent: false }))
       .pipe(gulp.dest(roots.srcDir + "css"))
       .pipe(browserSync.stream());
   },
@@ -79,7 +79,7 @@ var functionsBrowserSync = function(done) {
     return gulp.src(roots.srcDir + "**/*.html").pipe(browserSync.stream());
   },
   functionsWatch = function() {
-    gulp.watch(roots.srcDir + "scss/**/*.scss", gulp.series("sass"));
+    gulp.watch(roots.srcDir + "sass/**/*.scss", gulp.series("sass"));
     gulp.watch(roots.srcDir + "js/*.js", gulp.series("html"));
     gulp.watch(roots.srcDir + "**/*.html", gulp.series("html"));
   };

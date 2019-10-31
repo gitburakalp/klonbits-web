@@ -223,16 +223,16 @@ var countries = [
   "Zimbabwe"
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   $(".preload").fadeOut(500);
 });
 
-$(".header").each(function () {
+$(".header").each(function() {
   $header = $(this);
   $backToTopBtn = $("#btnBackToTop");
   $langBtn = $(".lang-trigger");
 
-  $langBtn.on("click", function () {
+  $langBtn.on("click", function() {
     $(this)
       .closest(".lang-section")
       .toggleClass("is-opened");
@@ -247,7 +247,7 @@ $(".header").each(function () {
     );
   });
 
-  window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", function() {
     var thisY = $(window).scrollTop();
     if (thisY > 250) {
       $header.addClass("is-sticky");
@@ -259,7 +259,7 @@ $(".header").each(function () {
   });
 });
 
-$(".hamburger").on("click", function () {
+$(".hamburger").on("click", function() {
   $("body").toggleClass("header-shown");
   $(".header").toggleClass("is-shown");
 });
@@ -269,14 +269,14 @@ $("#inpCountry").each((i, e) => {
 });
 
 var callRefCount = () => {
-  $(".ref-count .count").each(function () {
+  $(".ref-count .count").each(function() {
     var $this = $(this);
     jQuery({ Counter: 0 }).animate(
       { Counter: $this.data("count") },
       {
         duration: 2500,
         easing: "swing",
-        step: function (now) {
+        step: function(now) {
           $this.text(
             Math.ceil(now)
               .toString()
@@ -288,13 +288,13 @@ var callRefCount = () => {
   });
 };
 
-$(".header-menu").each(function () {
+$(".header-menu").each(function() {
   let ww = window.innerWidth;
 
   if (ww < 1280) {
     $(this)
       .find(".header-menu__link")
-      .on("click", function (e) {
+      .on("click", function(e) {
         $(".header-menu .header-menu__item").removeClass("active");
         $(this)
           .parent()
@@ -309,7 +309,7 @@ $(".header-menu").each(function () {
 
 let sliders = [];
 
-$("[data-slider-name]").each(function (i, e) {
+$("[data-slider-name]").each(function(i, e) {
   var $this = $(e);
   var sliderName = $this.data("slider-name");
   var sliderConfig = getSliderConfig(sliderName);
@@ -317,11 +317,11 @@ $("[data-slider-name]").each(function (i, e) {
   sliders[i] = new Swiper($this, sliderConfig);
 });
 
-window.addEventListener("resize orientationchange", function () {
+window.addEventListener("resize orientationchange", function() {
   sliders.length != 0
-    ? sliders.forEach(function (e, i) {
-      sliders[i].update(true);
-    })
+    ? sliders.forEach(function(e, i) {
+        sliders[i].update(true);
+      })
     : "";
 });
 
@@ -406,61 +406,61 @@ function getSliderConfig(sliderName) {
         breakpoints: {
           1279: {
             slidesPerView: 1.75,
-            spaceBetween: 15
+            spaceBetween: 15,
+            autoplay: { delay: 2000 }
           }
         },
         on: {
-          transitionStart: function () {
+          transitionStart: function() {
             $(".ref-slider-block--sm")
               .find(".slider-wrapper > *")
               .remove();
             $(".ref-slider-block--sm").removeClass("fade-in");
           },
-          transitionEnd: function () {
+          transitionEnd: function() {
             $(".ref-slider-block--sm").addClass("fade-in");
 
-            $(".ref-slider-block--sm .slider-container").each(function () {
+            $(".ref-slider-block--sm .slider-container").each(function() {
               var refSliderSm = $(".ref-slider-block--sm .slider-container")[0]
                 .swiper;
 
               var $activeSlide = $(".ref-slider-block .slider-slide--active");
               var projects =
                 $activeSlide.data("projects") != undefined &&
-                  $activeSlide.data("projects") != ""
+                $activeSlide.data("projects") != ""
                   ? $activeSlide.data("projects").split(/,(?![^{}]*\})/gm)
                   : "";
 
-              $.each(projects, function (i, e) {
+              $.each(projects, function(i, e) {
                 var jsonVal = JSON.parse(e);
                 var currentLang = $("html").attr("lang");
                 var btnText = "";
 
                 if (jsonVal.projectType !== undefined) {
                   if (jsonVal.projectType.toLowerCase().includes("web")) {
-                    btnText = currentLang != "tr" ? "EXPLORER" : "İNCELE";
+                    btnText = currentLang != "tr" ? "EXPLORE" : "İNCELE";
                   } else {
-                    btnText = currentLang != "tr" ? "READ MORE" : "DAHA FAZLASI";
+                    btnText =
+                      currentLang != "tr" ? "READ MORE" : "DAHA FAZLASI";
                   }
                 }
 
                 var content = `<div class="slider-slide"><div class="card text-center"><h2 class="card-title">${
                   jsonVal.projectType
-                  }</h2><span class="card-blocks ${
+                }</h2><span class="card-blocks ${
                   i % 2 == 0
                     ? "card-blocks--cerulean"
                     : "card-blocks--dull-orange"
-                  }">${jsonVal.projectDetail}</span><a href="${
+                }">${jsonVal.projectDetail}</span><a href="${
                   jsonVal.url
-                  }" class="btn btn--primary">${btnText}</a></div></div>`;
+                }" class="btn btn--primary">${btnText}</a></div></div>`;
                 $(".ref-slider-block--sm")
                   .find(".slider-wrapper")
                   .append(content);
               });
 
               refSliderSm != undefined ? refSliderSm.update() : "";
-            })
-
-
+            });
           }
         }
       };
@@ -525,22 +525,22 @@ var swipersInit = () => {
   });
 };
 
-$(".cards").each(function (e) {
-  $(this).on("click", function () {
+$(".cards").each(function(e) {
+  var cardsMenuStatus = $(this)
+    .find(".cards-menu")
+    .find("li").length;
+
+  if (cardsMenuStatus == 0)
+    $(this)
+      .find(".cards-menu")
+      .addClass("d-none");
+
+  $(this).on("click", function() {
     $(".cards").removeClass("is-active");
     $(this).toggleClass("is-active");
-
-    var cardsMenuStatus = $(this)
-      .find(".cards-menu")
-      .find("li").length;
-
-    if (cardsMenuStatus == 0)
-      $(this)
-        .find(".cards-menu")
-        .addClass("d-none");
   });
 
-  $("html,body").on("click", function (e) {
+  $("html,body").on("click", function(e) {
     if (
       !$(e.target).hasClass("cards") &&
       $(e.target).closest(".cards").length != 1
@@ -550,10 +550,10 @@ $(".cards").each(function (e) {
   });
 });
 
-$(".footer").each(function () {
+$(".footer").each(function() {
   $(this)
     .find(".footer-title")
-    .on("click", function () {
+    .on("click", function() {
       var ww = $(window).width();
 
       if (ww < 1280) {
@@ -566,7 +566,7 @@ $(".footer").each(function () {
 
 let rectangleSlider = null;
 
-$(".rectangle-cards").each(function () {
+$(".rectangle-cards").each(function() {
   var ww = $(window).width();
 
   var sliderConfig = {
@@ -592,12 +592,12 @@ $(".rectangle-cards").each(function () {
   ww < 1280 ? (rectangleSlider = new Swiper($(this), sliderConfig)) : "";
 });
 
-$(".accordion-menu").each(function () {
+$(".accordion-menu").each(function() {
   var $accordionMenu = $(this);
   var ww = $(window).width();
   var $accordionMenuContents = $(".accordion-menu-contents");
 
-  $accordionMenu.find(".accordion-menu-item").on("click", function () {
+  $accordionMenu.find(".accordion-menu-item").on("click", function() {
     var $this = $(this);
     var elemHeight = $this.offset().top + $this.innerHeight() - 20;
     var showTab = $this.data("show-tab");
@@ -608,10 +608,8 @@ $(".accordion-menu").each(function () {
 
     var a = document.getElementsByClassName("accordion-menu-item active")[0];
     var titleText = a.getElementsByTagName("h3")[0].innerHTML.trim();
-    console.log(titleText);
 
     var descriptionText = a.getElementsByTagName("p")[0].innerHTML.trim();
-    console.log(descriptionText);
     document.getElementsByClassName(
       "main-title main-title--colored cerulean innerText"
     )[0].innerHTML = titleText;
@@ -629,7 +627,7 @@ $(".accordion-menu").each(function () {
   });
 
   if (ww < 1280) {
-    $(".back-button").on("click", function () {
+    $(".back-button").on("click", function() {
       $accordionMenuContents.fadeOut();
     });
   }
@@ -668,17 +666,18 @@ $(".accordion-menu").each(function () {
 
 window.addEventListener("DOMContentLoaded", event => {
   $("body").removeClass("loading");
+  callRefCount();
 
   window.addEventListener("scroll", () => {
     var thisY = window.pageYOffset;
 
-    $(".main div section").each(function (i) {
+    $(".main div section").each(function(i) {
       var $this = $(this);
       var elemTop = $this.position().top;
       var elemBottom = $this.position().top + $this.outerHeight();
 
       if ($this.hasClass("fh-section")) {
-        $this.find("> div").each(function () {
+        $this.find("> div").each(function() {
           var $this = $(this);
           var eTop = $this.position().top;
           var eBottom = $this.position().top + $this.outerHeight();
@@ -700,7 +699,7 @@ window.addEventListener("DOMContentLoaded", event => {
   });
 });
 
-$(function () {
+$(function() {
   var accordionItemList = [];
   var specialCardsList = [];
 
@@ -711,10 +710,10 @@ $(function () {
   var isShown = false;
   var duration = 600;
 
-  $(".accordion-item").each(function (idx, e) {
+  $(".accordion-item").each(function(idx, e) {
     accordionItemList.push(e);
 
-    $(this).on("click", function (e) {
+    $(this).on("click", function(e) {
       var $this = $(this);
       var thisIdx = accordionItemList.indexOf(e.target);
 
@@ -734,10 +733,21 @@ $(function () {
       }
 
       oldIdx = accordionItemList.indexOf(e.target);
+
+      setTimeout(() => {
+        var thisY = $this.offset().top - 100;
+
+        $("html,body").animate(
+          {
+            scrollTop: thisY
+          },
+          750
+        );
+      }, 500);
     });
   });
 
-  $(".square-cards > .special-cards:not(:last-child)").each(function (idx, e) {
+  $(".square-cards > .special-cards:not(:last-child)").each(function(idx, e) {
     specialCardsList.push(e);
 
     var ww = $(window).width();
@@ -751,7 +761,7 @@ $(function () {
       $specialCardsDetails.fadeIn();
     }
 
-    $(this).on("click", function () {
+    $(this).on("click", function() {
       var $this = $(this);
       var thisIdx = specialCardsList.indexOf($this[0]);
       var ww = $(window).width();
@@ -771,7 +781,7 @@ $(function () {
     });
   });
 
-  $("html,body").on("click", function (e) {
+  $("html,body").on("click", function(e) {
     var ww = $(window).width();
 
     var $activeSquareCards = $(e.target).closest(
@@ -790,13 +800,13 @@ $(function () {
   });
 });
 
-$(".rectangle-cards .special-cards").on("click", function () {
+$(".rectangle-cards .special-cards").on("click", function() {
   $(this).toggleClass("is-rotated");
 });
 
 var notValidCssClass = "not-valid";
 
-$('[data-validation="true"]').each(function () {
+$('[data-validation="true"]').each(function() {
   var $this = $(this);
   var thisType = $(this).attr("type");
   var regex = "";
@@ -813,13 +823,12 @@ $('[data-validation="true"]').each(function () {
         $this.removeClass(notValidCssClass);
       }
     });
-  } else if(thisType !== undefined) {
+  } else if (thisType !== undefined) {
     regex = getRegexByType(thisType);
-    console.log(thisType, regex)
 
     var isRequired = $this.attr("required");
 
-    $this.on("keypress", function (event) {
+    $this.on("keypress", function(event) {
       var key = String.fromCharCode(
         !event.charCode ? event.which : event.charCode
       );
@@ -844,7 +853,7 @@ $('[data-validation="true"]').each(function () {
 var checkIsValid = () => {
   var isValid = false;
 
-  $("*[required]").each(function () {
+  $("*[required]").each(function() {
     var $this = $(this);
     var type = $(this).attr("type");
 
@@ -883,14 +892,14 @@ $("#btnSubmitProjectForm").on("click", function(e) {
       message: $("#txtMessage").val()
     };
 
-    $(this).attr('disabled','disabled');
+    $(this).attr("disabled", "disabled");
     sendMail(mailBody, "ProjectForm");
   } else {
     focusFirstErrorItem();
   }
 });
 
-$("#btnSubmitContactForm").on("click", function (e) {
+$("#btnSubmitContactForm").on("click", function(e) {
   e.preventDefault();
   var isValid = checkIsValid();
 
@@ -902,9 +911,8 @@ $("#btnSubmitContactForm").on("click", function (e) {
       message: $("#txtMessage").val()
     };
 
-    $(this).attr('disabled','disabled');
+    $(this).attr("disabled", "disabled");
     sendMail(mailBody, "ContactForm");
-
   } else {
     focusFirstErrorItem();
   }
