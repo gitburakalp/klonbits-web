@@ -1,6 +1,10 @@
 .hero-section {
   position: relative;
 
+  @include media-breakpoint-up(xl) {
+    margin-top: 2rem;
+  }
+
   .row {
     justify-content: center;
     text-align: center;

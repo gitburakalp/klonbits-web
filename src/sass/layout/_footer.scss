@@ -150,6 +150,18 @@
           margin-top: vw(16, 1920);
         }
       }
+
+      span {
+        display: block;
+
+        + * {
+          margin-top: 0.5rem;
+
+          @include media-breakpoint-up(lg) {
+            margin-top: vw(16, 1920);
+          }
+        }
+      }
     }
 
     &-link {
