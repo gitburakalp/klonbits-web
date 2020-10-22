@@ -11,30 +11,30 @@ var gulp = require("gulp"),
   browserslist = require("browserslist");
 
 var roots = {
-    srcDir: "./src/",
+    srcDir: "./src/otelbits/",
     jsDir: "./src/js/",
     distDir: "./dist/",
-    sourceDir: "../sources/"
+    sourceDir: "../sources/",
   },
   sassOptions = {
-    outputStyle: "compressed"
+    outputStyle: "compressed",
   },
   prefixerOptions = {
     grid: true,
-    browsers: ["last 2 versions"]
+    browsers: ["last 2 versions"],
   },
   jsFiles = [];
 
-var functionsBrowserSync = function(done) {
+var functionsBrowserSync = function (done) {
     browserSync.init({
       server: {
-        baseDir: roots.srcDir
-      }
+        baseDir: roots.srcDir,
+      },
     });
 
     done();
   },
-  functionsScripts = function() {
+  functionsScripts = function () {
     return gulp
       .src(jsFiles)
       .pipe(sourcemaps.init({ loadMaps: true }))
@@ -43,43 +43,43 @@ var functionsBrowserSync = function(done) {
       .pipe(uglify())
       .pipe(
         rename({
-          suffix: ".min"
+          suffix: ".min",
         })
       )
       .pipe(sourcemaps.write(roots.sourceDir))
       .pipe(roots.sourceDir);
   },
-  functionsSass = function() {
+  functionsSass = function () {
     return gulp
-      .src(roots.srcDir + "sass/main.scss")
+      .src(roots.srcDir + "scss/style.scss")
       .pipe(plumber())
       .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(sass(sassOptions))
       .pipe(
         size({
           gzip: true,
-          showFiles: true
+          showFiles: true,
         })
       )
       .pipe(
         autoprefixer({
-          grid: true
+          grid: true,
         })
       )
       .pipe(
         rename({
-          suffix: ".min"
+          suffix: ".min",
         })
       )
       .pipe(sourcemaps.write(roots.sourceDir, { includeContent: false }))
       .pipe(gulp.dest(roots.srcDir + "css"))
       .pipe(browserSync.stream());
   },
-  functionsHtml = function() {
+  functionsHtml = function () {
     return gulp.src(roots.srcDir + "**/*.html").pipe(browserSync.stream());
   },
-  functionsWatch = function() {
-    gulp.watch(roots.srcDir + "sass/**/*.scss", gulp.series("sass"));
+  functionsWatch = function () {
+    gulp.watch(roots.srcDir + "scss/**/*.scss", gulp.series("sass"));
     gulp.watch(roots.srcDir + "js/*.js", gulp.series("html"));
     gulp.watch(roots.srcDir + "**/*.html", gulp.series("html"));
   };
