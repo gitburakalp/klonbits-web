@@ -47,3 +47,10 @@
 @import "countdown";
 @import "contact";
 @import "footer";
+
+#pills-tabContent {
+   .img-fluid.mx-auto.d-block {
+      box-shadow: 0 0 10px rgba(0,0,0,0.35);
+      border-radius: 10px;
+   }
+}
