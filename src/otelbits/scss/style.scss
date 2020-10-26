@@ -54,3 +54,56 @@
       border-radius: 10px;
    }
 }
+
+.main-slider {
+   .bg-slider {
+      figure.image {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+   
+         img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+      }
+   }
+}
+
+.image-info-list {
+   @media (min-width:768px) {
+      + .image-info-list {
+         &:nth-child(2n + 2) {
+            .row {
+               > * {
+                  &:nth-child(2) {
+                     order: 1;
+                  }
+   
+                  &:nth-child(1) {
+                     order: 2;
+
+                     .app-feature-shape-left {
+                        .text-center.text-md-left {
+                           text-align: right !important;
+                        }
+                        
+                        &::after {
+                           right: unset;
+                           left: 10rem;
+                           transform: rotate(-210deg);
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

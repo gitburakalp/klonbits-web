@@ -36,6 +36,11 @@
     </div>
     <!-- Loader -->
 
+    @{
+    var heroInfo = Model.ItemValueViewModels[0];
+    }
+
+    @{Html.RenderModule(heroInfo);}
 
     <!-- Navbar Start -->
     <header id="topnav" class="defaultscroll sticky">
@@ -316,7 +321,7 @@
     <!-- Navbar End -->
 
     <!-- Hero Start -->
-    <section class="bg-half-170 border-bottom d-table w-100" id="home">
+    <section class="bg-half-170 pb-0 d-table w-100" id="home">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-7">
@@ -354,6 +359,53 @@
         </div>
     </section>
     <!-- Hero End -->
+
+    <!-- Partners Start -->
+    <section class="section py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/client/amazon.svg"
+                        class="avatar avatar-ex-sm" alt="">
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/client/google.svg"
+                        class="avatar avatar-ex-sm" alt="">
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/client/lenovo.svg"
+                        class="avatar avatar-ex-sm" alt="">
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/client/paypal.svg"
+                        class="avatar avatar-ex-sm" alt="">
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/client/shopify.svg"
+                        class="avatar avatar-ex-sm" alt="">
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-2 col-md-2 col-6 text-center py-4">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/client/spotify.svg"
+                        class="avatar avatar-ex-sm" alt="">
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end container-->
+    </section>
+    <!--end section-->
+    <!-- Partners End -->
 
     <!-- Hero 2 Start -->
     <section class="bg-home d-flex align-items-center" style="height: auto;" id="home">
@@ -439,8 +491,10 @@
     <!-- Hero 3 Start -->
     <section class="main-slider">
         <ul class="slides">
-            <li class="bg-slider d-flex align-items-center"
-                style="background-image:url('http://www.shreethemes.in/landrick/layouts/images/course/bg01.jpg')">
+            <li class="bg-slider d-flex align-items-center">
+                <figure class="image">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/course/bg01.jpg">
+                </figure>
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="row justify-content-center">
@@ -462,8 +516,10 @@
                     <!--end row-->
                 </div>
             </li>
-            <li class="bg-slider d-flex align-items-center"
-                style="background-image:url('http://www.shreethemes.in/landrick/layouts/images/course/bg04.jpg')">
+            <li class="bg-slider d-flex align-items-center">
+                <figure class="image">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/course/bg04.jpg">
+                </figure>
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="row justify-content-center">
@@ -485,8 +541,10 @@
                     <!--end row-->
                 </div>
             </li>
-            <li class="bg-slider d-flex align-items-center"
-                style="background-image:url('http://www.shreethemes.in/landrick/layouts/images/course/bg05.jpg')">
+            <li class="bg-slider d-flex align-items-center">
+                <figure class="image">
+                    <img src="http://www.shreethemes.in/landrick/layouts/images/course/bg05.jpg">
+                </figure>
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="row justify-content-center">
@@ -962,7 +1020,7 @@
     <!-- Benefits of Otelbits End -->
 
     <!-- Product Features Mobile Start -->
-    <section class="section overflow-hidden">
+    <section class="section overflow-hidden image-info-list">
         <div class="container mt-100 mt-60">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-5">
@@ -1002,29 +1060,41 @@
             <!--end row-->
         </div>
         <!--end container-->
+    </section>
+    <!--end section-->
 
+    <section class="section overflow-hidden image-info-list">
         <div class="container mt-100 mt-60">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-7 order-2 order-md-1 mt-5 mt-sm-0">
-                    <div class="section-title">
-                        <h1 class="title mb-3">Easy And Best Solution <br> For Your App</h1>
-                        <p class="para-desc text-muted">Launch your Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Eveniet eligendi expedita ducimus fuga sed possimus veritatis eum voluptates. Ab ex
-                            odio sed atque. Quam delectus, voluptatibus rem harum nihil minus. campaign and benefit from
-                            our expertise on designing and managing conversion centered bootstrap4 html page.</p>
-                        <div class="mt-4">
-                            <a href="javascript:void(0)" class="btn btn-primary">Learn More <i
-                                    class="mdi mdi-chevron-right"></i></a>
+                <div class="col-lg-6 col-md-5">
+                    <div class="app-feature-shape-left position-relative">
+                        <div class="text-center text-md-left">
+                            <img src="http://www.shreethemes.in/landrick/layouts/images/app/classic04.png"
+                                class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>
                 <!--end col-->
 
-                <div class="col-lg-6 col-md-5 order-1 order-md-2">
-                    <div class="app-feature-shape-right position-relative">
-                        <div class="text-center text-md-right">
-                            <img src="http://www.shreethemes.in/landrick/layouts/images/app/classic04.png"
-                                class="img-fluid" alt="">
+                <div class="col-lg-6 col-md-7 mt-5 mt-sm-0">
+                    <div class="section-title">
+                        <h1 class="title mb-3">We Build High Performing <br> Application</h1>
+                        <p class="para-desc text-muted">Launch your campaign and benefit from our expertise on designing
+                            and managing conversion centered bootstrap4 html page.</p>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-0"><span class="text-primary h5 mr-2"><i
+                                        class="uim uim-check-circle"></i></span>Digital Marketing Solutions for Tomorrow
+                            </li>
+                            <li class="mb-0"><span class="text-primary h5 mr-2"><i
+                                        class="uim uim-check-circle"></i></span>Our Talented & Experienced Marketing
+                                Agency</li>
+                            <li class="mb-0"><span class="text-primary h5 mr-2"><i
+                                        class="uim uim-check-circle"></i></span>Create your own skin to match your brand
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="javascript:void(0)" class="mt-3 h6 text-primary">Find Out More <i
+                                    class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1033,7 +1103,6 @@
             <!--end row-->
         </div>
         <!--end container-->
-
     </section>
     <!--end section-->
     <!-- Product Features Mobile End -->
